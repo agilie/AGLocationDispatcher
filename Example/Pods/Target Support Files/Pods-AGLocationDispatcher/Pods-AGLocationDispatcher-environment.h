@@ -9,6 +9,6 @@
 // AGLocationDispatcher
 #define COCOAPODS_POD_AVAILABLE_AGLocationDispatcher
 #define COCOAPODS_VERSION_MAJOR_AGLocationDispatcher 0
-#define COCOAPODS_VERSION_MINOR_AGLocationDispatcher 1
-#define COCOAPODS_VERSION_PATCH_AGLocationDispatcher 0
+#define COCOAPODS_VERSION_MINOR_AGLocationDispatcher 0
+#define COCOAPODS_VERSION_PATCH_AGLocationDispatcher 1
 
