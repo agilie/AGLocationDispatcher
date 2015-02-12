@@ -1,0 +1,14 @@
+PODS:
+  - AGLocationDispatcher (0.1.0)
+
+DEPENDENCIES:
+  - AGLocationDispatcher (from `../`)
+
+EXTERNAL SOURCES:
+  AGLocationDispatcher:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AGLocationDispatcher: 76685ba0261ce5cf011d678ef66b7cd52c577331
+
+COCOAPODS: 0.36.0.beta.2

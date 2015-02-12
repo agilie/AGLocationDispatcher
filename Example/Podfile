@@ -1,11 +1,6 @@
-source 'https://github.com/CocoaPods/Specs.git'
 
 target 'AGLocationDispatcher', :exclusive => true do
-  pod "AGLocationDispatcher", :path => "../"
+    platform :ios, '7.0'
+    pod 'AGLocationDispatcher', :path => "../"
 end
 
-target 'Tests', :exclusive => true do
-  pod "AGLocationDispatcher", :path => "../"
-
-  
-end
