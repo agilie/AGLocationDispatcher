@@ -23,14 +23,15 @@ Pod::Spec.new do |s|
     # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
     s.license          = {:type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'Agilie' => 'info@agilie.com' }
-    s.source           = { :git => 'https://github.com/ideas-world/AGLocationDispatcher.git',
+    s.source           = { :git => "https://github.com/ideas-world/AGLocationDispatcher.git",
+                            :commit => "1fb0b4ddd20fb8b11170ad713eba63c8dcfc645e",
                             :tag => s.version.to_s
                         }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
     s.requires_arc = true
 
-    s.source_files = 'Pod/Classes/*'
+    s.source_files = 'Pod/Classes/*.{h,m}'
     s.resource_bundles = {
                         'AGLocationDispatcher' => ['Pod/Assets/*.png']
                         }
