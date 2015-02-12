@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
     DESC
     s.homepage         = "https://github.com/ideas-world/AGLocationDispatcher"
     # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-    s.license          = 'MIT'
+    s.license          = {:type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'Agilie' => 'info@agilie.com' }
     s.source           = { :git => 'https://github.com/ideas-world/AGLocationDispatcher.git',
                             :tag => s.version.to_s
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
     s.requires_arc = true
 
-    s.source_files = 'Pod/Classes'
+    s.source_files = 'Pod/Classes/*'
     s.resource_bundles = {
                         'AGLocationDispatcher' => ['Pod/Assets/*.png']
                         }
