@@ -1,397 +1,747 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		4AB14BF7519407751F6AD310 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B8BA94F728FD8377E0D96F9 /* Foundation.framework */; };
-		98F4076ED2C7FF250EC9DA44 /* Pods-AGLocationDispatcher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF0889DCF43C2B227443480 /* Pods-AGLocationDispatcher-dummy.m */; };
-		D3EF5C911A8D673000DB2F22 /* LDLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EF5C901A8D673000DB2F22 /* LDLocationService.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		D21140E6F5DAD1FDACEF853A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 59C72485EDF19BA77373A9F3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C29E3BE26964DE8E73B977F6;
-			remoteInfo = "Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		1BFCBA546D687F1C14F351C9 /* Pods-AGLocationDispatcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AGLocationDispatcher.debug.xcconfig"; sourceTree = "<group>"; };
-		21198C80BC75D91C3ED63206 /* Pods-AGLocationDispatcher-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AGLocationDispatcher-resources.sh"; sourceTree = "<group>"; };
-		2B8BA94F728FD8377E0D96F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3FD6D180FE485564E416F9B9 /* libPods-AGLocationDispatcher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGLocationDispatcher.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BF0889DCF43C2B227443480 /* Pods-AGLocationDispatcher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AGLocationDispatcher-dummy.m"; sourceTree = "<group>"; };
-		55691F6AF22D23DC5B477443 /* Pods-AGLocationDispatcher-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AGLocationDispatcher-environment.h"; sourceTree = "<group>"; };
-		5A0807759B5E45F20BE55B4F /* Pods-AGLocationDispatcher-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AGLocationDispatcher-acknowledgements.plist"; sourceTree = "<group>"; };
-		763DD0867E11C82D8C5B3908 /* Pods-AGLocationDispatcher-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AGLocationDispatcher-acknowledgements.markdown"; sourceTree = "<group>"; };
-		91961A445239676BC6B57B0A /* AGLocationDispatcher.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGLocationDispatcher.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3EF5C8F1A8D673000DB2F22 /* LDLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDLocationService.h; path = Pod/Classes/LDLocationService.h; sourceTree = "<group>"; };
-		D3EF5C901A8D673000DB2F22 /* LDLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDLocationService.m; path = Pod/Classes/LDLocationService.m; sourceTree = "<group>"; };
-		D4D62C6360628F898F2A6740 /* Pods-AGLocationDispatcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AGLocationDispatcher.release.xcconfig"; sourceTree = "<group>"; };
-		EA0E0056F5359E66FDA3BF55 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		584EE3C1D197F971329D1B4E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8AD33FF00FB038DFCB9BBA38 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4AB14BF7519407751F6AD310 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		0BF0979F3AFA53E516B41B5D /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DC520292715C370E40EC7C06 /* AGLocationDispatcher */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		7C2771050B7A3E12D8D3FE60 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				970639AA9624FC2F2A737ED1 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8AB323E21B9B60E0B5A5D1AA /* Pods-AGLocationDispatcher */ = {
-			isa = PBXGroup;
-			children = (
-				763DD0867E11C82D8C5B3908 /* Pods-AGLocationDispatcher-acknowledgements.markdown */,
-				5A0807759B5E45F20BE55B4F /* Pods-AGLocationDispatcher-acknowledgements.plist */,
-				4BF0889DCF43C2B227443480 /* Pods-AGLocationDispatcher-dummy.m */,
-				55691F6AF22D23DC5B477443 /* Pods-AGLocationDispatcher-environment.h */,
-				21198C80BC75D91C3ED63206 /* Pods-AGLocationDispatcher-resources.sh */,
-				1BFCBA546D687F1C14F351C9 /* Pods-AGLocationDispatcher.debug.xcconfig */,
-				D4D62C6360628F898F2A6740 /* Pods-AGLocationDispatcher.release.xcconfig */,
-			);
-			name = "Pods-AGLocationDispatcher";
-			path = "Target Support Files/Pods-AGLocationDispatcher";
-			sourceTree = "<group>";
-		};
-		93211421FB0C875771D797C4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				91961A445239676BC6B57B0A /* AGLocationDispatcher.bundle */,
-				3FD6D180FE485564E416F9B9 /* libPods-AGLocationDispatcher.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		970639AA9624FC2F2A737ED1 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				2B8BA94F728FD8377E0D96F9 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		DBC2AE22B527A8CF32E12FAF /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				8AB323E21B9B60E0B5A5D1AA /* Pods-AGLocationDispatcher */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		DC520292715C370E40EC7C06 /* AGLocationDispatcher */ = {
-			isa = PBXGroup;
-			children = (
-				D3EF5C8F1A8D673000DB2F22 /* LDLocationService.h */,
-				D3EF5C901A8D673000DB2F22 /* LDLocationService.m */,
-			);
-			name = AGLocationDispatcher;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		E178A836501618FDAEB6A46C = {
-			isa = PBXGroup;
-			children = (
-				EA0E0056F5359E66FDA3BF55 /* Podfile */,
-				0BF0979F3AFA53E516B41B5D /* Development Pods */,
-				7C2771050B7A3E12D8D3FE60 /* Frameworks */,
-				93211421FB0C875771D797C4 /* Products */,
-				DBC2AE22B527A8CF32E12FAF /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		B72FE8B18C758C65DBEA3766 /* Pods-AGLocationDispatcher */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4B986193AC8F1356065E1AC3 /* Build configuration list for PBXNativeTarget "Pods-AGLocationDispatcher" */;
-			buildPhases = (
-				D9F8C806D4083257BB712332 /* Sources */,
-				8AD33FF00FB038DFCB9BBA38 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				82679B3FADCA2320CCE17DB0 /* PBXTargetDependency */,
-			);
-			name = "Pods-AGLocationDispatcher";
-			productName = "Pods-AGLocationDispatcher";
-			productReference = 3FD6D180FE485564E416F9B9 /* libPods-AGLocationDispatcher.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		C29E3BE26964DE8E73B977F6 /* Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8DA02B76CF4BD1DF151FA02C /* Build configuration list for PBXNativeTarget "Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher" */;
-			buildPhases = (
-				50DF0987327B68096ED1FA43 /* Sources */,
-				584EE3C1D197F971329D1B4E /* Frameworks */,
-				0090FDA71E33E19F25123C3B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher";
-			productName = "Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher";
-			productReference = 91961A445239676BC6B57B0A /* AGLocationDispatcher.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		59C72485EDF19BA77373A9F3 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0510;
-			};
-			buildConfigurationList = 66EFFE83D5177D938DC1ACA3 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = E178A836501618FDAEB6A46C;
-			productRefGroup = 93211421FB0C875771D797C4 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				B72FE8B18C758C65DBEA3766 /* Pods-AGLocationDispatcher */,
-				C29E3BE26964DE8E73B977F6 /* Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		0090FDA71E33E19F25123C3B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		50DF0987327B68096ED1FA43 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D9F8C806D4083257BB712332 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D3EF5C911A8D673000DB2F22 /* LDLocationService.m in Sources */,
-				98F4076ED2C7FF250EC9DA44 /* Pods-AGLocationDispatcher-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		82679B3FADCA2320CCE17DB0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher";
-			target = C29E3BE26964DE8E73B977F6 /* Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher */;
-			targetProxy = D21140E6F5DAD1FDACEF853A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		366B456D5D8B900867D9D1CD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = AGLocationDispatcher;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		484F70DF9420C3902405C4EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D4D62C6360628F898F2A6740 /* Pods-AGLocationDispatcher.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		6A172E430D4C0DBA157694F8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
-				STRIP_INSTALLED_PRODUCT = NO;
-			};
-			name = Debug;
-		};
-		7A73F723133DE0B4FC072FE2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1BFCBA546D687F1C14F351C9 /* Pods-AGLocationDispatcher.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		F2A70FA16D6D515A5024F1A8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = AGLocationDispatcher;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		F3EB9E2F2B5D426E853F0535 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		4B986193AC8F1356065E1AC3 /* Build configuration list for PBXNativeTarget "Pods-AGLocationDispatcher" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7A73F723133DE0B4FC072FE2 /* Debug */,
-				484F70DF9420C3902405C4EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		66EFFE83D5177D938DC1ACA3 /* Build configuration list for PBXProject "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6A172E430D4C0DBA157694F8 /* Debug */,
-				F3EB9E2F2B5D426E853F0535 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8DA02B76CF4BD1DF151FA02C /* Build configuration list for PBXNativeTarget "Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				366B456D5D8B900867D9D1CD /* Debug */,
-				F2A70FA16D6D515A5024F1A8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 59C72485EDF19BA77373A9F3 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0033205BEBD063B8C16CC314</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>AGLocationDispatcher</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>bundle</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>02CBEF949E609C896F75EE29</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0CF72B41FAAD1573D6A0A42E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-AGLocationDispatcher.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>12644ADC25F392970502D555</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-AGLocationDispatcher-resources.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>14E263DD0C9FBC6839D2E86B</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>RELEASE=1</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>158DDBFAF413802014603ECB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AA8B2629531B038DAA0A3DB6</string>
+				<string>DD95C97355CA3C39CF51E853</string>
+				<string>77F96988AE521ED0715C456A</string>
+				<string>B497B1C950FEAFF55D0B6FED</string>
+				<string>4160B315C10B1D4F3407E40E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1DC419DED85B71C46E652C63</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher</string>
+			<key>target</key>
+			<string>6EDA4C5471356F468C35B487</string>
+			<key>targetProxy</key>
+			<string>20DA0408C71C0CA7C5AD0056</string>
+		</dict>
+		<key>20DA0408C71C0CA7C5AD0056</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>DDFA9FF2CC14A78A0EA35C4D</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>6EDA4C5471356F468C35B487</string>
+			<key>remoteInfo</key>
+			<string>Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher</string>
+		</dict>
+		<key>281DE636E7EAC6F4D8F7B5A9</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>EBD64689A62E728619F5E6F2</string>
+				<string>D5A9592F40F3B5EF5F686ACC</string>
+				<string>C7BE3BABEF13146EAD66F8FC</string>
+				<string>AC98DE8895AF81C7B5931C13</string>
+				<string>12644ADC25F392970502D555</string>
+				<string>0CF72B41FAAD1573D6A0A42E</string>
+				<string>D9ABEFD059D588E064FC0579</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods-AGLocationDispatcher</string>
+			<key>path</key>
+			<string>Target Support Files/Pods-AGLocationDispatcher</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>32DF9335131ED960B9449930</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E74ECAE7C0C7EF041DEE433A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>39F2028789E8BC9FE93B027E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C7BE3BABEF13146EAD66F8FC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4160B315C10B1D4F3407E40E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>281DE636E7EAC6F4D8F7B5A9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Targets Support Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>51596A12AAB2BEE0E67D4B73</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>32DF9335131ED960B9449930</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>69929A1DDDE4F9BFFC4F4855</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>6EDA4C5471356F468C35B487</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>B4EFD875DCADD3C8F1813527</string>
+			<key>buildPhases</key>
+			<array>
+				<string>8B9B50474161D992184EA6D1</string>
+				<string>69929A1DDDE4F9BFFC4F4855</string>
+				<string>02CBEF949E609C896F75EE29</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher</string>
+			<key>productName</key>
+			<string>Pods-AGLocationDispatcher-AGLocationDispatcher-AGLocationDispatcher</string>
+			<key>productReference</key>
+			<string>B2421B0A6CAD785F3B67D150</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle</string>
+		</dict>
+		<key>76DE42D2C3193C063A5A5073</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods-AGLocationDispatcher.a</string>
+			<key>path</key>
+			<string>libPods-AGLocationDispatcher.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>77F96988AE521ED0715C456A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F9CB7060D9DC905711EDF505</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7D3B3F1FCE187B69D7D47075</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8B9B50474161D992184EA6D1</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>9AEE3958EEED85B7F365CC8C</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>7D3B3F1FCE187B69D7D47075</string>
+				<string>14E263DD0C9FBC6839D2E86B</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>AA8B2629531B038DAA0A3DB6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>name</key>
+			<string>Podfile</string>
+			<key>path</key>
+			<string>../Podfile</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.ruby</string>
+		</dict>
+		<key>AC98DE8895AF81C7B5931C13</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Pods-AGLocationDispatcher-environment.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B0DAAE0F230416524D885655</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>39F2028789E8BC9FE93B027E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>B2421B0A6CAD785F3B67D150</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>AGLocationDispatcher.bundle</string>
+			<key>path</key>
+			<string>AGLocationDispatcher.bundle</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>B497B1C950FEAFF55D0B6FED</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B2421B0A6CAD785F3B67D150</string>
+				<string>76DE42D2C3193C063A5A5073</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B4EFD875DCADD3C8F1813527</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0033205BEBD063B8C16CC314</string>
+				<string>BF0BFDA72FB1B207D96EFF5A</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>B74C26587DD4486AEE2F81EF</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>DE769CFF930611C6A2EAD503</string>
+				<string>D01EEF17DBCDE24BE8874B00</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>BF0BFDA72FB1B207D96EFF5A</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>AGLocationDispatcher</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>bundle</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>C7BE3BABEF13146EAD66F8FC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-AGLocationDispatcher-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CFEA9D3939EE746AE1ECD181</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>AGLocationDispatcher</string>
+			<key>path</key>
+			<string>../..</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D01EEF17DBCDE24BE8874B00</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>D9ABEFD059D588E064FC0579</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>D5A9592F40F3B5EF5F686ACC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-AGLocationDispatcher-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D9ABEFD059D588E064FC0579</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-AGLocationDispatcher.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DD95C97355CA3C39CF51E853</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>CFEA9D3939EE746AE1ECD181</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Development Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DDFA9FF2CC14A78A0EA35C4D</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0510</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>9AEE3958EEED85B7F365CC8C</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>158DDBFAF413802014603ECB</string>
+			<key>productRefGroup</key>
+			<string>B497B1C950FEAFF55D0B6FED</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>E51D702708BBC311CF3B2A74</string>
+				<string>6EDA4C5471356F468C35B487</string>
+			</array>
+		</dict>
+		<key>DE769CFF930611C6A2EAD503</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>0CF72B41FAAD1573D6A0A42E</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>E51D702708BBC311CF3B2A74</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>B74C26587DD4486AEE2F81EF</string>
+			<key>buildPhases</key>
+			<array>
+				<string>B0DAAE0F230416524D885655</string>
+				<string>51596A12AAB2BEE0E67D4B73</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>1DC419DED85B71C46E652C63</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-AGLocationDispatcher</string>
+			<key>productName</key>
+			<string>Pods-AGLocationDispatcher</string>
+			<key>productReference</key>
+			<string>76DE42D2C3193C063A5A5073</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>E74ECAE7C0C7EF041DEE433A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>EBD64689A62E728619F5E6F2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-AGLocationDispatcher-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F9CB7060D9DC905711EDF505</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>E74ECAE7C0C7EF041DEE433A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>iOS</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>DDFA9FF2CC14A78A0EA35C4D</string>
+</dict>
+</plist>

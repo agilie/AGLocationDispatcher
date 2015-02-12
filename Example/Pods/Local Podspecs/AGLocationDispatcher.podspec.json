@@ -16,10 +16,11 @@
   },
   "source": {
     "git": "https://github.com/ideas-world/AGLocationDispatcher.git",
+    "commit": "1fb0b4ddd20fb8b11170ad713eba63c8dcfc645e",
     "tag": "0.0.1"
   },
   "requires_arc": true,
-  "source_files": "Classes/**/*.{h,m}",
+  "source_files": "Pod/Classes/*.{h,m}",
   "resource_bundles": {
     "AGLocationDispatcher": [
       "Pod/Assets/*.png"
