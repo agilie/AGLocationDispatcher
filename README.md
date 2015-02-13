@@ -1,6 +1,6 @@
 # AGLocationDispatcher
 
-[![CI Status](http://img.shields.io/travis/kalamaznik/AGLocationDispatcher.svg?style=flat)](https://travis-ci.org/kalamaznik/AGLocationDispatcher)
+[![CI Status](http://img.shields.io/travis/ideas-world/AGLocationDispatcher.svg?style=flat)](https://travis-ci.org/ideas-world/AGLocationDispatcher)
 [![Version](https://img.shields.io/cocoapods/v/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
 [![License](https://img.shields.io/cocoapods/l/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
 [![Platform](https://img.shields.io/cocoapods/p/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
@@ -20,7 +20,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-kalamaznik, vladimir.zgonik@ideas-world.com
+Agilie info@agilie.com
 
 ## License
 
