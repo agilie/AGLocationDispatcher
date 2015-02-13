@@ -24,11 +24,11 @@ PODS:
     - AFNetworking (~> 2.3)
 
 DEPENDENCIES:
-  - AGLocationDispatcher (from `/Users/deadlock/Documents/AGLocationDispatcher/`)
+  - AGLocationDispatcher (from `../`)
 
 EXTERNAL SOURCES:
   AGLocationDispatcher:
-    :path: /Users/deadlock/Documents/AGLocationDispatcher/
+    :path: ../
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
