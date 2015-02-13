@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
     s.name             = "AGLocationDispatcher"
     s.version          = "0.0.1"
     s.platform         = :ios, '7.0'
-    s.ios.deployment_target = '7.0'
     s.summary          = "Location manage framework working in different modes."
     s.description      = <<-DESC
     This framework provides easy location management with blocks both IOS 7 and IOS 8 !
@@ -24,14 +23,14 @@ Pod::Spec.new do |s|
     s.license          = {:type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'Agilie' => 'info@agilie.com' }
     s.source           = { :git => "https://github.com/ideas-world/AGLocationDispatcher.git",
-                            :commit => "1fb0b4ddd20fb8b11170ad713eba63c8dcfc645e",
+                            :commit => "9ba96d4314b70baf48bae2ea2a9c38cf4bf9682b",
                             :tag => s.version.to_s
                         }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
     s.requires_arc = true
 
-    s.source_files = 'Pod/Classes/*.{h,m}'
+    s.source_files = 'Pod/Classes/**/*.{c,h,m}'
     s.resource_bundles = {
                         'AGLocationDispatcher' => ['Pod/Assets/*.png']
                         }
