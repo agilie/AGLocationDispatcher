@@ -32,6 +32,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
-  AGLocationDispatcher: fe94126afc596e25fa275e2e00c999c452a6cb12
+  AGLocationDispatcher: 856b70845fd1a6b7d029b072e698eb9c9fd4ab60
 
 COCOAPODS: 0.35.0

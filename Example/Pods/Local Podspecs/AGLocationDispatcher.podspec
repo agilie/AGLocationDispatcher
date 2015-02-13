@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
     s.name             = "AGLocationDispatcher"
     s.version          = "0.0.1"
     s.platform         = :ios, '7.0'
-    s.ios.deployment_target = '7.0'
     s.summary          = "Location manage framework working in different modes."
     s.description      = <<-DESC
     This framework provides easy location management with blocks both IOS 7 and IOS 8 !
@@ -31,7 +30,7 @@ Pod::Spec.new do |s|
 
     s.requires_arc = true
 
-    s.source_files = 'Pod/Classes/*.{h,m}'
+    s.source_files = 'Pod/Classes/**/*.{c,h,m}'
     s.resource_bundles = {
                         'AGLocationDispatcher' => ['Pod/Assets/*.png']
                         }
