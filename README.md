@@ -20,7 +20,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-kalamaznik, vladimir.zgonik@ideas-world.com
+Agilie info@agilie.com
 
 ## License
 
