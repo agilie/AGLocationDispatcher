@@ -10,7 +10,7 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>07BFB2A32C10D26BA326BAA5</key>
+		<key>01BF98B70948C8255CC935BA</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
@@ -34,34 +34,6 @@
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
-		<key>0E727877C1FE3CAE2FBF305C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Tests.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>116E95D6177D2297D8083E9A</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-AGLocationDispatcher.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
 		<key>190A38D1F59653A1F9D3EF22</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -77,88 +49,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2228E2648DEA05A1A76FC0FB</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>2A89E1E0863F77F487F32288</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-AGLocationDispatcher.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-AGLocationDispatcher/Pods-AGLocationDispatcher.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2F08500A002A14E6E3CBA11E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>DDD8F57927FB450D60D402C5</string>
-				<string>2A89E1E0863F77F487F32288</string>
-				<string>0E727877C1FE3CAE2FBF305C</string>
-				<string>37561044DBA23A03619D289F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>31467D2AFD35DA3B38F719A6</key>
 		<dict>
-			<key>fileRef</key>
-			<string>B4CC0BE32822E5B46A1F6535</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>37561044DBA23A03619D289F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Tests.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>43E85378D7C11393C2B3FB4B</key>
 		<dict>
@@ -175,13 +69,6 @@ fi
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>4F882CB068BE14E69598DE7B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E43B94E68C89E80D86726E83</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>6003F581195388D10070C39A</key>
 		<dict>
 			<key>children</key>
@@ -191,7 +78,7 @@ fi
 				<string>6003F5B5195388D20070C39A</string>
 				<string>6003F58C195388D20070C39A</string>
 				<string>6003F58B195388D20070C39A</string>
-				<string>2F08500A002A14E6E3CBA11E</string>
+				<string>C087E461F5E8E4D068313C6F</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -286,8 +173,7 @@ fi
 				<string>6003F590195388D20070C39A</string>
 				<string>6003F592195388D20070C39A</string>
 				<string>6003F58E195388D20070C39A</string>
-				<string>84C4C1098A1932578E6D0E15</string>
-				<string>4F882CB068BE14E69598DE7B</string>
+				<string>F0D34611F4AE55C7EBF70282</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -316,11 +202,11 @@ fi
 			<string>6003F5BF195388D20070C39A</string>
 			<key>buildPhases</key>
 			<array>
-				<string>2228E2648DEA05A1A76FC0FB</string>
+				<string>94E58860BAA454BCB9CBBD3A</string>
 				<string>6003F586195388D20070C39A</string>
 				<string>6003F587195388D20070C39A</string>
 				<string>6003F588195388D20070C39A</string>
-				<string>07BFB2A32C10D26BA326BAA5</string>
+				<string>01BF98B70948C8255CC935BA</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -372,9 +258,7 @@ fi
 				<string>6003F58F195388D20070C39A</string>
 				<string>6003F591195388D20070C39A</string>
 				<string>6003F5AF195388D20070C39A</string>
-				<string>116E95D6177D2297D8083E9A</string>
-				<string>B4CC0BE32822E5B46A1F6535</string>
-				<string>E43B94E68C89E80D86726E83</string>
+				<string>CED453D9264AC0649231D9DA</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -742,11 +626,9 @@ fi
 			<string>6003F5C2195388D20070C39A</string>
 			<key>buildPhases</key>
 			<array>
-				<string>DEA4256E4E2C9AA99CFC8C05</string>
 				<string>6003F5AA195388D20070C39A</string>
 				<string>6003F5AB195388D20070C39A</string>
 				<string>6003F5AC195388D20070C39A</string>
-				<string>EBB48CD15AF7415160FA702A</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -1079,7 +961,7 @@ fi
 		<key>6003F5C0195388D20070C39A</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>DDD8F57927FB450D60D402C5</string>
+			<string>993F78E4AC7972A5729598E4</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -1105,7 +987,7 @@ fi
 		<key>6003F5C1195388D20070C39A</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>2A89E1E0863F77F487F32288</string>
+			<string>BD0E0B548488E85DA1649A2C</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -1144,8 +1026,6 @@ fi
 		</dict>
 		<key>6003F5C3195388D20070C39A</key>
 		<dict>
-			<key>baseConfigurationReference</key>
-			<string>0E727877C1FE3CAE2FBF305C</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>BUNDLE_LOADER</key>
@@ -1181,8 +1061,6 @@ fi
 		</dict>
 		<key>6003F5C4195388D20070C39A</key>
 		<dict>
-			<key>baseConfigurationReference</key>
-			<string>37561044DBA23A03619D289F</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>BUNDLE_LOADER</key>
@@ -1237,42 +1115,7 @@ fi
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>84C4C1098A1932578E6D0E15</key>
-		<dict>
-			<key>fileRef</key>
-			<string>116E95D6177D2297D8083E9A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B4CC0BE32822E5B46A1F6535</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-Tests.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>DDD8F57927FB450D60D402C5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-AGLocationDispatcher.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-AGLocationDispatcher/Pods-AGLocationDispatcher.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DEA4256E4E2C9AA99CFC8C05</key>
+		<key>94E58860BAA454BCB9CBBD3A</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
@@ -1302,7 +1145,51 @@ fi
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
-		<key>E43B94E68C89E80D86726E83</key>
+		<key>993F78E4AC7972A5729598E4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-AGLocationDispatcher.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-AGLocationDispatcher/Pods-AGLocationDispatcher.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BD0E0B548488E85DA1649A2C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-AGLocationDispatcher.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-AGLocationDispatcher/Pods-AGLocationDispatcher.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C087E461F5E8E4D068313C6F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>993F78E4AC7972A5729598E4</string>
+				<string>BD0E0B548488E85DA1649A2C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CED453D9264AC0649231D9DA</key>
 		<dict>
 			<key>explicitFileType</key>
 			<string>archive.ar</string>
@@ -1311,7 +1198,7 @@ fi
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>path</key>
-			<string>libPods.a</string>
+			<string>libPods-AGLocationDispatcher.a</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
@@ -1330,29 +1217,12 @@ fi
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>EBB48CD15AF7415160FA702A</key>
+		<key>F0D34611F4AE55C7EBF70282</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
+			<key>fileRef</key>
+			<string>CED453D9264AC0649231D9DA</string>
 			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
+			<string>PBXBuildFile</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>

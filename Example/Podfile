@@ -1,6 +1,8 @@
 
-target 'AGLocationDispatcher', :exclusive => true do
-    platform :ios, '7.0'
-    pod 'AGLocationDispatcher', :path => "../"
+platform :ios, '7.0'
+
+target :AGLocationDispatcher, :exclusive => true do
+    pod 'AGLocationDispatcher', :path => "/Users/deadlock/Documents/AGLocationDispatcher/"
+    link_with :AGLocationDispatcher
 end
 
