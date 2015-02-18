@@ -12,11 +12,24 @@
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
-		6003F59E195388D20070C39A /* AGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* AGAppDelegate.m */; };
 		6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6003F59F195388D20070C39A /* Main_iPhone.storyboard */; };
 		6003F5A4195388D20070C39A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A2195388D20070C39A /* Main_iPad.storyboard */; };
-		6003F5A7195388D20070C39A /* AGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* AGViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
+		80302A011A93BF3D00599504 /* AGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80302A001A93BF3D00599504 /* AGAppDelegate.m */; };
+		80302A0E1A93BFC300599504 /* AGDemoScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80302A031A93BFC300599504 /* AGDemoScreenViewController.m */; };
+		80302A0F1A93BFC300599504 /* AGDemoScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80302A041A93BFC300599504 /* AGDemoScreenViewController.xib */; };
+		80302A101A93BFC300599504 /* AGGeocodeDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80302A061A93BFC300599504 /* AGGeocodeDemoViewController.m */; };
+		80302A111A93BFC300599504 /* AGGeocodeDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80302A071A93BFC300599504 /* AGGeocodeDemoViewController.xib */; };
+		80302A121A93BFC300599504 /* AGMainDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80302A091A93BFC300599504 /* AGMainDemoViewController.m */; };
+		80302A131A93BFC300599504 /* AGMainDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80302A0A1A93BFC300599504 /* AGMainDemoViewController.xib */; };
+		80302A141A93BFC300599504 /* AGRetrieveLocationDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80302A0C1A93BFC300599504 /* AGRetrieveLocationDemoViewController.m */; };
+		80302A151A93BFC300599504 /* AGRetrieveLocationDemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80302A0D1A93BFC300599504 /* AGRetrieveLocationDemoViewController.xib */; };
+		80302A1E1A93C23800599504 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80302A181A93C23800599504 /* Default-568h@2x.png */; };
+		80302A1F1A93C23800599504 /* finish.png in Resources */ = {isa = PBXBuildFile; fileRef = 80302A191A93C23800599504 /* finish.png */; };
+		80302A201A93C23800599504 /* finish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80302A1A1A93C23800599504 /* finish@2x.png */; };
+		80302A211A93C23800599504 /* New York City Marathon.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 80302A1B1A93C23800599504 /* New York City Marathon.gpx */; };
+		80302A221A93C23800599504 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 80302A1C1A93C23800599504 /* start.png */; };
+		80302A231A93C23800599504 /* start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80302A1D1A93C23800599504 /* start@2x.png */; };
 		F0D34611F4AE55C7EBF70282 /* libPods-AGLocationDispatcher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CED453D9264AC0649231D9DA /* libPods-AGLocationDispatcher.a */; };
 /* End PBXBuildFile section */
 
@@ -31,14 +44,30 @@
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6003F59B195388D20070C39A /* AGLocationDispatcher-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AGLocationDispatcher-Prefix.pch"; sourceTree = "<group>"; };
-		6003F59C195388D20070C39A /* AGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* AGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGAppDelegate.m; sourceTree = "<group>"; };
 		6003F5A0195388D20070C39A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		6003F5A3195388D20070C39A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* AGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* AGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AGViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		803029FF1A93BF3D00599504 /* AGAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAppDelegate.h; sourceTree = "<group>"; };
+		80302A001A93BF3D00599504 /* AGAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAppDelegate.m; sourceTree = "<group>"; };
+		80302A021A93BFC300599504 /* AGDemoScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGDemoScreenViewController.h; sourceTree = "<group>"; };
+		80302A031A93BFC300599504 /* AGDemoScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGDemoScreenViewController.m; sourceTree = "<group>"; };
+		80302A041A93BFC300599504 /* AGDemoScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGDemoScreenViewController.xib; sourceTree = "<group>"; };
+		80302A051A93BFC300599504 /* AGGeocodeDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGGeocodeDemoViewController.h; sourceTree = "<group>"; };
+		80302A061A93BFC300599504 /* AGGeocodeDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGGeocodeDemoViewController.m; sourceTree = "<group>"; };
+		80302A071A93BFC300599504 /* AGGeocodeDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGGeocodeDemoViewController.xib; sourceTree = "<group>"; };
+		80302A081A93BFC300599504 /* AGMainDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGMainDemoViewController.h; sourceTree = "<group>"; };
+		80302A091A93BFC300599504 /* AGMainDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGMainDemoViewController.m; sourceTree = "<group>"; };
+		80302A0A1A93BFC300599504 /* AGMainDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGMainDemoViewController.xib; sourceTree = "<group>"; };
+		80302A0B1A93BFC300599504 /* AGRetrieveLocationDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRetrieveLocationDemoViewController.h; sourceTree = "<group>"; };
+		80302A0C1A93BFC300599504 /* AGRetrieveLocationDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRetrieveLocationDemoViewController.m; sourceTree = "<group>"; };
+		80302A0D1A93BFC300599504 /* AGRetrieveLocationDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGRetrieveLocationDemoViewController.xib; sourceTree = "<group>"; };
+		80302A181A93C23800599504 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		80302A191A93C23800599504 /* finish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finish.png; sourceTree = "<group>"; };
+		80302A1A1A93C23800599504 /* finish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finish@2x.png"; sourceTree = "<group>"; };
+		80302A1B1A93C23800599504 /* New York City Marathon.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "New York City Marathon.gpx"; sourceTree = "<group>"; };
+		80302A1C1A93C23800599504 /* start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start.png; sourceTree = "<group>"; };
+		80302A1D1A93C23800599504 /* start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start@2x.png"; sourceTree = "<group>"; };
 		993F78E4AC7972A5729598E4 /* Pods-AGLocationDispatcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGLocationDispatcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AGLocationDispatcher/Pods-AGLocationDispatcher.debug.xcconfig"; sourceTree = "<group>"; };
 		BD0E0B548488E85DA1649A2C /* Pods-AGLocationDispatcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGLocationDispatcher.release.xcconfig"; path = "Pods/Target Support Files/Pods-AGLocationDispatcher/Pods-AGLocationDispatcher.release.xcconfig"; sourceTree = "<group>"; };
 		CED453D9264AC0649231D9DA /* libPods-AGLocationDispatcher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGLocationDispatcher.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,13 +123,24 @@
 		6003F593195388D20070C39A /* AGLocationDispatcher */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59C195388D20070C39A /* AGAppDelegate.h */,
-				6003F59D195388D20070C39A /* AGAppDelegate.m */,
+				803029FF1A93BF3D00599504 /* AGAppDelegate.h */,
+				80302A001A93BF3D00599504 /* AGAppDelegate.m */,
+				80302A021A93BFC300599504 /* AGDemoScreenViewController.h */,
+				80302A031A93BFC300599504 /* AGDemoScreenViewController.m */,
+				80302A041A93BFC300599504 /* AGDemoScreenViewController.xib */,
+				80302A051A93BFC300599504 /* AGGeocodeDemoViewController.h */,
+				80302A061A93BFC300599504 /* AGGeocodeDemoViewController.m */,
+				80302A071A93BFC300599504 /* AGGeocodeDemoViewController.xib */,
+				80302A081A93BFC300599504 /* AGMainDemoViewController.h */,
+				80302A091A93BFC300599504 /* AGMainDemoViewController.m */,
+				80302A0A1A93BFC300599504 /* AGMainDemoViewController.xib */,
+				80302A0B1A93BFC300599504 /* AGRetrieveLocationDemoViewController.h */,
+				80302A0C1A93BFC300599504 /* AGRetrieveLocationDemoViewController.m */,
+				80302A0D1A93BFC300599504 /* AGRetrieveLocationDemoViewController.xib */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
 				6003F5A2195388D20070C39A /* Main_iPad.storyboard */,
-				6003F5A5195388D20070C39A /* AGViewController.h */,
-				6003F5A6195388D20070C39A /* AGViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
+				80302A171A93C23800599504 /* Resources */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			path = AGLocationDispatcher;
@@ -125,6 +165,19 @@
 				43E85378D7C11393C2B3FB4B /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		80302A171A93C23800599504 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				80302A181A93C23800599504 /* Default-568h@2x.png */,
+				80302A191A93C23800599504 /* finish.png */,
+				80302A1A1A93C23800599504 /* finish@2x.png */,
+				80302A1B1A93C23800599504 /* New York City Marathon.gpx */,
+				80302A1C1A93C23800599504 /* start.png */,
+				80302A1D1A93C23800599504 /* start@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C087E461F5E8E4D068313C6F /* Pods */ = {
@@ -192,9 +245,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5A4195388D20070C39A /* Main_iPad.storyboard in Resources */,
+				80302A211A93C23800599504 /* New York City Marathon.gpx in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				80302A1F1A93C23800599504 /* finish.png in Resources */,
+				80302A1E1A93C23800599504 /* Default-568h@2x.png in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
+				80302A0F1A93BFC300599504 /* AGDemoScreenViewController.xib in Resources */,
+				80302A231A93C23800599504 /* start@2x.png in Resources */,
+				80302A151A93BFC300599504 /* AGRetrieveLocationDemoViewController.xib in Resources */,
+				80302A111A93BFC300599504 /* AGGeocodeDemoViewController.xib in Resources */,
+				80302A131A93BFC300599504 /* AGMainDemoViewController.xib in Resources */,
+				80302A201A93C23800599504 /* finish@2x.png in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				80302A221A93C23800599504 /* start.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,9 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F59E195388D20070C39A /* AGAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* AGViewController.m in Sources */,
+				80302A141A93BFC300599504 /* AGRetrieveLocationDemoViewController.m in Sources */,
+				80302A011A93BF3D00599504 /* AGAppDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				80302A121A93BFC300599504 /* AGMainDemoViewController.m in Sources */,
+				80302A101A93BFC300599504 /* AGGeocodeDemoViewController.m in Sources */,
+				80302A0E1A93BFC300599504 /* AGDemoScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

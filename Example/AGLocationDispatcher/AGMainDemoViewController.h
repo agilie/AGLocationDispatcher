@@ -1,5 +1,5 @@
 //
-//  AGAppDelegate.h
+//  AGMainDemoViewController.h
 //  AGLocationDispatcher
 //
 //  Created by Vladimir Zgonik on 09.02.15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AGAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface AGMainDemoViewController : UIViewController
 
 @end

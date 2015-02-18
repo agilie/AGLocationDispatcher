@@ -534,4 +534,8 @@
     return [[CLLocation alloc] initWithLatitude:correctedLatitude longitude:correctedLongitude];
 }
 
+- (double)getSpeed {
+    return get_mph(self.kalmanFilter);
+}
+
 @end

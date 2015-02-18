@@ -71,4 +71,6 @@ typedef void(^LDLocationServiceRegionUpdateFailBlock)(CLLocationManager *manager
 
 - (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key andISOLanguageAndRegionCode:(NSString *)lanRegCode;
 
+- (double)getSpeed;
+
 @end
