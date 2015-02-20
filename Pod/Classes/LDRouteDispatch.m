@@ -167,4 +167,12 @@
     [super removeDelegate:delegate];
 }
 
+- (void)startUpdatingLocation {
+    [super startUpdatingLocation];
+}
+
+- (void)stopUpdatingLocation {
+    [super stopUpdatingLocation];
+}
+
 @end
