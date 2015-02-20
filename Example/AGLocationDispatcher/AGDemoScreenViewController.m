@@ -100,45 +100,6 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
     } errorBlock:^(CLLocationManager *manager, NSError *error) {
         NSLog(@"Fail");
     }];
-//    [self.routeDispatch startUpdatingLocationWithBlock:^(CLLocationManager *manager, LDLocation *newLocation, LDLocation *oldLocation) {
-//        if (!self.currentPositionAnnotation) {
-//            self.currentPositionAnnotation = [[LDAnnotation alloc] initWithType:LDAnnotationTypeStart location:newLocation];
-//            [self.mapView addAnnotation:self.currentPositionAnnotation];
-//        } else {
-//            [self.currentPositionAnnotation setCoordinate:newLocation.coordinate];
-//        }
-//        [self centerMapWithUserCoordinate:newLocation.coordinate];
-//        if (self.isTrackingNow) {
-//            
-//            [self.currentRoute addRoutePoint:newLocation];
-//            
-//            if (self.lastPoint) {
-//                CLLocationCoordinate2D coordinates[2];
-//                coordinates[0] = self.lastPoint.coordinate;
-//                coordinates[1] = newLocation.coordinate;
-//                MKGeodesicPolyline *geoPolyline = [MKGeodesicPolyline polylineWithCoordinates:coordinates count:2];
-//                if (geoPolyline) {
-//                    [self.mapView addOverlay:geoPolyline];
-//                }
-//            }
-//            
-//            //speed
-////            int calculatedSpeed = (int)[self.locationManager getSpeed];
-////            if (calculatedSpeed > -1) {
-////                [self.currentRoute addSpeed:calculatedSpeed];
-////                [self.currentSpeedLabel setText:[NSString stringWithFormat:@"cur speed: %i km/h", calculatedSpeed]];
-////            }
-////            
-////            int avgSpeed = (int)[self.currentRoute averageSpeed];
-////            if (avgSpeed > 0) {
-////                [self.averageSpeedLabel setText:[NSString stringWithFormat:@"avg speed: %i km/h", avgSpeed]];
-////            }
-//        }
-//        
-//        self.lastPoint = newLocation;
-//    } errorBlock:^(CLLocationManager *manager, NSError *error) {
-//        
-//    }];
 }
 
 - (void)didChangeRegionAuthorizationStatus:(CLAuthorizationStatus)status {
