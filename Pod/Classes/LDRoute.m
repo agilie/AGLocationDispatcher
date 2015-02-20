@@ -53,7 +53,6 @@
     [[UIDevice currentDevice] setBatteryMonitoringEnabled:YES];
     float batteryLevel = [[UIDevice currentDevice] batteryLevel];
     batteryLevel *= 100;
-    
     [point setBattery:@(batteryLevel)];
     [self setCurrentPoint:point];
     if (!self.startSessionDate) {

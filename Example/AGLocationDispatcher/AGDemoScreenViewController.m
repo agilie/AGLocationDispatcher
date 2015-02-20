@@ -14,7 +14,7 @@
 #import "LDLocationService.h"
 #import <LDAnnotation.h>
 #import "LDRoute.h"
-#import "LDRouteManager.h"
+#import "LDRouteDispatch.h"
 
 static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 
@@ -28,11 +28,11 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 @property (weak, nonatomic) IBOutlet UILabel *currentSpeedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *averageSpeedLabel;
 @property (strong, nonatomic) LDLocation *lastPoint;
-@property (strong, nonatomic) LDLocationService *locationManager;
+@property (strong, nonatomic) LDRouteDispatch *routeDispatch;
 @property (strong, nonatomic) LDAnnotation *currentPositionAnnotation;
 @property (assign, nonatomic) BOOL isTrackingNow;
 @property (strong, nonatomic) LDRoute *currentRoute;
-@property (strong, nonatomic) LDRouteManager* routeManager;
+@property (strong, nonatomic) LDRouteDispatch* routeManager;
 
 @end
 
@@ -47,12 +47,12 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
     [self.currentRoute setRefreshTimeout:kDefaultLocationTimeIntervalUpdateOneSec];
     [self.currentRoute setMoveType:0];
     
-    self.locationManager = [[LDLocationService alloc] initWithUpdatingInterval:kDefaultLocationTimeIntervalUpdateOneSec andDesiredAccuracy:kLDHorizontalAccuracyThresholdNeighborhood];
-    [self.locationManager addDelegate:self];
+    self.routeDispatch = [[LDRouteDispatch alloc] initWithUpdatingInterval:kDefaultLocationTimeIntervalUpdateOneSec andDesiredAccuracy:kLDHorizontalAccuracyThresholdNeighborhood];
+    [self.routeDispatch addDelegate:self];
     self.isTrackingNow = NO;
     [self.stopButton setEnabled:NO];
     
-    self.routeManager = [LDRouteManager new];
+    self.routeManager = [LDRouteDispatch new];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -61,7 +61,7 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 }
 
 - (void)startTracking {
-    [self.locationManager startUpdatingLocationWithBlock:^(CLLocationManager *manager, CLLocation *newLocation, CLLocation *oldLocation) {
+    [self.routeDispatch startUpdatingLocationAndSpeedWithBlock:^(CLLocationManager *manager, LDLocation *newLocation, LDLocation *oldLocation, NSNumber *speed) {
         if (!self.currentPositionAnnotation) {
             self.currentPositionAnnotation = [[LDAnnotation alloc] initWithType:LDAnnotationTypeStart location:newLocation];
             [self.mapView addAnnotation:self.currentPositionAnnotation];
@@ -84,7 +84,7 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
             }
             
             //speed
-            int calculatedSpeed = (int)[self.locationManager getSpeed];
+            int calculatedSpeed = [speed intValue];
             if (calculatedSpeed > -1) {
                 [self.currentRoute addSpeed:calculatedSpeed];
                 [self.currentSpeedLabel setText:[NSString stringWithFormat:@"cur speed: %i km/h", calculatedSpeed]];
@@ -98,9 +98,47 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
         
         self.lastPoint = newLocation;
     } errorBlock:^(CLLocationManager *manager, NSError *error) {
-        
+        NSLog(@"Fail");
     }];
-    
+//    [self.routeDispatch startUpdatingLocationWithBlock:^(CLLocationManager *manager, LDLocation *newLocation, LDLocation *oldLocation) {
+//        if (!self.currentPositionAnnotation) {
+//            self.currentPositionAnnotation = [[LDAnnotation alloc] initWithType:LDAnnotationTypeStart location:newLocation];
+//            [self.mapView addAnnotation:self.currentPositionAnnotation];
+//        } else {
+//            [self.currentPositionAnnotation setCoordinate:newLocation.coordinate];
+//        }
+//        [self centerMapWithUserCoordinate:newLocation.coordinate];
+//        if (self.isTrackingNow) {
+//            
+//            [self.currentRoute addRoutePoint:newLocation];
+//            
+//            if (self.lastPoint) {
+//                CLLocationCoordinate2D coordinates[2];
+//                coordinates[0] = self.lastPoint.coordinate;
+//                coordinates[1] = newLocation.coordinate;
+//                MKGeodesicPolyline *geoPolyline = [MKGeodesicPolyline polylineWithCoordinates:coordinates count:2];
+//                if (geoPolyline) {
+//                    [self.mapView addOverlay:geoPolyline];
+//                }
+//            }
+//            
+//            //speed
+////            int calculatedSpeed = (int)[self.locationManager getSpeed];
+////            if (calculatedSpeed > -1) {
+////                [self.currentRoute addSpeed:calculatedSpeed];
+////                [self.currentSpeedLabel setText:[NSString stringWithFormat:@"cur speed: %i km/h", calculatedSpeed]];
+////            }
+////            
+////            int avgSpeed = (int)[self.currentRoute averageSpeed];
+////            if (avgSpeed > 0) {
+////                [self.averageSpeedLabel setText:[NSString stringWithFormat:@"avg speed: %i km/h", avgSpeed]];
+////            }
+//        }
+//        
+//        self.lastPoint = newLocation;
+//    } errorBlock:^(CLLocationManager *manager, NSError *error) {
+//        
+//    }];
 }
 
 - (void)didChangeRegionAuthorizationStatus:(CLAuthorizationStatus)status {

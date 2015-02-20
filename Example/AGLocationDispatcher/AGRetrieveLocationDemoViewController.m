@@ -8,10 +8,11 @@
 
 #import "AGRetrieveLocationDemoViewController.h"
 #import "LDLocationService.h"
-#import "LDRouteManager.h"
 #import "LDRoute.h"
 #import "LDAnnotation.h"
 #import "LDLocation.h"
+#import "LDGeoLocationDispatch.h"
+#import "LDRouteDispatch.h"
 
 static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 
@@ -31,7 +32,7 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
         self.locationLabel.text = [NSString stringWithFormat:@"%g , %g", newLocation.coordinate.longitude, newLocation.coordinate.latitude];
     } onError:nil];
     
-    LDRoute *currentRoute = [[LDRouteManager new] loadRouteWithName:@"route00001"];
+    LDRoute *currentRoute = [[LDRouteDispatch new] loadRouteWithName:@"route00001"];
     if (currentRoute) {
         [self drawRoute:currentRoute];
     }

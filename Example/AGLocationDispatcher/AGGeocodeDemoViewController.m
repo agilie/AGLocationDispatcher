@@ -7,17 +7,17 @@
 //
 
 #import "AGGeocodeDemoViewController.h"
-#import "LDLocationService.h"
 
 #import <CoreLocation/CoreLocation.h>
 
+#import "LDGeocodeAppleProvider.h"
 #import "LDGeocodeYandexProvider.h"
 #import "LDGeocodeGoogleProvider.h"
-#import "LDGeocodeAppleProvider.h"
+#import "LDGeoLocationDispatch.h"
 
 @interface AGGeocodeDemoViewController ()
 
-@property (strong, nonatomic) LDLocationService *demoLocationService;
+@property (strong, nonatomic) LDGeoLocationDispatch *demoLocationService;
 
 @end
 
@@ -28,7 +28,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setTitle: @"Geocode demo"];
-    self.demoLocationService = [[LDLocationService alloc] init];
+    self.demoLocationService = [[LDGeoLocationDispatch alloc] init];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

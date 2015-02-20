@@ -1,43 +1,56 @@
 //
-//  LDRouteManager.m
-//  LocationDispatch
+//  LDRouteDispatch.m
+//  Pods
 //
-//  Created by Vermillion on 13.02.15.
-//  Copyright (c) 2015 Agilie. All rights reserved.
+//  Created by Vermillion on 20.02.15.
+//
 //
 
-#import "LDRouteManager.h"
+#import "LDRouteDispatch.h"
 #import "LDRoute.h"
 
-@interface LDRouteManager()
+#define kDataKey        @"Data"
+#define kDataFile       @"data.plist"
+
+@interface LDRouteDispatch()
 
 @property (strong, nonatomic) LDRoute* data;
 
 @end
 
-#define kDataKey        @"Data"
-#define kDataFile       @"data.plist"
-
-@implementation LDRouteManager
+@implementation LDRouteDispatch
 
 @synthesize docPath = _docPath;
 @synthesize data = _data;
 
-- (instancetype)initWithDocPath:(NSString *)docPath {
-    if ((self = [super init])) {
-        _docPath = [docPath copy];
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        
     }
     return self;
 }
 
+- (instancetype)initWithUpdatingInterval:(NSTimeInterval)interval andDesiredAccuracy:(CLLocationAccuracy)horizontalAccuracy {
+    self = [super initWithUpdatingInterval:interval andDesiredAccuracy:horizontalAccuracy];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (void)setDocPath:(NSString *)docPath {
+    internalDocPath = _docPath = docPath;
+}
+
 - (BOOL)createDataPath:(NSString*)fileName {
     
-    if (_docPath == nil) {
-        self.docPath = [LDRouteManager nextRouteDocPath:fileName];
+    if (internalDocPath == nil) {
+        self.docPath = [LDRouteDispatch nextRouteDocPath:fileName];
     }
     
     NSError *error;
-    BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:_docPath withIntermediateDirectories:YES attributes:nil error:&error];
+    BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:internalDocPath withIntermediateDirectories:YES attributes:nil error:&error];
     if (!success) {
         NSLog(@"Error creating data path: %@", [error localizedDescription]);
     }
@@ -47,10 +60,10 @@
 
 - (LDRoute *)loadRouteWithName:(NSString*)fileName {
     if (fileName) {
-        if (_docPath == nil) {
-            self.docPath = [LDRouteManager nextRouteDocPath:fileName];
+        if (internalDocPath == nil) {
+            self.docPath = [LDRouteDispatch nextRouteDocPath:fileName];
         }
-        NSString *dataPath = [_docPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", fileName]];
+        NSString *dataPath = [internalDocPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", fileName]];
         NSData *codedData = [[NSData alloc] initWithContentsOfFile:dataPath];
         if (codedData == nil) return nil;
         
@@ -65,10 +78,10 @@
 }
 
 - (LDRoute *)data {
-    if (_docPath == nil) {
-        self.docPath = [LDRouteManager nextRouteDocPath:nil];
+    if (internalDocPath == nil) {
+        self.docPath = [LDRouteDispatch nextRouteDocPath:nil];
     }
-    NSString *dataPath = [_docPath stringByAppendingPathComponent:kDataFile];
+    NSString *dataPath = [internalDocPath stringByAppendingPathComponent:kDataFile];
     NSData *codedData = [[NSData alloc] initWithContentsOfFile:dataPath];
     if (codedData == nil) return nil;
     
@@ -85,7 +98,7 @@
     
     [self createDataPath:fileName];
     
-    NSString *dataPath = [_docPath stringByAppendingPathComponent:fileName ? [NSString stringWithFormat:@"%@.plist", fileName] : kDataFile];
+    NSString *dataPath = [internalDocPath stringByAppendingPathComponent:fileName ? [NSString stringWithFormat:@"%@.plist", fileName] : kDataFile];
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     [archiver encodeObject:_data forKey:kDataKey];
@@ -95,10 +108,10 @@
 
 - (void)deleteDocWithName:(NSString*)name {
     NSError *error;
-    if (_docPath == nil) {
-        self.docPath = [LDRouteManager nextRouteDocPath:name ?: nil];
+    if (internalDocPath == nil) {
+        self.docPath = [LDRouteDispatch nextRouteDocPath:name ?: nil];
     }
-    BOOL success = [[NSFileManager defaultManager] removeItemAtPath:_docPath error:&error];
+    BOOL success = [[NSFileManager defaultManager] removeItemAtPath:internalDocPath error:&error];
     if (!success) {
         NSLog(@"Error removing document path: %@", error.localizedDescription);
     }
@@ -106,7 +119,7 @@
 
 + (NSString *)nextRouteDocPath:(NSString*)fileName {
     // Get private docs dir
-    NSString *documentsDirectory = [LDRouteManager getStoredRoutesDir];
+    NSString *documentsDirectory = [LDRouteDispatch getStoredRoutesDir];
     
     int maxNumber = 0;
     if (!fileName) {
@@ -142,6 +155,16 @@
     [[NSFileManager defaultManager] createDirectoryAtPath:routesDirectory withIntermediateDirectories:YES attributes:nil error:&error];
     
     return routesDirectory;
+}
+
+#pragma mark - LDLocationSeviceDelegates
+
+- (void)addDelegate:(id<LDLocationServiceDelegate>)delegate {
+    [super addDelegate:delegate];
+}
+
+- (void)removeDelegate:(id<LDLocationServiceDelegate>)delegate {
+    [super removeDelegate:delegate];
 }
 
 @end
