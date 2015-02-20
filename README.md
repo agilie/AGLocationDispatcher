@@ -11,7 +11,7 @@ Dispatcher provides easy-to-use access to iOS device location/tracking/etc. It w
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-- Add required .plist entries
+# Add required .plist entries
 By reason of iOS 8 you are required to define a message that will be presented to the user on location authorization request. You should define this message into your app's *-Info.plist file. 
 Add at least one of the following keys, depending on which location update mode you request:
 
@@ -19,7 +19,7 @@ NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription
 
 Make sure you added this key in the right .plist file (common mistake is entering it into test-Info.plist) and appropriate message text as a value.
 
-- Tracking user location
+# Tracking user location
 
 To start tracking location, initialize LDLocationService or LDRouteDispatch with default init for standart setup  
 (default updating interval - 1 min, horizontal accuracy - 100 meters)
@@ -52,7 +52,7 @@ run method
 
 [self.routeDispatch startUpdatingLocation]
 
-- Use geocoding
+# Use geocoding
 
 Use LDGeoLocationDispatch class for direct and reverse geocoding.
 
@@ -69,11 +69,11 @@ To choose geocode provider (Apple, Google, Yandex) use following method:
 
 - (void)setGeocoderProvider:
 
-- Manage your route
+# Manage your route
 
 LDRouteDispatch class provide save/load LDRoute data in local storage.
 
-- Regions (under development)
+# Regions (under development)
 
 LDRegionMonitorDispatch class used for monitoring when enter/exit region.
 
