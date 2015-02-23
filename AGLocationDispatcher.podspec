@@ -20,10 +20,9 @@ Pod::Spec.new do |s|
     DESC
     s.homepage         = "http://github.com/ideas-world/AGLocationDispatcher"
     # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-    s.license          = { :type => 'MIT', :file => 'LICENSE', :text => 'MIT License' }
-    s.author           = { 'Agilie' => 'info@agilie.com' }
+    s.license          = { :type => 'MIT', :file => 'LICENSE' }
+    s.authors           = { 'Agilie' => 'info@agilie.com' }
     s.source           = { :git => "https://github.com/ideas-world/AGLocationDispatcher.git",
-                            :commit => "9ba96d4314b70baf48bae2ea2a9c38cf4bf9682b",
                             :tag => s.version.to_s
                         }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
