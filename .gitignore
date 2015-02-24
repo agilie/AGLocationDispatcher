@@ -1,3 +1,4 @@
+.DS_Store
 ld/
 *.pbxuser
 !default.pbxuser

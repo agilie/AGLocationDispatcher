@@ -20,7 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AGLocationDispatcher (0.0.1):
+  - AGLocationDispatcher (0.0.2):
     - AFNetworking (~> 2.3)
 
 DEPENDENCIES:
