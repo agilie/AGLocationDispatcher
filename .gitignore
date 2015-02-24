@@ -1,4 +1,8 @@
 .DS_Store
+*.DS_Store
+Example/*.DS_Store
+Example/.idea/
+Example/.DS_Store
 ld/
 *.pbxuser
 !default.pbxuser
