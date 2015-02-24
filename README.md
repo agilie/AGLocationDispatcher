@@ -21,7 +21,7 @@ Make sure you added this key in the right .plist file (common mistake is enterin
 
 # Tracking user location
 
-To start tracking location, initialize LDLocationService or LDRouteDispatch with default init for standart setup  
+To start tracking location, initialize LDLocationDispatch or LDRouteDispatch with default init for standart setup  
 (default updating interval - 1 min, horizontal accuracy - 100 meters)
 
 also you can customize service with following initializer -
@@ -44,7 +44,7 @@ or implement this LDLocationServiceDelegate methods:
 - (void)didChangeUserAuthorizationStatus:
 - (void)didFailWithError:
 
-Add your controller's instance to LDLocationService or LDRouteDispatch delegates
+Add your controller's instance to LDLocationDispatch or LDRouteDispatch delegates
 
 [self.routeDispatch addDelegate:self]
 

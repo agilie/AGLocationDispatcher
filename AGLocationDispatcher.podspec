@@ -34,7 +34,9 @@ Pod::Spec.new do |s|
     s.resource_bundles = {
                         'AGLocationDispatcher' => ['Pod/Assets/*.png']
                         }
-    s.public_header_files = 'Pod/Classes/**/*.h'
+
+    s.public_header_files = 'Pod/Classes/*.h'
+#s.source_files = 'Pod/Classes/*.h'
     s.frameworks = 'UIKit', 'MapKit', 'CoreLocation'
     s.dependency 'AFNetworking', '~> 2.3'
 end

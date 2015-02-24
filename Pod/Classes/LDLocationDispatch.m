@@ -1,17 +1,17 @@
 //
-//  LDLocationService.m
+//  LDLocationDispatch.m
 //  LocationDispatch
 //
 //  Created by Vladimir Zgonik on 09.02.15.
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
-#import "LDLocationService.h"
+#import "LDLocationDispatch.h"
 #import "LDLocationDefines.h"
 #import "gps.h"
 #import "LDLocation.h"
 
-@interface LDLocationService ()
+@interface LDLocationDispatch ()
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (copy, nonatomic) SenderBlock onSuccess; // On success block.
@@ -39,14 +39,14 @@
 
 @end
 
-@implementation LDLocationService
+@implementation LDLocationDispatch
 
 #pragma mark - Initialization
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self = [self initWithUpdatingInterval:kDefaultLocationTimeIntervalUpdateOneMinute andDesiredAccuracy:kLDHorizontalAccuracyThresholdBlock];
+        self = [self initWithUpdatingInterval:kLDLocationUpdateIntervalOneMinute andDesiredAccuracy:kLDHorizontalAccuracyBlock];
     }
     return self;
 }
@@ -353,19 +353,19 @@
 - (NSTimeInterval)updateTimeStaleThreshold {
     switch (self.desiredAccuracy) {
         case LDLocationAccuracyRoom:
-            return kLDUpdateTimeIntervalThresholdRoom;
+            return kLDUpdateIntervalRoom;
             break;
         case LDLocationAccuracyHouse:
-            return kLDUpdateTimeIntervalThresholdHouse;
+            return kLDUpdateIntervalHouse;
             break;
         case LDLocationAccuracyBlock:
-            return kLDUpdateTimeIntervalThresholdBlock;
+            return kLDUpdateIntervalBlock;
             break;
         case LDLocationAccuracyNeighborhood:
-            return kLDUpdateTimeIntervalThresholdNeighborhood;
+            return kLDUpdateIntervalNeighborhood;
             break;
         case LDLocationAccuracyCity:
-            return kLDUpdateTimeIntervalThresholdCity;
+            return kLDUpdateIntervalCity;
             break;
         default:
             NSAssert(NO, @"Unknown desired accuracy.");
@@ -378,19 +378,19 @@
 - (CLLocationAccuracy)horizontalAccuracyThreshold {
     switch (self.desiredAccuracy) {
         case LDLocationAccuracyRoom:
-            return kLDHorizontalAccuracyThresholdRoom;
+            return kLDHorizontalAccuracyRoom;
             break;
         case LDLocationAccuracyHouse:
-            return kLDHorizontalAccuracyThresholdHouse;
+            return kLDHorizontalAccuracyHouse;
             break;
         case LDLocationAccuracyBlock:
-            return kLDHorizontalAccuracyThresholdBlock;
+            return kLDHorizontalAccuracyBlock;
             break;
         case LDLocationAccuracyNeighborhood:
-            return kLDHorizontalAccuracyThresholdNeighborhood;
+            return kLDHorizontalAccuracyNeighborhood;
             break;
         case LDLocationAccuracyCity:
-            return kLDHorizontalAccuracyThresholdCity;
+            return kLDHorizontalAccuracyCity;
             break;
         default:
             NSAssert(NO, @"Unknown desired accuracy.");

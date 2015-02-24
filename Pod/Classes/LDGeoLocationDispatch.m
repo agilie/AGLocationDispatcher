@@ -8,31 +8,59 @@
 
 #import "LDGeoLocationDispatch.h"
 #import "LDLocationDefines.h"
-
-@interface LDGeoLocationDispatch()
-
-@property (strong, nonatomic) LDGeocoderManager *geocoderManager;
-
-@end
+#import "LDGeocodeYandexProvider.h"
+#import "LDGeocodeGoogleProvider.h"
+#import "LDGeocodeAppleProvider.h"
 
 @implementation LDGeoLocationDispatch
 
-- (instancetype)init {
+- (id)init {
     self = [super init];
-    if (self) {
-        
-    }
+    self.geocodeProvider = [[LDGeocodeYandexProvider alloc] init];
     return self;
-}
+};
+
+- (id)initWithGeocodeProvider:(LDGeocodeBaseProvider *)provider {
+    self = [super init];
+    self.geocodeProvider = provider;
+    return self;
+};
+
+- (void)setGeocodeServiceApiKey:(NSString *)apiKey languageRegionIso:(NSString *)isoCode andRezultCount:(NSInteger)maxRezultCount andRegionNamePrefix:(NSString *)prefix {
+    if (maxRezultCount > 0) {
+        self.geocodeProvider.resultMaxCount = maxRezultCount;
+    }
+    if (apiKey) {
+        self.geocodeProvider.apiKey = apiKey;
+    }
+    if (isoCode) {
+        self.geocodeProvider.resultIsoRegionAndLocalizationCode = isoCode;
+    }
+    if (isoCode) {
+        self.geocodeProvider.resultRegionPrefix = prefix;
+    }
+};
 
 - (void)requestGeocodeForLocation:(CLLocation *)location success:(GeoSuccesBlock)completionHandler andFail:(FailBlock)failHandler {
-    
-    [self.geocoderManager requestGeocodeForLocation:location success:completionHandler andFail:failHandler];
+    [self.geocodeProvider requestGeocodeForLocation: location andReadyBlock: ^(id data, NSError *err) {
+        if (err) {
+            failHandler(err);
+        } else {
+            completionHandler(data);
+        }
+    }];
 };
 
 - (void)requestLocationForAddress:(NSString *)address success:(LocSuccesBlock)completionHandler andFail:(FailBlock)failHandler {
+    [self.geocodeProvider requestLocationForAddress: address andReadyBlock: ^(id data, NSError *err) {
+        if (err) {
+            failHandler(err);
+        } else {
+            completionHandler(data);
+        }
+        
+    }];
     
-    [self.geocoderManager requestLocationForAddress:address success:completionHandler andFail:failHandler];
 };
 
 #pragma mark - Setter
@@ -43,19 +71,9 @@
 
 - (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key andISOLanguageAndRegionCode:(NSString *)lanRegCode {
     
-    _geocoderManager =  [[LDGeocoderManager alloc] initWithGeocodeProvider: provider];
+    self.geocodeProvider = provider;
     
-    [_geocoderManager setGeocodeServiceApiKey:key languageRegionIso:lanRegCode andRezultCount:1 andRegionNamePrefix:@""];
+    [self setGeocodeServiceApiKey:key languageRegionIso:lanRegCode andRezultCount:1 andRegionNamePrefix:@""];
 };
-
-#pragma mark - Getters
-
-- (LDGeocoderManager *)geocoderManager {
-    if(!_geocoderManager) {
-        _geocoderManager = [[LDGeocoderManager alloc] init];
-    }
-    
-    return _geocoderManager;
-}
 
 @end

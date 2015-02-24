@@ -6,7 +6,7 @@
 //
 //
 
-#import "LDLocationService.h"
+#import "LDLocationDispatch.h"
 
 @protocol LDLocationRegionServiceDelegate <NSObject>
 
@@ -19,7 +19,7 @@
 
 @end
 
-@interface LDRegionMonitorDispatch : LDLocationService <LDLocationServiceDelegate>
+@interface LDRegionMonitorDispatch : LDLocationDispatch <LDLocationServiceDelegate>
 
 - (instancetype)init;
 

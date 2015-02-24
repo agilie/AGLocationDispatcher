@@ -1,5 +1,5 @@
 //
-//  LDLocationService.h
+//  LDLocationDispatch.h
 //  LocationDispatch
 //
 //  Created by Vladimir Zgonik on 09.02.15.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-#import "LDGeocoderManager.h"
+#import "LDGeoLocationDispatch.h"
 #import "LDLocation.h"
 
 @class LDGeocodeBaseProvider;
@@ -31,7 +31,7 @@ typedef void(^LDLocationServiceLocationUpdateBlock)(CLLocationManager *manager, 
 typedef void(^LDLocationServiceLocationAndSpeedUpdateBlock)(CLLocationManager *manager, LDLocation *newLocation, LDLocation *oldLocation, NSNumber *speed);
 typedef void(^LDLocationServiceLocationUpdateFailBlock)(CLLocationManager *manager, NSError *error);
 
-@interface LDLocationService : NSObject <CLLocationManagerDelegate>
+@interface LDLocationDispatch : NSObject <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) LDLocation *location;
 @property (assign, nonatomic) NSTimeInterval locationUpdateInterval;

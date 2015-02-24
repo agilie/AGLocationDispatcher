@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
+#import "LDLocation.h"
+
 #ifndef LocationDispatch_LDLocationDefines_h
 #define LocationDispatch_LDLocationDefines_h
 
@@ -20,23 +22,23 @@ static NSString *const kNSLocationAlwaysUsageDescription = @"NSLocationAlwaysUsa
 static NSString *const LDLocationServiceUserLocationDidChangeNotification = @"RCLocationManagerUserLocationDidChangeNotification";
 static NSString *const LDLocationServiceNotificationLocationUserInfoKey = @"newLocation";
 
-static NSTimeInterval const kDefaultLocationTimeIntervalUpdateOneSec =      1.f; // in seconds
-static NSTimeInterval const kDefaultLocationTimeIntervalUpdateTenSec =      10.f; // in seconds
-static NSTimeInterval const kDefaultLocationTimeIntervalUpdateOneMinute =   60.f; // in seconds
-static NSTimeInterval const kDefaultLocationTimeIntervalUpdate15Minutes =   15.f * 60.f; // in seconds
-static NSTimeInterval const kDefaultLocationTimeIntervalUpdate60Minutes =   60.f * 60.f; // in seconds
+static NSTimeInterval const kLDLocationUpdateIntervalOneSec =      1.f; // in seconds
+static NSTimeInterval const kLDLocationUpdateIntervalTenSec =      10.f; // in seconds
+static NSTimeInterval const kLDLocationUpdateIntervalOneMinute =   60.f; // in seconds
+static NSTimeInterval const kLDLocationUpdateInterval15Minutes =   15.f * 60.f; // in seconds
+static NSTimeInterval const kLDLocationUpdateInterval60Minutes =   60.f * 60.f; // in seconds
 
-static CGFloat const kLDHorizontalAccuracyThresholdCity =         5000.f;  // in meters
-static CGFloat const kLDHorizontalAccuracyThresholdNeighborhood = 1000.f;  // in meters
-static CGFloat const kLDHorizontalAccuracyThresholdBlock =         100.f;  // in meters
-static CGFloat const kLDHorizontalAccuracyThresholdHouse =          15.f;  // in meters
-static CGFloat const kLDHorizontalAccuracyThresholdRoom =            5.f;  // in meters
+static CGFloat const kLDHorizontalAccuracyCity =         5000.f;  // in meters
+static CGFloat const kLDHorizontalAccuracyNeighborhood = 1000.f;  // in meters
+static CGFloat const kLDHorizontalAccuracyBlock =         100.f;  // in meters
+static CGFloat const kLDHorizontalAccuracyHouse =          15.f;  // in meters
+static CGFloat const kLDHorizontalAccuracyRoom =            5.f;  // in meters
 
-static NSTimeInterval const kLDUpdateTimeIntervalThresholdCity =             600.f;  // in seconds
-static NSTimeInterval const kLDUpdateTimeIntervalThresholdNeighborhood =     300.f;  // in seconds
-static NSTimeInterval const kLDUpdateTimeIntervalThresholdBlock =             60.f;  // in seconds
-static NSTimeInterval const kLDUpdateTimeIntervalThresholdHouse =             15.f;  // in seconds
-static NSTimeInterval const kLDUpdateTimeIntervalThresholdRoom =               5.f;  // in seconds
+static NSTimeInterval const kLDUpdateIntervalCity =             600.f;  // in seconds
+static NSTimeInterval const kLDUpdateIntervalNeighborhood =     300.f;  // in seconds
+static NSTimeInterval const kLDUpdateIntervalBlock =             60.f;  // in seconds
+static NSTimeInterval const kLDUpdateIntervalHouse =             15.f;  // in seconds
+static NSTimeInterval const kLDUpdateIntervalRoom =               5.f;  // in seconds
 
 typedef NS_ENUM (NSInteger,LDLocationUpdateInterval){
     LDLocationUpdateIntervalOneSec,

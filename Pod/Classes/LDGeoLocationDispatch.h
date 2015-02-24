@@ -6,11 +6,21 @@
 //
 //
 
-#import "LDLocationService.h"
+#import "LDLocationDispatch.h"
+#import "LDDispatchHeaders.h"
 
-@interface LDGeoLocationDispatch : LDLocationService
+typedef void (^GeoSuccesBlock) (id);
+typedef void (^LocSuccesBlock) (id);
+typedef void (^FailBlock) (NSError *);
+
+@interface LDGeoLocationDispatch : NSObject
+
+@property (strong,atomic) LDGeocodeBaseProvider * geocodeProvider;
 
 - (instancetype)init;
+- (instancetype)initWithGeocodeProvider:(LDGeocodeBaseProvider *)provider;
+
+- (void)setGeocodeServiceApiKey:(NSString *)apiKey languageRegionIso:(NSString *)isoCode andRezultCount:(NSInteger)maxRezultCount andRegionNamePrefix:(NSString *)prefix;
 
 - (void)requestGeocodeForLocation:(CLLocation *)location success:(GeoSuccesBlock)completionHandler andFail:(FailBlock)failHandler;
 - (void)requestLocationForAddress:(NSString *)address success:(LocSuccesBlock)completionHandler andFail:(FailBlock)failHandler;

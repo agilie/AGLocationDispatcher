@@ -6,10 +6,10 @@
 //
 //
 
-#import "LDLocationService.h"
+#import "LDLocationDispatch.h"
 #import "LDRoute.h"
 
-@interface LDRouteDispatch : LDLocationService {
+@interface LDRouteDispatch : LDLocationDispatch {
     NSString *internalDocPath;
 }
 

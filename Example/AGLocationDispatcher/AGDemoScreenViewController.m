@@ -11,7 +11,7 @@
 #import <MapKit/MapKit.h>
 #import <MapKit/MKGeodesicPolyline.h>
 #import "gps.h"
-#import "LDLocationService.h"
+#import "LDLocationDispatch.h"
 #import <LDAnnotation.h>
 #import "LDRoute.h"
 #import "LDRouteDispatch.h"
@@ -44,10 +44,10 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
     
     self.currentRoute = [LDRoute new];
     [self.currentRoute setSessionId:@"route00001"];
-    [self.currentRoute setRefreshTimeout:kDefaultLocationTimeIntervalUpdateOneSec];
+    [self.currentRoute setRefreshTimeout:kLDLocationUpdateIntervalOneSec];
     [self.currentRoute setMoveType:0];
     
-    self.routeDispatch = [[LDRouteDispatch alloc] initWithUpdatingInterval:kDefaultLocationTimeIntervalUpdateOneSec andDesiredAccuracy:kLDHorizontalAccuracyThresholdNeighborhood];
+    self.routeDispatch = [[LDRouteDispatch alloc] initWithUpdatingInterval:kLDLocationUpdateIntervalOneSec andDesiredAccuracy:kLDHorizontalAccuracyNeighborhood];
     [self.routeDispatch addDelegate:self];
     self.isTrackingNow = NO;
     [self.stopButton setEnabled:NO];

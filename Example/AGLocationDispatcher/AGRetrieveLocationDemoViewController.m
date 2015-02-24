@@ -7,7 +7,7 @@
 //
 
 #import "AGRetrieveLocationDemoViewController.h"
-#import "LDLocationService.h"
+#import "LDLocationDispatch.h"
 #import "LDRoute.h"
 #import "LDAnnotation.h"
 #import "LDLocation.h"
@@ -27,7 +27,7 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    LDLocationService *service = [[LDLocationService alloc] init];
+    LDLocationDispatch *service = [[LDLocationDispatch alloc] init];
     [service currentPosition:^(CLLocationManager *manager, CLLocation *newLocation, CLLocation *oldLocation) {
         self.locationLabel.text = [NSString stringWithFormat:@"%g , %g", newLocation.coordinate.longitude, newLocation.coordinate.latitude];
     } onError:nil];
