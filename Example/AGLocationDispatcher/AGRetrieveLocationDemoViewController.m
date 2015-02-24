@@ -16,7 +16,7 @@
 
 static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 
-@interface AGRetrieveLocationDemoViewController () <LDLocationServiceDelegate, MKMapViewDelegate>
+@interface AGRetrieveLocationDemoViewController ()<LDLocationServiceDelegate, MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -30,21 +30,21 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
     LDLocationDispatch *service = [[LDLocationDispatch alloc] init];
     [service currentPosition:^(CLLocationManager *manager, CLLocation *newLocation, CLLocation *oldLocation) {
         self.locationLabel.text = [NSString stringWithFormat:@"%g , %g", newLocation.coordinate.longitude, newLocation.coordinate.latitude];
-    } onError:nil];
-    
+    }                onError:nil];
+
     LDRoute *currentRoute = [[LDRouteDispatch new] loadRouteWithName:@"route00001"];
     if (currentRoute) {
         [self drawRoute:currentRoute];
     }
 }
 
-- (void)drawRoute:(LDRoute*)route {
+- (void)drawRoute:(LDRoute *)route {
     __block LDLocation *prewPoint = nil;
     [route.routeParts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:[LDRoutePart class]]) {
-            LDRoutePart *part = (LDRoutePart*)obj;
+            LDRoutePart *part = (LDRoutePart *)obj;
             [part.routePartPoints enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                LDLocation *location = (LDLocation*)obj;
+                LDLocation *location = (LDLocation *)obj;
                 if (!prewPoint) {
                     prewPoint = location;
                     LDAnnotation *startPoint = [[LDAnnotation alloc] initWithType:LDAnnotationTypeStart location:location];
@@ -67,8 +67,7 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
     [self centerMapWithUserCoordinate:prewPoint.coordinate];
 }
 
-- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
-{
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     if ([overlay isKindOfClass:[MKPolyline class]]) {
         MKPolyline *route = overlay;
         MKPolylineRenderer *routeRenderer = [[MKPolylineRenderer alloc] initWithPolyline:route];
@@ -76,10 +75,10 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
         routeRenderer.lineWidth = 4;
         return routeRenderer;
     }
-    else return nil;
+    else {return nil;}
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if ([annotation isKindOfClass:[LDAnnotation class]]) {
         NSString *imageName = [(LDAnnotation *)annotation annotationImageName];
         if (imageName) {
@@ -97,7 +96,7 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 }
 
 - (void)centerMapWithUserCoordinate:(CLLocationCoordinate2D)coordinate {
-    
+
     [self.mapView setCenterCoordinate:coordinate animated:YES];
     MKCoordinateRegion region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.04f, 0.04f));
     region = [self.mapView regionThatFits:region];

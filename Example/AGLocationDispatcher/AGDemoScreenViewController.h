@@ -10,6 +10,6 @@
 #import <MapKit/MapKit.h>
 #import <LDDispatchHeaders.h>
 
-@interface AGDemoScreenViewController : UIViewController <LDLocationServiceDelegate>
+@interface AGDemoScreenViewController : UIViewController<LDLocationServiceDelegate>
 
 @end

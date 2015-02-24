@@ -22,25 +22,25 @@ static NSString *const kNSLocationAlwaysUsageDescription = @"NSLocationAlwaysUsa
 static NSString *const LDLocationServiceUserLocationDidChangeNotification = @"RCLocationManagerUserLocationDidChangeNotification";
 static NSString *const LDLocationServiceNotificationLocationUserInfoKey = @"newLocation";
 
-static NSTimeInterval const kLDLocationUpdateIntervalOneSec =      1.f; // in seconds
-static NSTimeInterval const kLDLocationUpdateIntervalTenSec =      10.f; // in seconds
-static NSTimeInterval const kLDLocationUpdateIntervalOneMinute =   60.f; // in seconds
-static NSTimeInterval const kLDLocationUpdateInterval15Minutes =   15.f * 60.f; // in seconds
-static NSTimeInterval const kLDLocationUpdateInterval60Minutes =   60.f * 60.f; // in seconds
+static NSTimeInterval const kLDLocationUpdateIntervalOneSec = 1.f; // in seconds
+static NSTimeInterval const kLDLocationUpdateIntervalTenSec = 10.f; // in seconds
+static NSTimeInterval const kLDLocationUpdateIntervalOneMinute = 60.f; // in seconds
+static NSTimeInterval const kLDLocationUpdateInterval15Minutes = 15.f * 60.f; // in seconds
+static NSTimeInterval const kLDLocationUpdateInterval60Minutes = 60.f * 60.f; // in seconds
 
-static CGFloat const kLDHorizontalAccuracyCity =         5000.f;  // in meters
+static CGFloat const kLDHorizontalAccuracyCity = 5000.f;  // in meters
 static CGFloat const kLDHorizontalAccuracyNeighborhood = 1000.f;  // in meters
-static CGFloat const kLDHorizontalAccuracyBlock =         100.f;  // in meters
-static CGFloat const kLDHorizontalAccuracyHouse =          15.f;  // in meters
-static CGFloat const kLDHorizontalAccuracyRoom =            5.f;  // in meters
+static CGFloat const kLDHorizontalAccuracyBlock = 100.f;  // in meters
+static CGFloat const kLDHorizontalAccuracyHouse = 15.f;  // in meters
+static CGFloat const kLDHorizontalAccuracyRoom = 5.f;  // in meters
 
-static NSTimeInterval const kLDUpdateIntervalCity =             600.f;  // in seconds
-static NSTimeInterval const kLDUpdateIntervalNeighborhood =     300.f;  // in seconds
-static NSTimeInterval const kLDUpdateIntervalBlock =             60.f;  // in seconds
-static NSTimeInterval const kLDUpdateIntervalHouse =             15.f;  // in seconds
-static NSTimeInterval const kLDUpdateIntervalRoom =               5.f;  // in seconds
+static NSTimeInterval const kLDUpdateIntervalCity = 600.f;  // in seconds
+static NSTimeInterval const kLDUpdateIntervalNeighborhood = 300.f;  // in seconds
+static NSTimeInterval const kLDUpdateIntervalBlock = 60.f;  // in seconds
+static NSTimeInterval const kLDUpdateIntervalHouse = 15.f;  // in seconds
+static NSTimeInterval const kLDUpdateIntervalRoom = 5.f;  // in seconds
 
-typedef NS_ENUM (NSInteger,LDLocationUpdateInterval){
+typedef NS_ENUM (NSInteger, LDLocationUpdateInterval) {
     LDLocationUpdateIntervalOneSec,
     LDLocationUpdateIntervalTenSec,
     LDLocationUpdateIntervalOneMinute,
@@ -51,37 +51,37 @@ typedef NS_ENUM (NSInteger,LDLocationUpdateInterval){
 typedef enum {
     // 'None' is not valid as a desired accuracy.
     /** Inaccurate (>5000 meters, and/or received >10 minutes ago). */
-    LDLocationAccuracyNone = 0,
+            LDLocationAccuracyNone = 0,
     // The below options are valid desired accuracies.
     /** 5000 meters or better, and received within the last 10 minutes. Lowest accuracy. */
-    LDLocationAccuracyCity,
+            LDLocationAccuracyCity,
     /** 1000 meters or better, and received within the last 5 minutes. */
-    LDLocationAccuracyNeighborhood,
+            LDLocationAccuracyNeighborhood,
     /** 100 meters or better, and received within the last 1 minute. */
-    LDLocationAccuracyBlock,
+            LDLocationAccuracyBlock,
     /** 15 meters or better, and received within the last 15 seconds. */
-    LDLocationAccuracyHouse,
+            LDLocationAccuracyHouse,
     /** 5 meters or better, and received within the last 5 seconds. Highest accuracy. */
-    LDLocationAccuracyRoom
-} LDLocationAccuracy ;
+            LDLocationAccuracyRoom
+} LDLocationAccuracy;
 
 typedef enum {
     // These statuses will accompany a valid location.
     /** Got a location and desired accuracy level was achieved successfully. */
-    LDLocationStatusSuccess = 0,
+            LDLocationStatusSuccess = 0,
     /** Got a location, but the desired accuracy level was not reached before timeout. (Not applicable to subscriptions.) */
-    LDLocationStatusTimedOut,
+            LDLocationStatusTimedOut,
     // These statuses indicate some sort of error, and will accompany a nil location.
     /** User has not responded to the permissions dialog. */
-    LDLocationStatusServicesNotDetermined,
+            LDLocationStatusServicesNotDetermined,
     /** User has explicitly denied this app permission to access location services. */
-    LDLocationStatusServicesDenied,
+            LDLocationStatusServicesDenied,
     /** User does not have ability to enable location services (e.g. parental controls, corporate policy, etc). */
-    LDLocationStatusServicesRestricted,
+            LDLocationStatusServicesRestricted,
     /** User has turned off device-wide location services from system settings. */
-    LDLocationStatusServicesDisabled,
+            LDLocationStatusServicesDisabled,
     /** An error occurred while using the system location services. */
-    LDLocationStatusError
-} LDLocationStatus ;
+            LDLocationStatusError
+} LDLocationStatus;
 
 #endif

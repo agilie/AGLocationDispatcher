@@ -39,17 +39,17 @@
 @synthesize maxSpeed = _maxSpeed;
 @synthesize routeDistance = _routeDistance;
 
-- (instancetype)initWithRouteParts:(NSArray*)routeParts {
+- (instancetype)initWithRouteParts:(NSArray *)routeParts {
     self = [super init];
     if (!self) {
-        
+
     }
     self.routeParts = [NSMutableArray arrayWithArray:routeParts];
     self.currentRoutePart = [self.routeParts lastObject];
     return self;
 }
 
-- (void)addRoutePoint:(LDLocation*)point {
+- (void)addRoutePoint:(LDLocation *)point {
     [[UIDevice currentDevice] setBatteryMonitoringEnabled:YES];
     float batteryLevel = [[UIDevice currentDevice] batteryLevel];
     batteryLevel *= 100;
@@ -74,20 +74,20 @@
     }
 }
 
-- (NSMutableArray*)routePoints {
+- (NSMutableArray *)routePoints {
     __block NSMutableArray *allPoints = [NSMutableArray array];
     [self.routeParts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:[LDRoutePart class]]) {
-            LDRoutePart *route = (LDRoutePart*)obj;
+            LDRoutePart *route = (LDRoutePart *)obj;
             [route.routePartPoints enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                [allPoints addObject:(LDLocation*)obj];
+                [allPoints addObject:(LDLocation *)obj];
             }];
         }
     }];
     return allPoints;
 }
 
-- (NSMutableArray*)routeParts {
+- (NSMutableArray *)routeParts {
     if (!_routeParts) {
         _routeParts = [NSMutableArray array];
     }
@@ -98,7 +98,7 @@
     _sessionId = sessionId;
 }
 
-- (NSString*)sessionId {
+- (NSString *)sessionId {
     return _sessionId;
 }
 
@@ -122,7 +122,7 @@
     _startSessionDate = startSessionDate;
 }
 
-- (NSDate*)startSessionDate {
+- (NSDate *)startSessionDate {
     return _startSessionDate;
 }
 
@@ -130,11 +130,11 @@
     _stopSessionDate = stopSessionDate;
 }
 
-- (NSDate*)stopSessionDate {
+- (NSDate *)stopSessionDate {
     return _stopSessionDate;
 }
 
-- (LDRoutePart*)currentRoutePart {
+- (LDRoutePart *)currentRoutePart {
     if (!_currentRoutePart) {
         _currentRoutePart = [LDRoutePart new];
     }
@@ -146,9 +146,9 @@
     __block int count = 0;
     [self.routeParts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:[LDRoutePart class]]) {
-            LDRoutePart *route = (LDRoutePart*)obj;
+            LDRoutePart *route = (LDRoutePart *)obj;
             [route.routePartSpeeds enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                speedSum += [(NSNumber*)obj intValue];
+                speedSum += [(NSNumber *)obj intValue];
                 count++;
             }];
         }
@@ -163,10 +163,10 @@
     __block float maxSpeed = 0;
     [self.routeParts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:[LDRoutePart class]]) {
-            LDRoutePart *route = (LDRoutePart*)obj;
+            LDRoutePart *route = (LDRoutePart *)obj;
             [route.routePartSpeeds enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                if ([(NSNumber*)obj floatValue] > maxSpeed) {
-                    maxSpeed = [(NSNumber*)obj floatValue];
+                if ([(NSNumber *)obj floatValue] > maxSpeed) {
+                    maxSpeed = [(NSNumber *)obj floatValue];
                 }
             }];
         }
@@ -179,7 +179,7 @@
     __block double distance = 0.0;
     [self.routeParts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:[LDRoutePart class]]) {
-            LDRoutePart *part = (LDRoutePart*)obj;
+            LDRoutePart *part = (LDRoutePart *)obj;
             distance += [part routePartDistance];
         }
     }];
@@ -209,7 +209,7 @@
 #define kStartDateKey   @"startDate"
 #define kStopDateKey    @"stopDate"
 
-- (void) encodeWithCoder:(NSCoder *)encoder {
+- (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.routeParts forKey:kRouteParts];
     [encoder encodeObject:self.sessionId forKey:kSesIDkey];
     [encoder encodeInt:self.moveType forKey:kMoveTypeKey];
@@ -219,13 +219,13 @@
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    NSArray *routeParts = (NSArray*)[decoder decodeObjectForKey:kRouteParts];
+    NSArray *routeParts = (NSArray *)[decoder decodeObjectForKey:kRouteParts];
     LDRoute *route = [self initWithRouteParts:routeParts];
-    [route setSessionId:(NSString*)[decoder decodeObjectForKey:kSesIDkey]];
+    [route setSessionId:(NSString *)[decoder decodeObjectForKey:kSesIDkey]];
     [route setMoveType:[decoder decodeIntForKey:kMoveTypeKey]];
     [route setRefreshTimeout:[decoder decodeFloatForKey:kRefTimeoutKey]];
-    [route setStartSessionDate:(NSDate*)[decoder decodeObjectForKey:kStartDateKey]];
-    [route setStopSessionDate:(NSDate*)[decoder decodeObjectForKey:kStopDateKey]];
+    [route setStartSessionDate:(NSDate *)[decoder decodeObjectForKey:kStartDateKey]];
+    [route setStopSessionDate:(NSDate *)[decoder decodeObjectForKey:kStopDateKey]];
     return route;
 }
 

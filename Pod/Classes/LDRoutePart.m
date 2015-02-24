@@ -26,17 +26,17 @@
 @synthesize stopSessionDate = _stopSessionDate;
 @synthesize routePartDistance = _routePartDistance;
 
-- (instancetype)initWithRoutePartPoints:(NSArray*)routePartPoints andSpeeds:(NSArray*)routePartSpeeds {
+- (instancetype)initWithRoutePartPoints:(NSArray *)routePartPoints andSpeeds:(NSArray *)routePartSpeeds {
     self = [super init];
     if (!self) {
-        
+
     }
     self.routePartPoints = [NSMutableArray arrayWithArray:routePartPoints];
     self.routePartSpeeds = [NSMutableArray arrayWithArray:routePartSpeeds];
     return self;
 }
 
-- (NSMutableArray*)routePartPoints {
+- (NSMutableArray *)routePartPoints {
     if (!_routePartPoints) {
         _routePartPoints = [NSMutableArray array];
     }
@@ -47,7 +47,7 @@
     [self.routePartPoints addObject:point];
 }
 
-- (NSMutableArray*)routePartSpeeds {
+- (NSMutableArray *)routePartSpeeds {
     if (!_routePartSpeeds) {
         _routePartSpeeds = [NSMutableArray array];
     }
@@ -58,7 +58,7 @@
     _startSessionDate = startSessionDate;
 }
 
-- (NSDate*)startSessionDate {
+- (NSDate *)startSessionDate {
     return _startSessionDate;
 }
 
@@ -66,7 +66,7 @@
     _stopSessionDate = stopSessionDate;
 }
 
-- (NSDate*)stopSessionDate {
+- (NSDate *)stopSessionDate {
     return _stopSessionDate;
 }
 
@@ -75,9 +75,9 @@
     __block LDLocation *prewPoint;
     [self.routePartPoints enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (!prewPoint) {
-            prewPoint = (LDLocation*)obj;
+            prewPoint = (LDLocation *)obj;
         } else {
-            _routePartDistance += [(LDLocation*)obj distanceFromLocation:prewPoint];
+            _routePartDistance += [(LDLocation *)obj distanceFromLocation:prewPoint];
         }
     }];
     return _routePartDistance;
@@ -94,7 +94,7 @@
 #define kStartDateKey           @"startDate"
 #define kStopDateKey            @"stopDate"
 
-- (void) encodeWithCoder:(NSCoder *)encoder {
+- (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.routePartPoints forKey:kRoutePartPointsKey];
     [encoder encodeObject:self.routePartSpeeds forKey:kRoutePartSpeedsKey];
     [encoder encodeObject:self.startSessionDate forKey:kStartDateKey];
@@ -102,11 +102,11 @@
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    NSArray *routePartPoints = (NSArray*)[decoder decodeObjectForKey:kRoutePartPointsKey];
-    NSArray *routePartSpeeds = (NSArray*)[decoder decodeObjectForKey:kRoutePartSpeedsKey];
+    NSArray *routePartPoints = (NSArray *)[decoder decodeObjectForKey:kRoutePartPointsKey];
+    NSArray *routePartSpeeds = (NSArray *)[decoder decodeObjectForKey:kRoutePartSpeedsKey];
     LDRoutePart *routePart = [self initWithRoutePartPoints:routePartPoints andSpeeds:routePartSpeeds];
-    [routePart setStartSessionDate:(NSDate*)[decoder decodeObjectForKey:kStartDateKey]];
-    [routePart setStopSessionDate:(NSDate*)[decoder decodeObjectForKey:kStopDateKey]];
+    [routePart setStartSessionDate:(NSDate *)[decoder decodeObjectForKey:kStartDateKey]];
+    [routePart setStopSessionDate:(NSDate *)[decoder decodeObjectForKey:kStopDateKey]];
     return routePart;
 }
 

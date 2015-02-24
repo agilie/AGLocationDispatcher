@@ -15,7 +15,7 @@ typedef enum {
     LDAnnotationTypeFinish
 } LDAnnotationType;
 
-@interface LDAnnotation : NSObject <MKAnnotation>
+@interface LDAnnotation : NSObject<MKAnnotation>
 
 @property (assign, nonatomic) LDAnnotationType type;
 

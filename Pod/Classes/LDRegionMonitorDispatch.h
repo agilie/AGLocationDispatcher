@@ -8,24 +8,28 @@
 
 #import "LDLocationDispatch.h"
 
-@protocol LDLocationRegionServiceDelegate <NSObject>
+@protocol LDLocationRegionServiceDelegate<NSObject>
 
 @optional
 
 - (void)didChangeRegionAuthorizationStatus:(CLAuthorizationStatus)status;
+
 - (void)didEnterRegion:(CLRegion *)region;
+
 - (void)didExitRegion:(CLRegion *)region;
+
 - (void)monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error;
 
 @end
 
-@interface LDRegionMonitorDispatch : LDLocationDispatch <LDLocationServiceDelegate>
+@interface LDRegionMonitorDispatch : LDLocationDispatch<LDLocationServiceDelegate>
 
 - (instancetype)init;
 
 + (BOOL)regionMonitoringAvailable:(Class)regionClass;
 
-- (void)addDelegate:(id <LDLocationRegionServiceDelegate>)delegate;
-- (void)removeDelegate:(id <LDLocationRegionServiceDelegate>)delegate;
+- (void)addDelegate:(id<LDLocationRegionServiceDelegate>)delegate;
+
+- (void)removeDelegate:(id<LDLocationRegionServiceDelegate>)delegate;
 
 @end

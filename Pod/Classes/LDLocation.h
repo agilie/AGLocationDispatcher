@@ -10,7 +10,7 @@
 
 @interface LDLocation : CLLocation
 
-- (NSNumber*)user_id;
+- (NSNumber *)user_id;
 
 - (NSNumber *)battery;
 

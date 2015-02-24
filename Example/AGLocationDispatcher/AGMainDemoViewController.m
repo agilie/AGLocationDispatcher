@@ -24,7 +24,7 @@
 }
 
 - (IBAction)geocodeButtonPressed:(id)sender {
-      [self.navigationController pushViewController:[AGGeocodeDemoViewController new] animated:YES];
+    [self.navigationController pushViewController:[AGGeocodeDemoViewController new] animated:YES];
 }
 
 - (IBAction)trackingButtonPressed:(id)sender {

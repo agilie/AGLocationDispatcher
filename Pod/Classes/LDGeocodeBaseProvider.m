@@ -10,33 +10,33 @@
 
 @implementation LDGeocodeBaseProvider
 
--(id)init{
+- (id)init {
     self = [super init];
     self.resultMaxCount = 1;
     self.resultIsoRegionAndLocalizationCode = @"";
     self.resultRegionPrefix = @"";
     self.apiKey = @"";
-    
+
     return self;
 }
 
 - (void)requestLocationForAddress:(NSString *)address andReadyBlock:(requestBlock)requestBlock {
-    requestBlock(nil,  [NSError errorWithDomain:@"com.agilie.pod.locationDispatch" code:1 userInfo:@{@"LDGeocoderProvider":@"Base provider class not implement any service"}] );
+    requestBlock(nil, [NSError errorWithDomain:@"com.agilie.pod.locationDispatch" code:1 userInfo:@{ @"LDGeocoderProvider" : @"Base provider class not implement any service" }]);
 };
 
 - (void)requestGeocodeForLocation:(CLLocation *)location andReadyBlock:(requestBlock)requestBlock {
-    requestBlock(nil,  [NSError errorWithDomain:@"com.agilie.pod.locationDispatch" code:1 userInfo:@{@"LDGeocoderProvider":@"Base provider class not implement any service"}] );
+    requestBlock(nil, [NSError errorWithDomain:@"com.agilie.pod.locationDispatch" code:1 userInfo:@{ @"LDGeocoderProvider" : @"Base provider class not implement any service" }]);
 };
 
 
-- (void)makeRequest:(NSString*)urlString andParameters:(NSDictionary*)parameters andReadyBlock:(requestBlock)requestBlock {
-    
+- (void)makeRequest:(NSString *)urlString andParameters:(NSDictionary *)parameters andReadyBlock:(requestBlock)requestBlock {
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
-    [manager GET: urlString parameters: parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         requestBlock(responseObject, nil);
-        NSLog(@"JSON: %@",   responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"JSON: %@", responseObject);
+    }    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         requestBlock(nil, error);
         NSLog(@"Error: %@", error);
     }];

@@ -42,7 +42,7 @@
 };
 
 - (void)requestGeocodeForLocation:(CLLocation *)location success:(GeoSuccesBlock)completionHandler andFail:(FailBlock)failHandler {
-    [self.geocodeProvider requestGeocodeForLocation: location andReadyBlock: ^(id data, NSError *err) {
+    [self.geocodeProvider requestGeocodeForLocation:location andReadyBlock:^(id data, NSError *err) {
         if (err) {
             failHandler(err);
         } else {
@@ -52,27 +52,27 @@
 };
 
 - (void)requestLocationForAddress:(NSString *)address success:(LocSuccesBlock)completionHandler andFail:(FailBlock)failHandler {
-    [self.geocodeProvider requestLocationForAddress: address andReadyBlock: ^(id data, NSError *err) {
+    [self.geocodeProvider requestLocationForAddress:address andReadyBlock:^(id data, NSError *err) {
         if (err) {
             failHandler(err);
         } else {
             completionHandler(data);
         }
-        
+
     }];
-    
+
 };
 
 #pragma mark - Setter
 
 - (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider {
-    [self setGeocoderProvider: provider withApiKey: nil andISOLanguageAndRegionCode:nil];
+    [self setGeocoderProvider:provider withApiKey:nil andISOLanguageAndRegionCode:nil];
 };
 
 - (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key andISOLanguageAndRegionCode:(NSString *)lanRegCode {
-    
+
     self.geocodeProvider = provider;
-    
+
     [self setGeocodeServiceApiKey:key languageRegionIso:lanRegCode andRezultCount:1 andRegionNamePrefix:@""];
 };
 

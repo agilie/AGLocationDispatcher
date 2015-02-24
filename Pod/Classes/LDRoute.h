@@ -11,11 +11,11 @@
 #import "LDRoutePart.h"
 #import "LDLocation.h"
 
-@interface LDRoute : NSObject <NSCoding>
+@interface LDRoute : NSObject<NSCoding>
 
-- (instancetype)initWithRouteParts:(NSArray*)routeParts;
+- (instancetype)initWithRouteParts:(NSArray *)routeParts;
 
-- (void)addRoutePoint:(LDLocation*)point;
+- (void)addRoutePoint:(LDLocation *)point;
 
 - (void)addSpeed:(int)speed;
 
@@ -23,21 +23,21 @@
 
 //getters
 
-- (NSMutableArray*)routePoints;
+- (NSMutableArray *)routePoints;
 
-- (NSMutableArray*)routeParts;
+- (NSMutableArray *)routeParts;
 
-- (NSString*)sessionId;
+- (NSString *)sessionId;
 
 - (int)moveType;
 
 - (float)refreshTimeout;
 
-- (NSDate*)startSessionDate;
+- (NSDate *)startSessionDate;
 
-- (NSDate*)stopSessionDate;
+- (NSDate *)stopSessionDate;
 
-- (LDRoutePart*)currentRoutePart;
+- (LDRoutePart *)currentRoutePart;
 
 - (float)averageSpeed;
 

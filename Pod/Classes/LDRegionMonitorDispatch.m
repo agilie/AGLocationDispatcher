@@ -10,6 +10,7 @@
 #import "LDLocationDefines.h"
 
 typedef void(^LDLocationServiceRegionUpdateBlock)(CLLocationManager *manager, CLRegion *region, BOOL enter);
+
 typedef void(^LDLocationServiceRegionUpdateFailBlock)(CLLocationManager *manager, CLRegion *region, NSError *error);
 
 @interface LDRegionMonitorDispatch ()
@@ -60,7 +61,7 @@ typedef void(^LDLocationServiceRegionUpdateFailBlock)(CLLocationManager *manager
 }
 
 - (void)didChangeUserAuthorizationStatus:(CLAuthorizationStatus)status {
-    for (id <LDLocationRegionServiceDelegate> delegate in self.delegates) {
+    for (id<LDLocationRegionServiceDelegate> delegate in self.delegates) {
         if ([delegate respondsToSelector:@selector(didChangeRegionAuthorizationStatus:)]) {
             [delegate didChangeRegionAuthorizationStatus:status];
         }
@@ -69,7 +70,7 @@ typedef void(^LDLocationServiceRegionUpdateFailBlock)(CLLocationManager *manager
 
 - (void)didUpdateUserLocation:(CLLocation *)newLocation {
     //check region
-    for (id <LDLocationRegionServiceDelegate> delegate in self.delegates) {
+    for (id<LDLocationRegionServiceDelegate> delegate in self.delegates) {
         //        if ([delegate respondsToSelector:@selector(didEnterRegion:)]) {
         //            [delegate didEnterRegion:[CLRegion new]];
         //        }

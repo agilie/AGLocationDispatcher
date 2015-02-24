@@ -81,7 +81,7 @@
 
 - (void)startUpdatingLocation {
     _isUpdatingUserLocation = YES;
-    
+
     [self.locationManager startUpdatingLocation];
 }
 
@@ -133,7 +133,7 @@
     if (self.locationAndSpeedBlock != nil) {
         self.locationAndSpeedBlock(self.locationManager, _location, nil, [self getSpeed]);
     }
-    for (id <LDLocationServiceDelegate> delegate in self.delegates) {
+    for (id<LDLocationServiceDelegate> delegate in self.delegates) {
         if ([delegate respondsToSelector:@selector(didUpdateUserLocation:)]) {
             [delegate didUpdateUserLocation:self.location];
         }
@@ -208,7 +208,7 @@
             [_locationManager requestWhenInUseAuthorization];
         }
     }
-    for (id <LDLocationServiceDelegate> delegate in self.delegates) {
+    for (id<LDLocationServiceDelegate> delegate in self.delegates) {
         if ([delegate respondsToSelector:@selector(didChangeUserAuthorizationStatus:)]) {
             [delegate didChangeUserAuthorizationStatus:status];
         }
@@ -221,16 +221,16 @@
     }
 }
 
-- (void)locationDidUpdateToNewLocation:(CLLocation *)newLocation fromOldLocation:(CLLocation *)oldLocation withManager:(CLLocationManager *)manager  {
+- (void)locationDidUpdateToNewLocation:(CLLocation *)newLocation fromOldLocation:(CLLocation *)oldLocation withManager:(CLLocationManager *)manager {
     self.locationObtained = YES;
     LDLocation *correctedLocation = [self correctLocationForLocation:newLocation];
     self.location = correctedLocation;
     // Call location block
     if (self.locationBlock != nil) {
-        self.locationBlock(manager, correctedLocation, (LDLocation*)oldLocation);
+        self.locationBlock(manager, correctedLocation, (LDLocation *)oldLocation);
     }
     if (self.locationAndSpeedBlock != nil) {
-        self.locationAndSpeedBlock(manager, correctedLocation, (LDLocation*)oldLocation, [self getSpeed]);
+        self.locationAndSpeedBlock(manager, correctedLocation, (LDLocation *)oldLocation, [self getSpeed]);
     }
     if (correctedLocation.horizontalAccuracy <= manager.desiredAccuracy || _isFetchLocationOnce == NO) {
         if (_isFetchLocationOnce) {
@@ -242,7 +242,7 @@
             _isFetchLocationOnce = NO;
         }
     }
-    for (id <LDLocationServiceDelegate> delegate in self.delegates) {
+    for (id<LDLocationServiceDelegate> delegate in self.delegates) {
         if ([delegate respondsToSelector:@selector(didUpdateUserLocation:)]) {
             [delegate didUpdateUserLocation:correctedLocation];
         }
@@ -260,7 +260,7 @@
         self.errorLocationBlock(manager, error);
         self.errorLocationBlock = nil;
     }
-    for (id <LDLocationServiceDelegate> delegate in self.delegates) {
+    for (id<LDLocationServiceDelegate> delegate in self.delegates) {
         if ([delegate respondsToSelector:@selector(didFailWithError:)]) {
             [delegate didFailWithError:error];
         }
@@ -276,14 +276,14 @@
         if (status == kCLAuthorizationStatusNotDetermined) {
             [_locationManager requestWhenInUseAuthorization];
         } else {
-            for (id <LDLocationServiceDelegate> delegate in self.delegates) {
+            for (id<LDLocationServiceDelegate> delegate in self.delegates) {
                 if ([delegate respondsToSelector:@selector(didChangeUserAuthorizationStatus:)]) {
                     [delegate didChangeUserAuthorizationStatus:status];
                 }
             }
         }
     } else {
-        for (id <LDLocationServiceDelegate> delegate in self.delegates) {
+        for (id<LDLocationServiceDelegate> delegate in self.delegates) {
             if ([delegate respondsToSelector:@selector(didChangeUserAuthorizationStatus:)]) {
                 [delegate didChangeUserAuthorizationStatus:status];
             }
@@ -298,14 +298,14 @@
         if (status == kCLAuthorizationStatusNotDetermined) {
             [_locationManager requestAlwaysAuthorization];
         } else {
-            for (id <LDLocationServiceDelegate> delegate in self.delegates) {
+            for (id<LDLocationServiceDelegate> delegate in self.delegates) {
                 if ([delegate respondsToSelector:@selector(didChangeUserAuthorizationStatus:)]) {
                     [delegate didChangeUserAuthorizationStatus:status];
                 }
             }
         }
     } else {
-        for (id <LDLocationServiceDelegate> delegate in self.delegates) {
+        for (id<LDLocationServiceDelegate> delegate in self.delegates) {
             if ([delegate respondsToSelector:@selector(didChangeUserAuthorizationStatus:)]) {
                 [delegate didChangeUserAuthorizationStatus:status];
             }
@@ -399,11 +399,11 @@
     }
 }
 
--(void)checkBundleInfoFor:(NSString*)key {
+- (void)checkBundleInfoFor:(NSString *)key {
     NSDictionary *const infoPlist = [[NSBundle mainBundle] infoDictionary];
     if (![infoPlist objectForKey:key]) {
         NSLog(kAlertAuthorizationMsg, key, key);
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:[NSString stringWithFormat:kAlertAuthorizationMsg, key, key] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:[NSString stringWithFormat:kAlertAuthorizationMsg, key, key] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
 }
@@ -420,7 +420,7 @@
     return [[LDLocation alloc] initWithLatitude:correctedLatitude longitude:correctedLongitude];
 }
 
-- (NSNumber*)getSpeed {
+- (NSNumber *)getSpeed {
     return @(get_mph(self.kalmanFilter));
 }
 

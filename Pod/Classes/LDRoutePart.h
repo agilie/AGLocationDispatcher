@@ -10,23 +10,23 @@
 #import <MapKit/MapKit.h>
 #import "LDLocation.h"
 
-@interface LDRoutePart : NSObject <NSCoding>
+@interface LDRoutePart : NSObject<NSCoding>
 
-- (void)addRoutePoint:(LDLocation*)point;
+- (void)addRoutePoint:(LDLocation *)point;
 
-- (instancetype)initWithRoutePartPoints:(NSArray*)routePartPoints andSpeeds:(NSArray*)routePartSpeeds;
+- (instancetype)initWithRoutePartPoints:(NSArray *)routePartPoints andSpeeds:(NSArray *)routePartSpeeds;
 
 - (void)addSpeed:(int)speed;
 
 //getters
 
-- (NSMutableArray*)routePartPoints;
+- (NSMutableArray *)routePartPoints;
 
-- (NSMutableArray*)routePartSpeeds;
+- (NSMutableArray *)routePartSpeeds;
 
-- (NSDate*)startSessionDate;
+- (NSDate *)startSessionDate;
 
-- (NSDate*)stopSessionDate;
+- (NSDate *)stopSessionDate;
 
 - (double)routePartDistance;
 
