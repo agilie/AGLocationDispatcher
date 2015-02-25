@@ -8,13 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
+//providers
 #import "LDGeocodeBaseProvider.h"
 #import "LDGeocodeAppleProvider.h"
 #import "LDGeocodeGoogleProvider.h"
 #import "LDGeocodeYandexProvider.h"
+
+//defines
 #import "LDLocationDefines.h"
+
+//dispatchs
+#import "LDLocationDispatch.h"
+#import "LDGeoLocationDispatch.h"
+#import "LDRegionMonitorDispatch.h"
+#import "LDRouteDispatch.h"
 #import "gps.h"
 
+//models
 #import "LDAnnotation.h"
-#import "LDGeoLocationDispatch.h"
+#import "LDRoute.h"
+#import "LDRoutePart.h"
+#import "LDLocation.h"
 

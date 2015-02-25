@@ -60,29 +60,6 @@ typedef void(^LDLocationServiceRegionUpdateFailBlock)(CLLocationManager *manager
     [self requestUserLocationAlways];
 }
 
-- (void)didChangeUserAuthorizationStatus:(CLAuthorizationStatus)status {
-    for (id<LDLocationRegionServiceDelegate> delegate in self.delegates) {
-        if ([delegate respondsToSelector:@selector(didChangeRegionAuthorizationStatus:)]) {
-            [delegate didChangeRegionAuthorizationStatus:status];
-        }
-    }
-}
-
-- (void)didUpdateUserLocation:(CLLocation *)newLocation {
-    //check region
-    for (id<LDLocationRegionServiceDelegate> delegate in self.delegates) {
-        //        if ([delegate respondsToSelector:@selector(didEnterRegion:)]) {
-        //            [delegate didEnterRegion:[CLRegion new]];
-        //        }
-        //        if ([delegate respondsToSelector:@selector(didExitRegion:)]) {
-        //            [delegate didExitRegion:[CLRegion new]];
-        //        }
-        //        if ([delegate respondsToSelector:@selector(monitoringDidFailForRegion:withError:)]) {
-        //            [delegate monitoringDidFailForRegion:[CLRegion new] withError:[NSError new]];
-        //        }
-    }
-}
-
 - (NSMutableArray *)regionAuthorizationRequests {
     if (!_regionAuthorizationRequests) {
         _regionAuthorizationRequests = [NSMutableArray array];

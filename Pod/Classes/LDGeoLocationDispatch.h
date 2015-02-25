@@ -6,8 +6,8 @@
 //
 //
 
+#import "LDGeocodeBaseProvider.h"
 #import "LDLocationDispatch.h"
-#import "LDDispatchHeaders.h"
 
 typedef void (^GeoSuccesBlock)(id);
 
@@ -15,9 +15,9 @@ typedef void (^LocSuccesBlock)(id);
 
 typedef void (^FailBlock)(NSError *);
 
-@interface LDGeoLocationDispatch : NSObject
+@interface LDGeoLocationDispatch : LDLocationDispatch
 
-@property (strong, atomic) LDGeocodeBaseProvider *geocodeProvider;
+@property (strong, nonatomic) LDGeocodeBaseProvider *geocodeProvider;
 
 - (instancetype)init;
 

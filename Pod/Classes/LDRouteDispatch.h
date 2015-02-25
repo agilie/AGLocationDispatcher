@@ -27,12 +27,4 @@
 
 - (void)setDocPath:(NSString *)docPath;
 
-- (void)addDelegate:(id<LDLocationServiceDelegate>)delegate;
-
-- (void)removeDelegate:(id<LDLocationServiceDelegate>)delegate;
-
-- (void)startUpdatingLocation;
-
-- (void)stopUpdatingLocation;
-
 @end

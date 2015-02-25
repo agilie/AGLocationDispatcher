@@ -8,11 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-
-#import "LDGeoLocationDispatch.h"
 #import "LDLocation.h"
-
-@class LDGeocodeBaseProvider;
 
 @protocol LDLocationServiceDelegate<NSObject>
 

@@ -157,22 +157,4 @@
     return routesDirectory;
 }
 
-#pragma mark - LDLocationSeviceDelegates
-
-- (void)addDelegate:(id<LDLocationServiceDelegate>)delegate {
-    [super addDelegate:delegate];
-}
-
-- (void)removeDelegate:(id<LDLocationServiceDelegate>)delegate {
-    [super removeDelegate:delegate];
-}
-
-- (void)startUpdatingLocation {
-    [super startUpdatingLocation];
-}
-
-- (void)stopUpdatingLocation {
-    [super stopUpdatingLocation];
-}
-
 @end

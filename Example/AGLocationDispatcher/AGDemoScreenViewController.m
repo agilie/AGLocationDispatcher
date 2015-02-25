@@ -7,14 +7,9 @@
 //
 
 #import "AGDemoScreenViewController.h"
-#import <LDLocationDefines.h>
 #import <MapKit/MapKit.h>
 #import <MapKit/MKGeodesicPolyline.h>
-#import "gps.h"
-#import "LDLocationDispatch.h"
-#import <LDAnnotation.h>
-#import "LDRoute.h"
-#import "LDRouteDispatch.h"
+#import "LDDispatchHeaders.h"
 
 static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 

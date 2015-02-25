@@ -7,12 +7,7 @@
 //
 
 #import "AGRetrieveLocationDemoViewController.h"
-#import "LDLocationDispatch.h"
-#import "LDRoute.h"
-#import "LDAnnotation.h"
-#import "LDLocation.h"
-#import "LDGeoLocationDispatch.h"
-#import "LDRouteDispatch.h"
+#import "LDDispatchHeaders.h"
 
 static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 

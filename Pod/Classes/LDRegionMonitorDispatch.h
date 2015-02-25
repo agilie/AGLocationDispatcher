@@ -12,8 +12,6 @@
 
 @optional
 
-- (void)didChangeRegionAuthorizationStatus:(CLAuthorizationStatus)status;
-
 - (void)didEnterRegion:(CLRegion *)region;
 
 - (void)didExitRegion:(CLRegion *)region;
@@ -22,7 +20,7 @@
 
 @end
 
-@interface LDRegionMonitorDispatch : LDLocationDispatch<LDLocationServiceDelegate>
+@interface LDRegionMonitorDispatch : LDLocationDispatch <LDLocationServiceDelegate>
 
 - (instancetype)init;
 
