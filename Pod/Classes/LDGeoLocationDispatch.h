@@ -31,6 +31,8 @@ typedef void (^FailBlock)(NSError *);
 
 - (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider;
 
+- (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key;
+
 - (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key andISOLanguageAndRegionCode:(NSString *)lanRegCode;
 
 @end

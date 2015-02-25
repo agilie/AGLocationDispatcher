@@ -69,6 +69,10 @@
     [self setGeocoderProvider:provider withApiKey:nil andISOLanguageAndRegionCode:nil];
 };
 
+- (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key {
+    [self setGeocoderProvider:provider withApiKey:key andISOLanguageAndRegionCode:nil];
+}
+
 - (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key andISOLanguageAndRegionCode:(NSString *)lanRegCode {
 
     self.geocodeProvider = provider;

@@ -98,7 +98,7 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 
         self.lastPoint = newLocation;
     }                                               errorBlock:^(CLLocationManager *manager, NSError *error) {
-        NSLog(@"Fail");
+        [self displayDemoError:error];
     }];
 }
 
@@ -158,6 +158,10 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
     [self.averageSpeedLabel setText:@"avg speed:"];
     [self.currentRoute finishRoute];
     [self.routeManager saveRoute:self.currentRoute name:[self.currentRoute sessionId]];
+}
+
+- (void)displayDemoError:(NSError *)error {
+    [[[UIAlertView alloc] initWithTitle:@"Geocode error!" message:[error description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
 }
 
 @end
