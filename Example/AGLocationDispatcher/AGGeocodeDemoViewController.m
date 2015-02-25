@@ -7,13 +7,8 @@
 //
 
 #import "AGGeocodeDemoViewController.h"
-
 #import <CoreLocation/CoreLocation.h>
-
-#import "LDGeocodeAppleProvider.h"
-#import "LDGeocodeYandexProvider.h"
-#import "LDGeocodeGoogleProvider.h"
-#import "LDGeoLocationDispatch.h"
+#import "LDDispatchHeaders.h"
 
 @interface AGGeocodeDemoViewController ()
 
