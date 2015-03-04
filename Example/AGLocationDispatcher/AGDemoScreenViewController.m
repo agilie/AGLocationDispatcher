@@ -35,18 +35,15 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mapView.delegate = self;
-
     self.currentRoute = [AGRoute new];
     [self.currentRoute setSessionId:@"route00001"];
     [self.currentRoute setRefreshTimeout:kAGLocationUpdateIntervalOneSec];
     [self.currentRoute setMoveType:0];
-
-    self.routeDispatch = [[AGRouteDispatch alloc] initWithUpdatingInterval:kAGLocationUpdateIntervalOneSec andDesiredAccuracy:kAGHorizontalAccuracyNeighborhood];
-    [self.routeDispatch addDelegate:self];
+    self.routeDispatch = [[AGRouteDispatcher alloc] initWithUpdatingInterval:kAGLocationUpdateIntervalOneSec andDesiredAccuracy:kAGHorizontalAccuracyNeighborhood];
     self.isTrackingNow = NO;
     [self.stopButton setEnabled:NO];
 
-    self.routeManager = [AGRouteDispatch new];
+    self.routeManager = [AGRouteDispatcher new];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

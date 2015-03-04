@@ -12,7 +12,7 @@
 
 @interface AGGeocodeDemoViewController ()
 
-@property (strong, nonatomic) AGGeoLocationDispatcher *demoLocationService;
+@property (strong, nonatomic) AGGeoDispatcher *demoLocationService;
 
 @end
 

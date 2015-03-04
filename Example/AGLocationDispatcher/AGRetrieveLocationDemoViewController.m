@@ -22,12 +22,12 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    AGLocationDispatch *service = [[AGLocationDispatch alloc] init];
-    [service currentPosition:^(CLLocationManager *manager, CLLocation *newLocation, CLLocation *oldLocation) {
+    AGLocationDispatcher *service = [[AGLocationDispatcher alloc] init];
+    [service currentLocationWithBlock:^(CLLocationManager *manager, CLLocation *newLocation, CLLocation *oldLocation) {
         self.locationLabel.text = [NSString stringWithFormat:@"%g , %g", newLocation.coordinate.longitude, newLocation.coordinate.latitude];
-    }                onError:nil];
+    }                errorBlock:nil];
 
-    AGRoute *currentRoute = [[AGRouteDispatch new] loadRouteWithName:@"route00001"];
+    AGRoute *currentRoute = [[AGRouteDispatcher new] loadRouteWithName:@"route00001"];
     if (currentRoute) {
         [self drawRoute:currentRoute];
     }
