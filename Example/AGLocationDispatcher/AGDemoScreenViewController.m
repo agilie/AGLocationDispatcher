@@ -21,12 +21,12 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *currentSpeedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *averageSpeedLabel;
-@property (strong, nonatomic) LDLocation *lastPoint;
-@property (strong, nonatomic) LDRouteDispatch *routeDispatch;
-@property (strong, nonatomic) LDAnnotation *currentPositionAnnotation;
+@property (strong, nonatomic) AGLocation *lastPoint;
+@property (strong, nonatomic) AGRouteDispatcher *routeDispatch;
+@property (strong, nonatomic) AGAnnotation *currentPositionAnnotation;
 @property (assign, nonatomic) BOOL isTrackingNow;
-@property (strong, nonatomic) LDRoute *currentRoute;
-@property (strong, nonatomic) LDRouteDispatch *routeManager;
+@property (strong, nonatomic) AGRoute *currentRoute;
+@property (strong, nonatomic) AGRouteDispatcher *routeManager;
 
 @end
 
@@ -36,17 +36,17 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
     [super viewDidLoad];
     self.mapView.delegate = self;
 
-    self.currentRoute = [LDRoute new];
+    self.currentRoute = [AGRoute new];
     [self.currentRoute setSessionId:@"route00001"];
-    [self.currentRoute setRefreshTimeout:kLDLocationUpdateIntervalOneSec];
+    [self.currentRoute setRefreshTimeout:kAGLocationUpdateIntervalOneSec];
     [self.currentRoute setMoveType:0];
 
-    self.routeDispatch = [[LDRouteDispatch alloc] initWithUpdatingInterval:kLDLocationUpdateIntervalOneSec andDesiredAccuracy:kLDHorizontalAccuracyNeighborhood];
+    self.routeDispatch = [[AGRouteDispatch alloc] initWithUpdatingInterval:kAGLocationUpdateIntervalOneSec andDesiredAccuracy:kAGHorizontalAccuracyNeighborhood];
     [self.routeDispatch addDelegate:self];
     self.isTrackingNow = NO;
     [self.stopButton setEnabled:NO];
 
-    self.routeManager = [LDRouteDispatch new];
+    self.routeManager = [AGRouteDispatch new];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -55,9 +55,9 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 }
 
 - (void)startTracking {
-    [self.routeDispatch startUpdatingLocationAndSpeedWithBlock:^(CLLocationManager *manager, LDLocation *newLocation, LDLocation *oldLocation, NSNumber *speed) {
+    [self.routeDispatch startUpdatingLocationAndSpeedWithBlock:^(CLLocationManager *manager, AGLocation *newLocation, AGLocation *oldLocation, NSNumber *speed) {
         if (!self.currentPositionAnnotation) {
-            self.currentPositionAnnotation = [[LDAnnotation alloc] initWithType:LDAnnotationTypeStart location:newLocation];
+            self.currentPositionAnnotation = [[AGAnnotation alloc] initWithType:AGAnnotationTypeStart location:newLocation];
             [self.mapView addAnnotation:self.currentPositionAnnotation];
         } else {
             [self.currentPositionAnnotation setCoordinate:newLocation.coordinate];
@@ -112,8 +112,8 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    if ([annotation isKindOfClass:[LDAnnotation class]]) {
-        NSString *imageName = [(LDAnnotation *)annotation annotationImageName];
+    if ([annotation isKindOfClass:[AGAnnotation class]]) {
+        NSString *imageName = [(AGAnnotation *)annotation annotationImageName];
         if (imageName) {
             MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:kMapAnnotationIdentifier];
             if (!annotationView) {

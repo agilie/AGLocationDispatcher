@@ -1,5 +1,5 @@
 //
-//  LDBaseGeocerProvider.h
+//  AGBaseGeocerProvider.h
 //  LocationDispatch
 //
 //  Created by Ankudinov Alexander on 2/9/15.
@@ -14,7 +14,7 @@ typedef void (^requestBlock)(id, NSError *);
 
 typedef void (^parserBlock)(id, NSError *);
 
-@interface LDGeocodeBaseProvider : NSObject
+@interface AGGeocodeBaseProvider : NSObject
 
 @property NSInteger resultMaxCount;
 @property (strong, atomic) NSString *resultIsoRegionAndLocalizationCode;

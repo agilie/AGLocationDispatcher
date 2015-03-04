@@ -1,14 +1,14 @@
 //
-//  LDRoutePart.m
+//  AGRoutePart.m
 //  LocationDispatch
 //
 //  Created by Vermillion on 11.02.15.
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
-#import "LDRoutePart.h"
+#import "AGRoutePart.h"
 
-@interface LDRoutePart ()
+@interface AGRoutePart ()
 
 @property (strong, nonatomic) NSMutableArray *routePartPoints;
 @property (strong, nonatomic) NSMutableArray *routePartSpeeds;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation LDRoutePart
+@implementation AGRoutePart
 
 @synthesize routePartPoints = _routePartPoints;
 @synthesize routePartSpeeds = _routePartSpeeds;
@@ -43,7 +43,7 @@
     return _routePartPoints;
 }
 
-- (void)addRoutePoint:(LDLocation *)point {
+- (void)addRoutePoint:(AGLocation *)point {
     [self.routePartPoints addObject:point];
 }
 
@@ -72,12 +72,12 @@
 
 - (double)routePartDistance {
     _routePartDistance = 0.f;
-    __block LDLocation *prewPoint;
+    __block AGLocation *prewPoint;
     [self.routePartPoints enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (!prewPoint) {
-            prewPoint = (LDLocation *)obj;
+            prewPoint = (AGLocation *)obj;
         } else {
-            _routePartDistance += [(LDLocation *)obj distanceFromLocation:prewPoint];
+            _routePartDistance += [(AGLocation *)obj distanceFromLocation:prewPoint];
         }
     }];
     return _routePartDistance;
@@ -104,7 +104,7 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     NSArray *routePartPoints = (NSArray *)[decoder decodeObjectForKey:kRoutePartPointsKey];
     NSArray *routePartSpeeds = (NSArray *)[decoder decodeObjectForKey:kRoutePartSpeedsKey];
-    LDRoutePart *routePart = [self initWithRoutePartPoints:routePartPoints andSpeeds:routePartSpeeds];
+    AGRoutePart *routePart = [self initWithRoutePartPoints:routePartPoints andSpeeds:routePartSpeeds];
     [routePart setStartSessionDate:(NSDate *)[decoder decodeObjectForKey:kStartDateKey]];
     [routePart setStopSessionDate:(NSDate *)[decoder decodeObjectForKey:kStopDateKey]];
     return routePart;

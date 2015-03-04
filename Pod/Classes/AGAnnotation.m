@@ -1,22 +1,21 @@
 //
-//  LDAnnotation.m
+//  AGAnnotation.m
 //  LocationDispatch
 //
 //  Created by Vermillion on 12.02.15.
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
-#import "LDAnnotation.h"
-#import "LDLocation.h"
+#import "AGAnnotation.h"
 
-@interface LDAnnotation ()
+@interface AGAnnotation ()
 
 @property (strong, nonatomic) NSString *annotationTitle;
 @property (assign, nonatomic) CLLocationCoordinate2D annotationCoordinate;
 
 @end
 
-@implementation LDAnnotation
+@implementation AGAnnotation
 
 - (NSString *)title {
     return self.annotationTitle;
@@ -26,7 +25,7 @@
     return self.annotationCoordinate;
 }
 
-- (id)initWithType:(LDAnnotationType)type location:(LDLocation *)location {
+- (id)initWithType:(AGAnnotationType)type location:(AGLocation *)location {
     self = [super init];
     if (self) {
         self.annotationTitle = [self titleForType:type];
@@ -36,11 +35,11 @@
     return self;
 }
 
-- (NSString *)titleForType:(LDAnnotationType)type {
+- (NSString *)titleForType:(AGAnnotationType)type {
     switch (type) {
-        case LDAnnotationTypeStart:
+        case AGAnnotationTypeStart:
             return @"Start point";
-        case LDAnnotationTypeFinish:
+        case AGAnnotationTypeFinish:
             return @"Finish point";
         default:
             return nil;
@@ -49,9 +48,9 @@
 
 - (NSString *)annotationImageName {
     switch (self.type) {
-        case LDAnnotationTypeStart:
+        case AGAnnotationTypeStart:
             return @"start.png";
-        case LDAnnotationTypeFinish:
+        case AGAnnotationTypeFinish:
             return @"finish.png";
         default:
             return nil;

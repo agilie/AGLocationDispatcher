@@ -1,34 +1,36 @@
 //
-//  LDGeoLocationDispatch.m
+//  AGGeoLocationDispatch.m
 //  Pods
 //
 //  Created by Vermillion on 19.02.15.
 //
 //
 
-#import "LDGeoLocationDispatch.h"
-#import "LDLocationDefines.h"
-#import "LDGeocodeYandexProvider.h"
-#import "LDGeocodeGoogleProvider.h"
-#import "LDGeocodeAppleProvider.h"
+#import "AGGeoLocationDispatch.h"
+#import "AGDispatcherDefines.h"
+#import "AGGeocodeYandexProvider.h"
+#import "AGGeocodeGoogleProvider.h"
+#import "AGGeocodeAppleProvider.h"
 
-@implementation LDGeoLocationDispatch
+@implementation AGGeoLocationDispatch
 
 - (id)init {
     self = [super init];
-    self.geocodeProvider = [[LDGeocodeYandexProvider alloc] init];
+    if (self) {
+        self.geocodeProvider = [[AGGeocodeYandexProvider alloc] init];
+    }
     return self;
 };
 
-- (id)initWithGeocodeProvider:(LDGeocodeBaseProvider *)provider {
+- (id)initWithGeocodeProvider:(AGGeocodeBaseProvider *)provider {
     self = [super init];
     self.geocodeProvider = provider;
     return self;
 };
 
-- (void)setGeocodeServiceApiKey:(NSString *)apiKey languageRegionIso:(NSString *)isoCode andRezultCount:(NSInteger)maxRezultCount andRegionNamePrefix:(NSString *)prefix {
-    if (maxRezultCount > 0) {
-        self.geocodeProvider.resultMaxCount = maxRezultCount;
+- (void)setGeocodeServiceApiKey:(NSString *)apiKey languageRegionIso:(NSString *)isoCode andResultCount:(NSInteger)maxResultCount andRegionNamePrefix:(NSString *)prefix {
+    if (maxResultCount > 0) {
+        self.geocodeProvider.resultMaxCount = maxResultCount;
     }
     if (apiKey) {
         self.geocodeProvider.apiKey = apiKey;
@@ -65,15 +67,15 @@
 
 #pragma mark - Setter
 
-- (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider {
+- (void)setGeocoderProvider:(AGGeocodeBaseProvider *)provider {
     [self setGeocoderProvider:provider withApiKey:nil andISOLanguageAndRegionCode:nil];
 };
 
-- (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key andISOLanguageAndRegionCode:(NSString *)lanRegCode {
+- (void)setGeocoderProvider:(AGGeocodeBaseProvider *)provider withApiKey:(NSString *)key andISOLanguageAndRegionCode:(NSString *)lanRegCode {
 
     self.geocodeProvider = provider;
 
-    [self setGeocodeServiceApiKey:key languageRegionIso:lanRegCode andRezultCount:1 andRegionNamePrefix:@""];
+    [self setGeocodeServiceApiKey:key languageRegionIso:lanRegCode andResultCount:1 andRegionNamePrefix:@""];
 };
 
 @end

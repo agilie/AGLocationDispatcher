@@ -1,5 +1,5 @@
 //
-//  LDLocation.h
+//  AGLocation.h
 //  LocationDispatch
 //
 //  Created by Vermillion on 16.02.15.
@@ -8,7 +8,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-@interface LDLocation : CLLocation
+@interface AGLocation : CLLocation
 
 - (NSNumber *)user_id;
 

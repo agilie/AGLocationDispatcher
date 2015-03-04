@@ -1,5 +1,5 @@
 //
-//  LDAnnotation.h
+//  AGAnnotation.h
 //  LocationDispatch
 //
 //  Created by Vermillion on 12.02.15.
@@ -8,18 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-#import "LDLocation.h"
+#import "AGLocation.h"
 
 typedef enum {
-    LDAnnotationTypeStart,
-    LDAnnotationTypeFinish
-} LDAnnotationType;
+    AgAnnotationTypeStart,
+    AGAnnotationTypeFinish
+} AGAnnotationType;
 
-@interface LDAnnotation : NSObject<MKAnnotation>
+@interface AGAnnotation : NSObject<MKAnnotation>
 
-@property (assign, nonatomic) LDAnnotationType type;
+@property (assign, nonatomic) AGAnnotationType type;
 
-- (id)initWithType:(LDAnnotationType)type location:(LDLocation *)location;
+- (id)initWithType:(AGAnnotationType)type location:(AGLocation *)location;
 
 - (NSString *)annotationImageName;
 

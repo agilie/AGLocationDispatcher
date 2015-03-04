@@ -1,5 +1,5 @@
 //
-//  LDRoutePart.h
+//  AGRoutePart.h
 //  LocationDispatch
 //
 //  Created by Vermillion on 11.02.15.
@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-#import "LDLocation.h"
+#import "AGLocation.h"
 
-@interface LDRoutePart : NSObject<NSCoding>
+@interface AGRoutePart : NSObject<NSCoding>
 
-- (void)addRoutePoint:(LDLocation *)point;
+- (void)addRoutePoint:(AGLocation *)point;
 
 - (instancetype)initWithRoutePartPoints:(NSArray *)routePartPoints andSpeeds:(NSArray *)routePartSpeeds;
 

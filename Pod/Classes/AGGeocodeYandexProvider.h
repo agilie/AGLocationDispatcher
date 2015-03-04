@@ -1,5 +1,5 @@
 //
-//  LDGeocodeYandexProvider.h
+//  AGGeocodeYandexProvider.h
 //  LocationDispatch
 //
 //  Created by Ankudinov Alexander on 2/9/15.
@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LDGeocodeBaseProvider.h"
+#import "AGGeocodeBaseProvider.h"
 
 #define kAPIYandexService @"http://geocode-maps.yandex.ru/1.x/"
 
-@interface LDGeocodeYandexProvider : LDGeocodeBaseProvider
+@interface AGGeocodeYandexProvider : AGGeocodeBaseProvider
 
 @end

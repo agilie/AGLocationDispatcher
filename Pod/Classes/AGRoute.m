@@ -1,19 +1,19 @@
 //
-//  LDRoute.m
+//  AGRoute.m
 //  LocationDispatch
 //
 //  Created by Vermillion on 11.02.15.
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
-#import "LDRoute.h"
-#import "LDRoutePart.h"
+#import "AGRoute.h"
+#import "AGRoutePart.h"
 #import <MapKit/MapKit.h>
 
-@interface LDRoute ()
+@interface AGRoute ()
 
 @property (strong, nonatomic) NSMutableArray *routeParts;
-@property (strong, nonatomic) LDRoutePart *currentRoutePart;
+@property (strong, nonatomic) AGRoutePart *currentRoutePart;
 @property (strong, nonatomic) NSString *sessionId;
 @property (assign, nonatomic) float averageSpeed;
 @property (assign, nonatomic) float maxSpeed;
@@ -21,12 +21,12 @@
 @property (assign, nonatomic) float refreshTimeout;
 @property (strong, nonatomic) NSDate *startSessionDate;
 @property (strong, nonatomic) NSDate *stopSessionDate;
-@property (strong, nonatomic) LDLocation *currentPoint;
+@property (strong, nonatomic) AGLocation *currentPoint;
 @property (assign, nonatomic) double routeDistance;
 
 @end
 
-@implementation LDRoute
+@implementation AGRoute
 
 @synthesize routeParts = _routeParts;
 @synthesize currentRoutePart = _currentRoutePart;
@@ -49,7 +49,7 @@
     return self;
 }
 
-- (void)addRoutePoint:(LDLocation *)point {
+- (void)addRoutePoint:(AGLocation *)point {
     [[UIDevice currentDevice] setBatteryMonitoringEnabled:YES];
     float batteryLevel = [[UIDevice currentDevice] batteryLevel];
     batteryLevel *= 100;
@@ -59,11 +59,11 @@
         [self setStartSessionDate:[NSDate new]];
     }
     if (!self.routeParts.count) {
-        self.currentRoutePart = [LDRoutePart new];
+        self.currentRoutePart = [AGRoutePart new];
         [self.routeParts addObject:self.currentRoutePart];
     }
     if (!self.currentRoutePart) {
-        self.currentRoutePart = [LDRoutePart new];
+        self.currentRoutePart = [AGRoutePart new];
         if (![self.routeParts containsObject:self.currentRoutePart]) {
             [self.routeParts addObject:self.currentRoutePart];
         }
@@ -77,10 +77,10 @@
 - (NSMutableArray *)routePoints {
     __block NSMutableArray *allPoints = [NSMutableArray array];
     [self.routeParts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([obj isKindOfClass:[LDRoutePart class]]) {
-            LDRoutePart *route = (LDRoutePart *)obj;
+        if ([obj isKindOfClass:[AGRoutePart class]]) {
+            AGRoutePart *route = (AGRoutePart *)obj;
             [route.routePartPoints enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                [allPoints addObject:(LDLocation *)obj];
+                [allPoints addObject:(AGLocation *)obj];
             }];
         }
     }];
@@ -134,9 +134,9 @@
     return _stopSessionDate;
 }
 
-- (LDRoutePart *)currentRoutePart {
+- (AGRoutePart *)currentRoutePart {
     if (!_currentRoutePart) {
-        _currentRoutePart = [LDRoutePart new];
+        _currentRoutePart = [AGRoutePart new];
     }
     return _currentRoutePart;
 }
@@ -145,8 +145,8 @@
     __block int speedSum = 0;
     __block int count = 0;
     [self.routeParts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([obj isKindOfClass:[LDRoutePart class]]) {
-            LDRoutePart *route = (LDRoutePart *)obj;
+        if ([obj isKindOfClass:[AGRoutePart class]]) {
+            AGRoutePart *route = (AGRoutePart *)obj;
             [route.routePartSpeeds enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 speedSum += [(NSNumber *)obj intValue];
                 count++;
@@ -162,8 +162,8 @@
 - (float)maxSpeed {
     __block float maxSpeed = 0;
     [self.routeParts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([obj isKindOfClass:[LDRoutePart class]]) {
-            LDRoutePart *route = (LDRoutePart *)obj;
+        if ([obj isKindOfClass:[AGRoutePart class]]) {
+            AGRoutePart *route = (AGRoutePart *)obj;
             [route.routePartSpeeds enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 if ([(NSNumber *)obj floatValue] > maxSpeed) {
                     maxSpeed = [(NSNumber *)obj floatValue];
@@ -178,8 +178,8 @@
 - (double)routeDistance {
     __block double distance = 0.0;
     [self.routeParts enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([obj isKindOfClass:[LDRoutePart class]]) {
-            LDRoutePart *part = (LDRoutePart *)obj;
+        if ([obj isKindOfClass:[AGRoutePart class]]) {
+            AGRoutePart *part = (AGRoutePart *)obj;
             distance += [part routePartDistance];
         }
     }];
@@ -189,7 +189,7 @@
 
 - (void)finishRoute {
     [self.currentRoutePart setStopSessionDate:[NSDate new]];
-    self.currentRoutePart = [LDRoutePart new];
+    self.currentRoutePart = [AGRoutePart new];
     [self.routeParts addObject:_currentRoutePart];
     [self setStopSessionDate:[NSDate new]];
 }
@@ -220,7 +220,7 @@
 
 - (id)initWithCoder:(NSCoder *)decoder {
     NSArray *routeParts = (NSArray *)[decoder decodeObjectForKey:kRouteParts];
-    LDRoute *route = [self initWithRouteParts:routeParts];
+    AGRoute *route = [self initWithRouteParts:routeParts];
     [route setSessionId:(NSString *)[decoder decodeObjectForKey:kSesIDkey]];
     [route setMoveType:[decoder decodeIntForKey:kMoveTypeKey]];
     [route setRefreshTimeout:[decoder decodeFloatForKey:kRefTimeoutKey]];

@@ -21,7 +21,7 @@ Make sure you added this key in the right .plist file (common mistake is enterin
 
 # Tracking user location
 
-To start tracking location, initialize LDLocationDispatch or LDRouteDispatch with default init for standart setup  
+To start tracking location, initialize AGLocationDispatch or AGRouteDispatch with default init for standart setup  
 (default updating interval - 1 min, horizontal accuracy - 100 meters)
 
 also you can customize service with following initializer -
@@ -30,21 +30,21 @@ initWithUpdatingInterval: andDesiredAccuracy:
 
 Example:
 
-LDRouteDispatch *routeDisptch = [LDRouteDispatch initWithUpdatingInterval:kDefaultLocationTimeIntervalUpdateOneMinute andDesiredAccuracy:kLDHorizontalAccuracyThresholdBlock]
+AGRouteDispatch *routeDisptch = [AGRouteDispatch initWithUpdatingInterval:kDefaultLocationTimeIntervalUpdateOneMinute andDesiredAccuracy:kAGHorizontalAccuracyThresholdBlock]
 
 At viewcontroller's module, you can use this methods with blocks:
 
 - (void)startUpdatingLocationWithBlock: errorBlock:
 - (void)startUpdatingLocationAndSpeedWithBlock: errorBlock:
 
-or implement this LDLocationServiceDelegate methods:
+or implement this AGLocationServiceDelegate methods:
 
 - (void)didUpdateUserLocation:
 - (void)didUpdateUserLocation: speed:
 - (void)didChangeUserAuthorizationStatus:
 - (void)didFailWithError:
 
-Add your controller's instance to LDLocationDispatch or LDRouteDispatch delegates
+Add your controller's instance to AGLocationDispatch or AGRouteDispatch delegates
 
 [self.routeDispatch addDelegate:self]
 
@@ -54,11 +54,11 @@ run method
 
 # Use geocoding
 
-Use LDGeoLocationDispatch class for direct and reverse geocoding.
+Use AGGeoLocationDispatch class for direct and reverse geocoding.
 
-Just initialize LDGeoLocationDispatch class
+Just initialize AGGeoLocationDispatch class
 
-LDGeoLocationDispatch *geoDispatch = [[LDGeoLocationDispatch alloc] init]
+AGGeoLocationDispatch *geoDispatch = [[AGGeoLocationDispatch alloc] init]
 
 implement following methods:
 
@@ -71,11 +71,11 @@ To choose geocode provider (Apple, Google, Yandex) use following method:
 
 # Manage your route
 
-LDRouteDispatch class provide save/load LDRoute data in local storage.
+AGRouteDispatch class provide save/load AGRoute data in local storage.
 
 # Regions (under development)
 
-LDRegionMonitorDispatch class used for monitoring when enter/exit region.
+AGRegionMonitorDispatch class used for monitoring when enter/exit region.
 
 ## Requirements
 

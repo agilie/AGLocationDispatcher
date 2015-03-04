@@ -1,24 +1,23 @@
 //
-//  LDRouteDispatch.m
+//  AGRouteDispatch.m
 //  Pods
 //
 //  Created by Vermillion on 20.02.15.
 //
 //
 
-#import "LDRouteDispatch.h"
-#import "LDRoute.h"
-
 #define kDataKey        @"Data"
 #define kDataFile       @"data.plist"
 
-@interface LDRouteDispatch ()
+#import "AGRouteDispatcher.h"
 
-@property (strong, nonatomic) LDRoute *data;
+@interface AGRouteDispatcher ()
+
+@property (strong, nonatomic) AGRoute *data;
 
 @end
 
-@implementation LDRouteDispatch
+@implementation AGRouteDispatcher
 
 @synthesize docPath = _docPath;
 @synthesize data = _data;
@@ -26,7 +25,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-
+        //default route init
     }
     return self;
 }
@@ -34,7 +33,7 @@
 - (instancetype)initWithUpdatingInterval:(NSTimeInterval)interval andDesiredAccuracy:(CLLocationAccuracy)horizontalAccuracy {
     self = [super initWithUpdatingInterval:interval andDesiredAccuracy:horizontalAccuracy];
     if (self) {
-
+        //route init
     }
     return self;
 }
@@ -46,7 +45,7 @@
 - (BOOL)createDataPath:(NSString *)fileName {
 
     if (internalDocPath == nil) {
-        self.docPath = [LDRouteDispatch nextRouteDocPath:fileName];
+        self.docPath = [AGRouteDispatcher nextRouteDocPath:fileName];
     }
 
     NSError *error;
@@ -58,10 +57,10 @@
 
 }
 
-- (LDRoute *)loadRouteWithName:(NSString *)fileName {
+- (AGRoute *)loadRouteWithName:(NSString *)fileName {
     if (fileName) {
         if (internalDocPath == nil) {
-            self.docPath = [LDRouteDispatch nextRouteDocPath:fileName];
+            self.docPath = [AGRouteDispatcher nextRouteDocPath:fileName];
         }
         NSString *dataPath = [internalDocPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", fileName]];
         NSData *codedData = [[NSData alloc] initWithContentsOfFile:dataPath];
@@ -77,9 +76,9 @@
     }
 }
 
-- (LDRoute *)data {
+- (AGRoute *)data {
     if (internalDocPath == nil) {
-        self.docPath = [LDRouteDispatch nextRouteDocPath:nil];
+        self.docPath = [AGRouteDispatcher nextRouteDocPath:nil];
     }
     NSString *dataPath = [internalDocPath stringByAppendingPathComponent:kDataFile];
     NSData *codedData = [[NSData alloc] initWithContentsOfFile:dataPath];
@@ -92,7 +91,7 @@
     return _data;
 }
 
-- (void)saveRoute:(LDRoute *)route name:(NSString *)fileName {
+- (void)saveRoute:(AGRoute *)route name:(NSString *)fileName {
     _data = route;
     if (_data == nil) return;
 
@@ -109,7 +108,7 @@
 - (void)deleteDocWithName:(NSString *)name {
     NSError *error;
     if (internalDocPath == nil) {
-        self.docPath = [LDRouteDispatch nextRouteDocPath:name ?: nil];
+        self.docPath = [AGRouteDispatcher nextRouteDocPath:name ?: nil];
     }
     BOOL success = [[NSFileManager defaultManager] removeItemAtPath:internalDocPath error:&error];
     if (!success) {
@@ -119,7 +118,7 @@
 
 + (NSString *)nextRouteDocPath:(NSString *)fileName {
     // Get private docs dir
-    NSString *documentsDirectory = [LDRouteDispatch getStoredRoutesDir];
+    NSString *documentsDirectory = [AGRouteDispatcher getStoredRoutesDir];
 
     int maxNumber = 0;
     if (!fileName) {
@@ -133,7 +132,7 @@
 
         // Search for an available name
         for (NSString *file in files) {
-            if ([file.pathExtension compare:@"LDRoute" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+            if ([file.pathExtension compare:@"AGRoute" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
                 NSString *fileName = [file stringByDeletingPathExtension];
                 maxNumber = MAX(maxNumber, fileName.intValue);
             }
@@ -155,24 +154,6 @@
     [[NSFileManager defaultManager] createDirectoryAtPath:routesDirectory withIntermediateDirectories:YES attributes:nil error:&error];
 
     return routesDirectory;
-}
-
-#pragma mark - LDLocationSeviceDelegates
-
-- (void)addDelegate:(id<LDLocationServiceDelegate>)delegate {
-    [super addDelegate:delegate];
-}
-
-- (void)removeDelegate:(id<LDLocationServiceDelegate>)delegate {
-    [super removeDelegate:delegate];
-}
-
-- (void)startUpdatingLocation {
-    [super startUpdatingLocation];
-}
-
-- (void)stopUpdatingLocation {
-    [super stopUpdatingLocation];
 }
 
 @end

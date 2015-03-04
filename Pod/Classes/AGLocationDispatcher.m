@@ -1,26 +1,22 @@
 //
-//  LDLocationDispatch.m
+//  AGLocationDispatch.m
 //  LocationDispatch
 //
 //  Created by Vladimir Zgonik on 09.02.15.
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
-#import "LDLocationDispatch.h"
-#import "LDLocationDefines.h"
+#import "AGLocationDispatcher.h"
+#import "AGDispatcherDefines.h"
 #import "gps.h"
-#import "LDLocation.h"
 
-@interface LDLocationDispatch ()
+@interface AGLocationDispatcher ()
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (copy, nonatomic) SenderBlock onSuccess; // On success block.
-@property (copy, nonatomic) SenderBlock onError; // On failure block.
-@property (strong, nonatomic) NSMutableArray *delegates;
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) NSDate *locationDate;
-@property (assign, nonatomic) LDLocationAccuracy desiredAccuracy;
-@property (assign, nonatomic) LDLocationStatus locationStatusService;
+@property (assign, nonatomic) AGLocationAccuracy desiredAccuracy;
+@property (assign, nonatomic) AGLocationStatus locationStatusService;
 @property (assign, nonatomic) BOOL isFetchLocationOnce;
 @property (assign, nonatomic) BOOL isUpdatingUserLocation;
 @property (assign, nonatomic) KalmanFilter kalmanFilter;
@@ -30,23 +26,23 @@
 @property (strong, nonatomic) NSMutableArray *userAuthorizationRequests;
 
 // Location Blocks
-@property (copy) LDLocationServiceLocationUpdateBlock locationBlock;
-@property (copy) LDLocationServiceLocationAndSpeedUpdateBlock locationAndSpeedBlock;
-@property (copy) LDLocationServiceLocationUpdateFailBlock errorLocationBlock;
+@property (copy) AGLocationServiceLocationUpdateBlock locationBlock;
+@property (copy) AGLocationServiceLocationAndSpeedUpdateBlock locationAndSpeedBlock;
+@property (copy) AGLocationServiceLocationUpdateFailBlock errorLocationBlock;
 
 // Used for continuous updates of authorization requests
-@property (copy) LDLocationServiceAuthorizationStatusChangeBlock userAuthorizationStatusChangeBlock;
+@property (copy) AGLocationServiceAuthorizationStatusChangeBlock userAuthorizationStatusChangeBlock;
 
 @end
 
-@implementation LDLocationDispatch
+@implementation AGLocationDispatcher
 
 #pragma mark - Initialization
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self = [self initWithUpdatingInterval:kLDLocationUpdateIntervalOneMinute andDesiredAccuracy:kLDHorizontalAccuracyBlock];
+        self = [self initWithUpdatingInterval:kAGLocationUpdateIntervalOneMinute andDesiredAccuracy:kAGHorizontalAccuracyBlock];
     }
     return self;
 }
@@ -92,27 +88,25 @@
     }
 }
 
-- (void)currentPosition:(LDLocationServiceLocationUpdateBlock)onSucess onError:(LDLocationServiceLocationUpdateFailBlock)onError {
+- (void)currentLocationWithBlock:(AGLocationServiceLocationUpdateBlock)block errorBlock:(AGLocationServiceLocationUpdateFailBlock)errorBlock {
     _isFetchLocationOnce = YES;
     [self startTimeoutTimer];
-    [self startUpdatingLocationWithBlock:onSucess errorBlock:onError];
+    [self startUpdatingLocationWithBlock:block errorBlock:errorBlock];
 }
 
-- (void)startUpdatingLocationWithBlock:(LDLocationServiceLocationUpdateBlock)block errorBlock:(LDLocationServiceLocationUpdateFailBlock)errorBlock {
+- (void)startUpdatingLocationWithBlock:(AGLocationServiceLocationUpdateBlock)block errorBlock:(AGLocationServiceLocationUpdateFailBlock)errorBlock {
     self.locationBlock = block;
     self.errorLocationBlock = errorBlock;
     [self startUpdatingLocation];
 }
 
-- (void)startUpdatingLocationAndSpeedWithBlock:(LDLocationServiceLocationAndSpeedUpdateBlock)block errorBlock:(LDLocationServiceLocationUpdateFailBlock)errorBlock {
+- (void)startUpdatingLocationAndSpeedWithBlock:(AGLocationServiceLocationAndSpeedUpdateBlock)block errorBlock:(AGLocationServiceLocationUpdateFailBlock)errorBlock {
     self.locationAndSpeedBlock = block;
     self.errorLocationBlock = errorBlock;
     [self startUpdatingLocation];
 }
 
 - (void)resetBlocks {
-    self.onSuccess = nil;
-    self.onError = nil;
     self.locationBlock = nil;
     self.errorLocationBlock = nil;
 }
@@ -132,14 +126,6 @@
     }
     if (self.locationAndSpeedBlock != nil) {
         self.locationAndSpeedBlock(self.locationManager, _location, nil, [self getSpeed]);
-    }
-    for (id<LDLocationServiceDelegate> delegate in self.delegates) {
-        if ([delegate respondsToSelector:@selector(didUpdateUserLocation:)]) {
-            [delegate didUpdateUserLocation:self.location];
-        }
-        if ([delegate respondsToSelector:@selector(didUpdateUserLocation:speed:)]) {
-            [delegate didUpdateUserLocation:self.location speed:[self getSpeed]];
-        }
     }
 }
 
@@ -172,13 +158,6 @@
     return _locationManager;
 }
 
-- (NSMutableArray *)delegates {
-    if (!_delegates) {
-        _delegates = [NSMutableArray array];
-    }
-    return _delegates;
-}
-
 - (NSMutableArray *)userAuthorizationRequests {
     if (!_userAuthorizationRequests) {
         _userAuthorizationRequests = [NSMutableArray array];
@@ -208,29 +187,25 @@
             [_locationManager requestWhenInUseAuthorization];
         }
     }
-    for (id<LDLocationServiceDelegate> delegate in self.delegates) {
-        if ([delegate respondsToSelector:@selector(didChangeUserAuthorizationStatus:)]) {
-            [delegate didChangeUserAuthorizationStatus:status];
-        }
-    }
+    
     if (_userAuthorizationStatusChangeBlock != nil) {
         _userAuthorizationStatusChangeBlock(manager, status);
     }
-    for (LDLocationServiceAuthorizationStatusChangeBlock block in [_userAuthorizationRequests copy]) {
+    for (AGLocationServiceAuthorizationStatusChangeBlock block in [_userAuthorizationRequests copy]) {
         block(manager, status);
     }
 }
 
 - (void)locationDidUpdateToNewLocation:(CLLocation *)newLocation fromOldLocation:(CLLocation *)oldLocation withManager:(CLLocationManager *)manager {
     self.locationObtained = YES;
-    LDLocation *correctedLocation = [self correctLocationForLocation:newLocation];
+    AGLocation *correctedLocation = [self correctLocationForLocation:newLocation];
     self.location = correctedLocation;
     // Call location block
     if (self.locationBlock != nil) {
-        self.locationBlock(manager, correctedLocation, (LDLocation *)oldLocation);
+        self.locationBlock(manager, correctedLocation, (AGLocation *)oldLocation);
     }
     if (self.locationAndSpeedBlock != nil) {
-        self.locationAndSpeedBlock(manager, correctedLocation, (LDLocation *)oldLocation, [self getSpeed]);
+        self.locationAndSpeedBlock(manager, correctedLocation, (AGLocation *)oldLocation, [self getSpeed]);
     }
     if (correctedLocation.horizontalAccuracy <= manager.desiredAccuracy || _isFetchLocationOnce == NO) {
         if (_isFetchLocationOnce) {
@@ -240,14 +215,6 @@
             self.locationBlock = nil;
             self.locationAndSpeedBlock = nil;
             _isFetchLocationOnce = NO;
-        }
-    }
-    for (id<LDLocationServiceDelegate> delegate in self.delegates) {
-        if ([delegate respondsToSelector:@selector(didUpdateUserLocation:)]) {
-            [delegate didUpdateUserLocation:correctedLocation];
-        }
-        if ([delegate respondsToSelector:@selector(didUpdateUserLocation:speed:)]) {
-            [delegate didUpdateUserLocation:correctedLocation speed:[self getSpeed]];
         }
     }
     self.lastPointDate = [NSDate new];
@@ -260,11 +227,6 @@
         self.errorLocationBlock(manager, error);
         self.errorLocationBlock = nil;
     }
-    for (id<LDLocationServiceDelegate> delegate in self.delegates) {
-        if ([delegate respondsToSelector:@selector(didFailWithError:)]) {
-            [delegate didFailWithError:error];
-        }
-    }
 }
 
 #pragma mark - Location Authorization Request Status and Continuous Update
@@ -275,18 +237,6 @@
         [self checkBundleInfoFor:kNSLocationWhenInUseUsageDescription];
         if (status == kCLAuthorizationStatusNotDetermined) {
             [_locationManager requestWhenInUseAuthorization];
-        } else {
-            for (id<LDLocationServiceDelegate> delegate in self.delegates) {
-                if ([delegate respondsToSelector:@selector(didChangeUserAuthorizationStatus:)]) {
-                    [delegate didChangeUserAuthorizationStatus:status];
-                }
-            }
-        }
-    } else {
-        for (id<LDLocationServiceDelegate> delegate in self.delegates) {
-            if ([delegate respondsToSelector:@selector(didChangeUserAuthorizationStatus:)]) {
-                [delegate didChangeUserAuthorizationStatus:status];
-            }
         }
     }
 }
@@ -297,54 +247,28 @@
         [self checkBundleInfoFor:kNSLocationAlwaysUsageDescription];
         if (status == kCLAuthorizationStatusNotDetermined) {
             [_locationManager requestAlwaysAuthorization];
-        } else {
-            for (id<LDLocationServiceDelegate> delegate in self.delegates) {
-                if ([delegate respondsToSelector:@selector(didChangeUserAuthorizationStatus:)]) {
-                    [delegate didChangeUserAuthorizationStatus:status];
-                }
-            }
-        }
-    } else {
-        for (id<LDLocationServiceDelegate> delegate in self.delegates) {
-            if ([delegate respondsToSelector:@selector(didChangeUserAuthorizationStatus:)]) {
-                [delegate didChangeUserAuthorizationStatus:status];
-            }
         }
     }
 }
 
-- (void)requestUserLocationWhenInUseWithBlock:(LDLocationServiceAuthorizationStatusChangeBlock)block {
+- (void)requestUserLocationWhenInUseWithBlock:(AGLocationServiceAuthorizationStatusChangeBlock)block {
     self.userAuthorizationStatusChangeBlock = block;
     [self requestUserLocationWhenInUse];
 }
 
-- (void)requestUserLocationAlways:(LDLocationServiceAuthorizationStatusChangeBlock)block {
+- (void)requestUserLocationAlways:(AGLocationServiceAuthorizationStatusChangeBlock)block {
     self.userAuthorizationStatusChangeBlock = block;
     [self requestUserLocationAlways];
 }
 
-- (void)requestUserLocationWhenInUseWithBlockOnce:(LDLocationServiceAuthorizationStatusChangeBlock)block {
+- (void)requestUserLocationWhenInUseWithBlockOnce:(AGLocationServiceAuthorizationStatusChangeBlock)block {
     [_userAuthorizationRequests addObject:[block copy]];
     [self requestUserLocationWhenInUse];
 }
 
-- (void)requestUserLocationAlwaysOnce:(LDLocationServiceAuthorizationStatusChangeBlock)block {
+- (void)requestUserLocationAlwaysOnce:(AGLocationServiceAuthorizationStatusChangeBlock)block {
     [_userAuthorizationRequests addObject:[block copy]];
     [self requestUserLocationAlways];
-}
-
-#pragma mark - LDLocationSeviceDelegates
-
-- (void)addDelegate:(id<LDLocationServiceDelegate>)delegate {
-    if (![self.delegates containsObject:delegate]) {
-        [self.delegates addObject:delegate];
-    }
-}
-
-- (void)removeDelegate:(id<LDLocationServiceDelegate>)delegate {
-    if ([self.delegates containsObject:delegate]) {
-        [self.delegates removeObject:delegate];
-    }
 }
 
 #pragma mark -
@@ -352,20 +276,20 @@
 // Returns the associated recency threshold (in seconds) for the location request's desired accuracy level.
 - (NSTimeInterval)updateTimeStaleThreshold {
     switch (self.desiredAccuracy) {
-        case LDLocationAccuracyRoom:
-            return kLDUpdateIntervalRoom;
+        case AGLocationAccuracyRoom:
+            return kAGUpdateIntervalRoom;
             break;
-        case LDLocationAccuracyHouse:
-            return kLDUpdateIntervalHouse;
+        case AGLocationAccuracyHouse:
+            return kAGUpdateIntervalHouse;
             break;
-        case LDLocationAccuracyBlock:
-            return kLDUpdateIntervalBlock;
+        case AGLocationAccuracyBlock:
+            return kAGUpdateIntervalBlock;
             break;
-        case LDLocationAccuracyNeighborhood:
-            return kLDUpdateIntervalNeighborhood;
+        case AGLocationAccuracyNeighborhood:
+            return kAGUpdateIntervalNeighborhood;
             break;
-        case LDLocationAccuracyCity:
-            return kLDUpdateIntervalCity;
+        case AGLocationAccuracyCity:
+            return kAGUpdateIntervalCity;
             break;
         default:
             NSAssert(NO, @"Unknown desired accuracy.");
@@ -377,20 +301,20 @@
 // Returns the associated horizontal accuracy threshold (in meters) for the location request's desired accuracy level.
 - (CLLocationAccuracy)horizontalAccuracyThreshold {
     switch (self.desiredAccuracy) {
-        case LDLocationAccuracyRoom:
-            return kLDHorizontalAccuracyRoom;
+        case AGLocationAccuracyRoom:
+            return kAGHorizontalAccuracyRoom;
             break;
-        case LDLocationAccuracyHouse:
-            return kLDHorizontalAccuracyHouse;
+        case AGLocationAccuracyHouse:
+            return kAGHorizontalAccuracyHouse;
             break;
-        case LDLocationAccuracyBlock:
-            return kLDHorizontalAccuracyBlock;
+        case AGLocationAccuracyBlock:
+            return kAGHorizontalAccuracyBlock;
             break;
-        case LDLocationAccuracyNeighborhood:
-            return kLDHorizontalAccuracyNeighborhood;
+        case AGLocationAccuracyNeighborhood:
+            return kAGHorizontalAccuracyNeighborhood;
             break;
-        case LDLocationAccuracyCity:
-            return kLDHorizontalAccuracyCity;
+        case AGLocationAccuracyCity:
+            return kAGHorizontalAccuracyCity;
             break;
         default:
             NSAssert(NO, @"Unknown desired accuracy.");
@@ -412,12 +336,12 @@
     [self endTimeoutTimer];
 }
 
-- (LDLocation *)correctLocationForLocation:(CLLocation *)location {
+- (AGLocation *)correctLocationForLocation:(CLLocation *)location {
     double secondsFromLastUpdate = self.lastPointDate ? fabs([self.lastPointDate timeIntervalSinceNow]) : 0.01f;
     update_velocity2d(self.kalmanFilter, location.coordinate.latitude, location.coordinate.longitude, secondsFromLastUpdate);
     double correctedLatitude, correctedLongitude;
     get_lat_long(self.kalmanFilter, &correctedLatitude, &correctedLongitude);
-    return [[LDLocation alloc] initWithLatitude:correctedLatitude longitude:correctedLongitude];
+    return [[AGLocation alloc] initWithLatitude:correctedLatitude longitude:correctedLongitude];
 }
 
 - (NSNumber *)getSpeed {

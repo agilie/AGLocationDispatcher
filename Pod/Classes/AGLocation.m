@@ -1,21 +1,21 @@
 //
-//  LDLocation.m
+//  AGLocation.m
 //  LocationDispatch
 //
 //  Created by Vermillion on 16.02.15.
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
-#import "LDLocation.h"
+#import "AGLocation.h"
 
-@interface LDLocation ()
+@interface AGLocation ()
 
 @property (nonatomic, retain) NSNumber *user_id;   //!< User id.
 @property (nonatomic, retain) NSNumber *battery;   //!< Battery state.
 
 @end
 
-@implementation LDLocation
+@implementation AGLocation
 
 @synthesize user_id = _user_id;
 @synthesize battery = _battery;

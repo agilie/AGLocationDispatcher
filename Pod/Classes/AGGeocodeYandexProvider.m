@@ -1,18 +1,17 @@
 //
-//  LDGeocodeYandexProvider.m
+//  AGGeocodeYandexProvider.m
 //  LocationDispatch
 //
 //  Created by Ankudinov Alexander on 2/9/15.
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
-#import "LDGeocodeYandexProvider.h"
+#import "AGGeocodeYandexProvider.h"
 
-@implementation LDGeocodeYandexProvider
+@implementation AGGeocodeYandexProvider
 
 - (id)init {
     self = [super init];
-
     return self;
 }
 

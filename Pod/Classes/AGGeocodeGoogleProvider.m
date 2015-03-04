@@ -1,14 +1,14 @@
 //
-//  LDGeocodeGoogleProvider.m
+//  AGGeocodeGoogleProvider.m
 //  LocationDispatch
 //
 //  Created by Ankudinov Alexander on 2/10/15.
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
-#import "LDGeocodeGoogleProvider.h"
+#import "AGGeocodeGoogleProvider.h"
 
-@implementation LDGeocodeGoogleProvider
+@implementation AGGeocodeGoogleProvider
 
 - (id)init {
     self = [super init];

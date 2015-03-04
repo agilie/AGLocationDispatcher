@@ -1,15 +1,14 @@
 //
-//  LDGeocodeAppleProvider.m
+//  AGGeocodeAppleProvider.m
 //  LocationDispatch
 //
 //  Created by Ankudinov Alexander on 2/10/15.
 //  Copyright (c) 2015 Agilie. All rights reserved.
 //
 
-#import "LDGeocodeAppleProvider.h"
+#import "AGGeocodeAppleProvider.h"
 
-@implementation LDGeocodeAppleProvider
-
+@implementation AGGeocodeAppleProvider
 
 - (id)init {
     self = [super init];
