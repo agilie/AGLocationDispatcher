@@ -22,7 +22,7 @@
 		24082F5B0F4443D4D0947626 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 972B3B00BEB7B186DFC8B61B /* UIButton+AFNetworking.h */; };
 		3137C29F62283143C1514A16 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA92A700A6359D9B5422B45 /* AFNetworkActivityIndicatorManager.m */; };
 		316D2F3F750F04A4EBE15764 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9027193323E728AE04C740 /* AFNetworkReachabilityManager.m */; };
-		3A384138B2D9FF36A177021D /* AGGeoLocationDispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 79080EAAA93BBEED7D2B4F83 /* AGGeoLocationDispatch.h */; };
+		3A384138B2D9FF36A177021D /* AGGeoDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 79080EAAA93BBEED7D2B4F83 /* AGGeoDispatcher.h */; };
 		3AC588055A1F790DC6D55DA8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA62C47E51F1A969D61E889 /* CoreLocation.framework */; };
 		3C72DD9DACF0E2AFB3E9475F /* kalman.c in Sources */ = {isa = PBXBuildFile; fileRef = C5CEC076E8CCC909A904C974 /* kalman.c */; };
 		3FD546BEFCD038B62F122631 /* AGRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 1173BF8A15C451CD51034653 /* AGRoute.m */; };
@@ -60,7 +60,7 @@
 		AF235E92E8AC9F46853C9393 /* AGLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB8EAE55DEB47FCEC9572DB /* AGLocation.m */; };
 		AF8819442AB1D67DE115579E /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A79821C8BB578238901A1DFF /* AFURLConnectionOperation.h */; };
 		AF98F45A634C6B5B8DD4043F /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDB677013E53A2A81DE0113 /* AFURLConnectionOperation.m */; };
-		B0178CAD7534AF85F13CDFFA /* AGGeoLocationDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D847A9313A8AE08678AA7A5 /* AGGeoLocationDispatch.m */; };
+		B0178CAD7534AF85F13CDFFA /* AGGeoDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D847A9313A8AE08678AA7A5 /* AGGeoDispatcher.m */; };
 		B1D0060F2A451909D55FF7A0 /* AGRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 04496C5DB595D473F1FBAFD2 /* AGRoute.h */; };
 		B3AC2BA371148128E42264B4 /* AGGeocodeAppleProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA80F6AAA6ED12F768C7085 /* AGGeocodeAppleProvider.m */; };
 		B575FD80C3AF2EFD21A8D8F0 /* AGRoutePart.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F782398B4DF4F6FC3C477EE /* AGRoutePart.h */; };
@@ -160,7 +160,7 @@
 		5807A3A792506AC1A721780B /* AGAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AGAnnotation.h; path = Pod/Classes/AGAnnotation.h; sourceTree = "<group>"; };
 		58FB0B6911A154CCC7E9B8B8 /* kalman.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = kalman.h; path = Pod/Classes/kalman.h; sourceTree = "<group>"; };
 		5C136FE52175AE65DD862D9D /* AGDispatcherHeaders.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AGDispatcherHeaders.h; path = Pod/Classes/AGDispatcherHeaders.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5D847A9313A8AE08678AA7A5 /* AGGeoLocationDispatch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AGGeoLocationDispatch.m; path = Pod/Classes/AGGeoLocationDispatch.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5D847A9313A8AE08678AA7A5 /* AGGeoDispatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AGGeoDispatcher.m; path = Pod/Classes/AGGeoDispatcher.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5DC400052BF6ED3BC68F49C5 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		62F7B880C73E73BE34FB6E0A /* Pods-AGLocationDispatcher-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AGLocationDispatcher-resources.sh"; sourceTree = "<group>"; };
 		68EDE2372426F027B5111C5E /* Pods-AGLocationDispatcher-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AGLocationDispatcher-environment.h"; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		73CA3218A492B3D1DCB89B48 /* AGDispatcherDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AGDispatcherDefines.h; path = Pod/Classes/AGDispatcherDefines.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		7466CC89DE5E13BDE0BC9C06 /* AGGeocodeGoogleProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AGGeocodeGoogleProvider.h; path = Pod/Classes/AGGeocodeGoogleProvider.h; sourceTree = "<group>"; };
 		7659493B09AF5D4C747F2645 /* AGLocationDispatcher.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AGLocationDispatcher.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		79080EAAA93BBEED7D2B4F83 /* AGGeoLocationDispatch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AGGeoLocationDispatch.h; path = Pod/Classes/AGGeoLocationDispatch.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		79080EAAA93BBEED7D2B4F83 /* AGGeoDispatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = AGGeoDispatcher.h; path = Pod/Classes/AGGeoDispatcher.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		7EA87C0C75F401EDDDD62BF6 /* libPods-AGLocationDispatcher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGLocationDispatcher.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA92A700A6359D9B5422B45 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
 		80BACFC8C67E6B728DF5E900 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -295,8 +295,8 @@
 				5807A3A792506AC1A721780B /* AGAnnotation.h */,
 				C3BB0EACBCAF961F0716D942 /* AGAnnotation.m */,
 				5C136FE52175AE65DD862D9D /* AGDispatcherHeaders.h */,
-				79080EAAA93BBEED7D2B4F83 /* AGGeoLocationDispatch.h */,
-				5D847A9313A8AE08678AA7A5 /* AGGeoLocationDispatch.m */,
+				79080EAAA93BBEED7D2B4F83 /* AGGeoDispatcher.h */,
+				5D847A9313A8AE08678AA7A5 /* AGGeoDispatcher.m */,
 				AD0B8183689CA799B853D901 /* AGGeocodeAppleProvider.h */,
 				4DA80F6AAA6ED12F768C7085 /* AGGeocodeAppleProvider.m */,
 				269C27714E54D433D65BA2DF /* AGGeocodeBaseProvider.h */,
@@ -513,7 +513,7 @@
 			files = (
 				127DF7FFE1B3634C91A4C21B /* AGAnnotation.h in Headers */,
 				508E885F07E6E4A7C63C0D80 /* AGDispatcherHeaders.h in Headers */,
-				3A384138B2D9FF36A177021D /* AGGeoLocationDispatch.h in Headers */,
+				3A384138B2D9FF36A177021D /* AGGeoDispatcher.h in Headers */,
 				FD2635EE34B257AD8D653E35 /* AGGeocodeAppleProvider.h in Headers */,
 				0A8AA63DFB173A66C125CE88 /* AGGeocodeBaseProvider.h in Headers */,
 				1454509CCD97B5B93D658C17 /* AGGeocodeGoogleProvider.h in Headers */,
@@ -700,7 +700,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				189B36CA628FD7BB541BB7C7 /* AGAnnotation.m in Sources */,
-				B0178CAD7534AF85F13CDFFA /* AGGeoLocationDispatch.m in Sources */,
+				B0178CAD7534AF85F13CDFFA /* AGGeoDispatcher.m in Sources */,
 				B3AC2BA371148128E42264B4 /* AGGeocodeAppleProvider.m in Sources */,
 				DA7070870D4D0088551FBFB6 /* AGGeocodeBaseProvider.m in Sources */,
 				806FC6E85B0A0907891FA0F3 /* AGGeocodeGoogleProvider.m in Sources */,

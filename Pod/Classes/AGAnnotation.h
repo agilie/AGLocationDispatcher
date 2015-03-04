@@ -11,7 +11,7 @@
 #import "AGLocation.h"
 
 typedef enum {
-    AgAnnotationTypeStart,
+    AGAnnotationTypeStart,
     AGAnnotationTypeFinish
 } AGAnnotationType;
 

@@ -32,12 +32,19 @@ typedef void(^AGLocationServiceLocationUpdateFailBlock)(CLLocationManager *manag
 @property (assign, nonatomic) NSTimeInterval locationUpdateInterval;
 @property (assign, nonatomic) BOOL locationObtained;
 
+// Used for continuous updates of authorization requests
+@property (copy) AGLocationServiceAuthorizationStatusChangeBlock userAuthorizationStatusChangeBlock;
+
 + (BOOL)locationServicesEnabled;
 + (BOOL)significantLocationChangeMonitoringAvailable;
 
 - (instancetype)init;
 
 - (instancetype)initWithUpdatingInterval:(NSTimeInterval)interval andDesiredAccuracy:(CLLocationAccuracy)horizontalAccuracy;
+
+- (CLLocationManager *)locationManager;
+
+- (CLLocationAccuracy)horizontalAccuracyThreshold;
 
 // To receive continuous updates on the authorization status and ask once user has allowed location services.
 - (void)requestUserLocationWhenInUseWithBlock:(AGLocationServiceAuthorizationStatusChangeBlock)block;

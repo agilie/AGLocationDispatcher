@@ -1,18 +1,18 @@
 //
-//  AGGeoLocationDispatch.m
+//  AGGeoDispatcher.m
 //  Pods
 //
 //  Created by Vermillion on 19.02.15.
 //
 //
 
-#import "AGGeoLocationDispatch.h"
+#import "AGGeoDispatcher.h"
 #import "AGDispatcherDefines.h"
 #import "AGGeocodeYandexProvider.h"
 #import "AGGeocodeGoogleProvider.h"
 #import "AGGeocodeAppleProvider.h"
 
-@implementation AGGeoLocationDispatch
+@implementation AGGeoDispatcher
 
 - (id)init {
     self = [super init];

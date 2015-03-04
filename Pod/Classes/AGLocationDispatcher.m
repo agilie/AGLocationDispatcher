@@ -30,9 +30,6 @@
 @property (copy) AGLocationServiceLocationAndSpeedUpdateBlock locationAndSpeedBlock;
 @property (copy) AGLocationServiceLocationUpdateFailBlock errorLocationBlock;
 
-// Used for continuous updates of authorization requests
-@property (copy) AGLocationServiceAuthorizationStatusChangeBlock userAuthorizationStatusChangeBlock;
-
 @end
 
 @implementation AGLocationDispatcher
@@ -256,7 +253,7 @@
     [self requestUserLocationWhenInUse];
 }
 
-- (void)requestUserLocationAlways:(AGLocationServiceAuthorizationStatusChangeBlock)block {
+- (void)requestUserLocationAlwaysWithBlock:(AGLocationServiceAuthorizationStatusChangeBlock)block {
     self.userAuthorizationStatusChangeBlock = block;
     [self requestUserLocationAlways];
 }

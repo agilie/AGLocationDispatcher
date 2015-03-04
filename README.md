@@ -54,11 +54,11 @@ run method
 
 # Use geocoding
 
-Use AGGeoLocationDispatch class for direct and reverse geocoding.
+Use AGGeoDispatcher class for direct and reverse geocoding.
 
-Just initialize AGGeoLocationDispatch class
+Just initialize AGGeoDispatcher class
 
-AGGeoLocationDispatch *geoDispatch = [[AGGeoLocationDispatch alloc] init]
+AGGeoDispatcher *geoDispatch = [[AGGeoDispatcher alloc] init]
 
 implement following methods:
 

@@ -8,9 +8,9 @@
 
 #import "AGLocationDispatcher.h"
 
-typedef void(^AGLocationServiceRegionUpdateBlock)(CLLocationManager *manager, CLRegion *region, BOOL enter);
+typedef void(^AGLocationServiceRegionUpdateBlock)(CLLocationManager *manager, CLCircularRegion *region, BOOL enter);
 
-typedef void(^AGLocationServiceRegionUpdateFailBlock)(CLLocationManager *manager, CLRegion *region, NSError *error);
+typedef void(^AGLocationServiceRegionUpdateFailBlock)(CLLocationManager *manager, CLCircularRegion *region, NSError *error);
 
 @protocol AGLocationRegionServiceDelegate <AGLocationServiceDelegate>
 
@@ -26,20 +26,18 @@ typedef void(^AGLocationServiceRegionUpdateFailBlock)(CLLocationManager *manager
 
 @interface AGRegionDispatcher : AGLocationDispatcher <AGLocationRegionServiceDelegate>
 
-- (instancetype)init;
-
 + (BOOL)regionMonitoringAvailable:(Class)regionClass;
 
-- (void)addCoordinateForMonitoring:(CLLocationCoordinate2D)coordinate withRadius:(CLLocationDistance)radius desiredAccuracy:(CLLocationAccuracy)accuracy;
+- (instancetype)init;
 
-- (void)addRegionForMonitoring:(CLRegion *)region desiredAccuracy:(CLLocationAccuracy)accuracy updateBlock:(AGLocationServiceRegionUpdateBlock)block errorBlock:(AGLocationServiceRegionUpdateFailBlock)errorBlock;
+- (void)addCoordinateForMonitoring:(CLLocationCoordinate2D)coordinate updateBlock:(AGLocationServiceRegionUpdateBlock)block failBlock:(AGLocationServiceRegionUpdateFailBlock)failBlock;
+
+- (void)addCoordinateForMonitoring:(CLLocationCoordinate2D)coordinate withRadius:(CLLocationDistance)radius desiredAccuracy:(CLLocationAccuracy)accuracy updateBlock:(AGLocationServiceRegionUpdateBlock)block failBlock:(AGLocationServiceRegionUpdateFailBlock)failBlock;
+
+- (void)addRegionForMonitoring:(CLRegion *)region desiredAccuracy:(CLLocationAccuracy)accuracy updateBlock:(AGLocationServiceRegionUpdateBlock)block failBlock:(AGLocationServiceRegionUpdateFailBlock)failBlock;
 
 - (void)stopMonitoringForRegion:(CLRegion *)region;
 
 - (void)stopMonitoringAllRegions;
-
-- (void)addDelegate:(id<AGLocationRegionServiceDelegate>)delegate;
-
-- (void)removeDelegate:(id<AGLocationRegionServiceDelegate>)delegate;
 
 @end

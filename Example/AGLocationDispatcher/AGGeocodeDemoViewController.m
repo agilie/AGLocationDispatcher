@@ -12,7 +12,7 @@
 
 @interface AGGeocodeDemoViewController ()
 
-@property (strong, nonatomic) AGGeoLocationDispatch *demoLocationService;
+@property (strong, nonatomic) AGGeoLocationDispatcher *demoLocationService;
 
 @end
 
@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view from its nib.
 
     [self setTitle:@"Geocode demo"];
-    self.demoLocationService = [[AGGeoLocationDispatch alloc] init];
+    self.demoLocationService = [[AGGeoDispatcher alloc] init];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

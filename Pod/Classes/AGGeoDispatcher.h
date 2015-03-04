@@ -1,5 +1,5 @@
 //
-//  AGGeoLocationDispatch.h
+//  AGGeoDispatcher.h
 //  Pods
 //
 //  Created by Vermillion on 19.02.15.
@@ -15,7 +15,7 @@ typedef void (^LocSuccesBlock)(id);
 
 typedef void (^FailBlock)(NSError *);
 
-@interface AGGeoLocationDispatch : AGLocationDispatcher
+@interface AGGeoDispatcher : AGLocationDispatcher
 
 @property (strong, atomic) AGGeocodeBaseProvider *geocodeProvider;
 
