@@ -91,7 +91,6 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 }
 
 - (void)centerMapWithUserCoordinate:(CLLocationCoordinate2D)coordinate {
-
     [self.mapView setCenterCoordinate:coordinate animated:YES];
     MKCoordinateRegion region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.04f, 0.04f));
     region = [self.mapView regionThatFits:region];
