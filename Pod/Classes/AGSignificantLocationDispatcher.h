@@ -11,7 +11,7 @@
 #import "AGDispatcherHeaders.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface AGSignificantLocationDispatch : NSObject<CLLocationManagerDelegate>
+@interface AGSignificantLocationDispatcher : NSObject<CLLocationManagerDelegate>
 
 typedef void(^LDSignificationLocationASynchronousEndUpdateBlock)();
 typedef void(^LDSignificationLocationASynchronousUpdateBlock)(AGLocation *newLocation , LDSignificationLocationASynchronousEndUpdateBlock updateCompletionBlock);

@@ -9,6 +9,10 @@
 #import "AGAppDelegate.h"
 #import "AGMainDemoViewController.h"
 
+#import "AGMainDemoViewController.h"
+
+#import "AGDispatcherHeaders.h"
+
 @interface AGAppDelegate ()
 
 @property UIBackgroundTaskIdentifier backgroundTask;
@@ -23,6 +27,8 @@
     [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     
     if ([launchOptions objectForKey: UIApplicationLaunchOptionsLocationKey]) {
+        
+       
         
         self.backgroundTask = [[UIApplication sharedApplication]
                                beginBackgroundTaskWithExpirationHandler:
@@ -62,7 +68,7 @@
     NSDictionary* userInfo = @{@"applicationWillBeTerminate": @(0)};
     
     [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"LDLocationDispatchChangeAppBackgroundMode"
+     postNotificationName:@"AGLocationDispatchDidChangeAppBackgroundMode"
      object: userInfo];
 }
 
@@ -76,7 +82,7 @@
     NSDictionary* userInfo = @{@"applicationWillBeTerminate": @(0)};
     
     [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"LDLocationDispatchChangeAppBackgroundMode"
+     postNotificationName:@"AGLocationDispatchDidChangeAppBackgroundMode"
      object: userInfo];
     
 }
@@ -87,7 +93,7 @@
     NSDictionary* userInfo = @{@"applicationWillBeTerminate": @(1)};
     
     [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"LDLocationDispatchChangeAppBackgroundMode"
+     postNotificationName:@"AGLocationDispatchDidChangeAppBackgroundMode"
      object: userInfo];
 }
 

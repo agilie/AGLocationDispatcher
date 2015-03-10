@@ -47,7 +47,7 @@
         
         [[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
-                                                     name: @"locationDispatchDidChangeAppBackgroundMode"
+                                                     name: @"AGLocationDispatchDidChangeAppBackgroundMode"
                                                    object: nil];
         
         self.needRestartLocationAfterForegroud = NO;
@@ -133,7 +133,7 @@
         
         if (applicationWillBeTerminate) {
             NSLog(@"UpdatingLocationMode to Background Significant %i", [CLLocationManager significantLocationChangeMonitoringAvailable ]);
-            //  [self.locationManager stopUpdatingLocation];
+              [self.locationManager stopUpdatingLocation];
             [self.locationManager startMonitoringSignificantLocationChanges];
         }
     }

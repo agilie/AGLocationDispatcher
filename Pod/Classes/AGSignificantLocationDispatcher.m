@@ -6,10 +6,10 @@
 //
 //
 
-#import "AGSignificantLocationDispatch.h"
+#import "AGSignificantLocationDispatcher.h"
 
 
-@interface AGSignificantLocationDispatch ()
+@interface AGSignificantLocationDispatcher ()
 
 @property (copy) LDSignificationLocationASynchronousUpdateBlock asyncUpdateBlock;
 @property (copy) LDSignificationLocationASynchronousEndUpdateBlock endUpdateBlock;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation AGSignificantLocationDispatch
+@implementation AGSignificantLocationDispatcher
 
 
 - (instancetype)initWithASynchronousLocationUpdateBlock:(LDSignificationLocationASynchronousUpdateBlock)updateBlock {
