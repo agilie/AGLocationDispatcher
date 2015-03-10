@@ -82,4 +82,18 @@ typedef enum {
             AGLocationStatusError
 } AGLocationStatus;
 
+typedef enum {
+    // These statuses will accompany a valid location.
+    /** Always active location, 10 min. in background OR always active  (Need key in plist file.) */
+    AGLocationBackgroundModeDefault = 0,
+    /** Stop location on background */
+    AGLocationBackgroundModeForegroundOnly,
+    /** Active location on foreground and attemp to start SignificantLocation on backround need (Need key in plist file AND AppDelegate modification) */
+    AGLocationBackgroundModeSignificantLocationChanges
+    
+    /** Not implemented! */
+    //AGLocationBackgroundModeThreaded,
+    
+} AGLocationBackgroundMode;
+
 #endif

@@ -7,7 +7,6 @@
 //
 
 #import "AGLocationDispatcher.h"
-#import "AGDispatcherDefines.h"
 #import "gps.h"
 
 @interface AGLocationDispatcher ()
@@ -21,6 +20,8 @@
 @property (assign, nonatomic) BOOL isUpdatingUserLocation;
 @property (assign, nonatomic) KalmanFilter kalmanFilter;
 @property (strong, nonatomic) NSDate *lastPointDate;
+
+@property (assign, nonatomic) BOOL needRestartLocationAfterForegroud;
 
 // Used one-off for authorization requests
 @property (strong, nonatomic) NSMutableArray *userAuthorizationRequests;
@@ -40,6 +41,16 @@
     self = [super init];
     if (self) {
         self = [self initWithUpdatingInterval:kAGLocationUpdateIntervalOneMinute andDesiredAccuracy:kAGHorizontalAccuracyBlock];
+        
+        self.locationUpdateBackgroundMode = AGLocationBackgroundModeSignificantLocationChanges;
+        
+        
+        [[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
+                                                     name: @"locationDispatchDidChangeAppBackgroundMode"
+                                                   object: nil];
+        
+        self.needRestartLocationAfterForegroud = NO;
     }
     return self;
 }
@@ -58,6 +69,7 @@
                 [self requestUserLocationWhenInUse];
             }
         }
+        
     }
     return self;
 }
@@ -82,6 +94,48 @@
     _isUpdatingUserLocation = NO;
     if (_locationManager) {
         [self.locationManager stopUpdatingLocation];
+    }
+}
+
+- (void)locationDispatchDidChangeAppBackgroundMode:(NSNotification *) notification{
+    
+    BOOL currentAppIsActive =  [[UIApplication sharedApplication] applicationState] ? UIApplicationStateActive : YES;
+    
+    // self.locationUpdateBackgroundMode == LDLocationBackgroundModeDefault
+    // dont need add any additional behavior
+    
+    if(self.locationUpdateBackgroundMode == AGLocationBackgroundModeForegroundOnly){
+        if(currentAppIsActive){
+            if( self.needRestartLocationAfterForegroud ){
+                [self startUpdatingLocation];
+            }
+        } else {
+            if(_isUpdatingUserLocation){
+                self.needRestartLocationAfterForegroud = YES;
+                [self stopUpdatingLocation];
+            }
+        }
+    }
+    
+    if(self.locationUpdateBackgroundMode == AGLocationBackgroundModeSignificantLocationChanges){
+        
+        BOOL applicationWillBeTerminate = NO;
+        
+        if ([notification.object isKindOfClass:[NSDictionary class]])
+        {
+            NSDictionary * infoObject = notification.object;
+            applicationWillBeTerminate = [[infoObject objectForKey:@"applicationWillBeTerminate"] boolValue];
+            
+        } else {
+            NSLog(@"Setup notification center in AppDelegate file!");
+            return;
+        }
+        
+        if (applicationWillBeTerminate) {
+            NSLog(@"UpdatingLocationMode to Background Significant %i", [CLLocationManager significantLocationChangeMonitoringAvailable ]);
+            //  [self.locationManager stopUpdatingLocation];
+            [self.locationManager startMonitoringSignificantLocationChanges];
+        }
     }
 }
 

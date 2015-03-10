@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "AGDispatcherDefines.h"
 #import "AGLocation.h"
 
 @protocol AGLocationServiceDelegate<NSObject>
@@ -31,6 +32,7 @@ typedef void(^AGLocationServiceLocationUpdateFailBlock)(CLLocationManager *manag
 @property (strong, nonatomic) AGLocation *location;
 @property (assign, nonatomic) NSTimeInterval locationUpdateInterval;
 @property (assign, nonatomic) BOOL locationObtained;
+@property (assign, nonatomic) AGLocationBackgroundMode locationUpdateBackgroundMode;
 
 // Used for continuous updates of authorization requests
 @property (copy) AGLocationServiceAuthorizationStatusChangeBlock userAuthorizationStatusChangeBlock;
