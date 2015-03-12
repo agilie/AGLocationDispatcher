@@ -9,6 +9,9 @@
 #import "AGLocationDispatcher.h"
 #import "gps.h"
 
+static NSString *const kAppWillTerminateKey = @"applicationWillBeTerminate";
+static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidChangeAppBackgroundMode";
+
 @interface AGLocationDispatcher ()
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -47,7 +50,7 @@
         
         [[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
-                                                     name: @"AGLocationDispatchDidChangeAppBackgroundMode"
+                                                     name: kDidChangeAppBackgroundModeKey
                                                    object: nil];
         
         self.needRestartLocationAfterForegroud = NO;
@@ -124,7 +127,7 @@
         if ([notification.object isKindOfClass:[NSDictionary class]])
         {
             NSDictionary * infoObject = notification.object;
-            applicationWillBeTerminate = [[infoObject objectForKey:@"applicationWillBeTerminate"] boolValue];
+            applicationWillBeTerminate = [[infoObject objectForKey:kAppWillTerminateKey] boolValue];
             
         } else {
             NSLog(@"Setup notification center in AppDelegate file!");
