@@ -9,6 +9,9 @@
 #import "AGLocationDispatcher.h"
 #import "gps.h"
 
+static NSString *const kAppWillTerminateKey = @"applicationWillBeTerminate";
+static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidChangeAppBackgroundMode";
+
 @interface AGLocationDispatcher ()
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
