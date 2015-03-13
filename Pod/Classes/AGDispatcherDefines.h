@@ -89,10 +89,9 @@ typedef enum {
     /** Stop location on background */
     AGLocationBackgroundModeForegroundOnly,
     /** Active location on foreground and attemp to start SignificantLocation on backround need (Need key in plist file AND AppDelegate modification) */
-    AGLocationBackgroundModeSignificantLocationChanges
-    
+    AGLocationBackgroundModeSignificantLocationChanges,
     /** Not implemented! */
-    //AGLocationBackgroundModeThreaded,
+    AGLocationBackgroundModeFetch
     
 } AGLocationBackgroundMode;
 

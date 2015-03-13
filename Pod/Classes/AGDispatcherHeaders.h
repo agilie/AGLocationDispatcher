@@ -30,7 +30,7 @@
 // dispatchs
 
 #import "AGLocationDispatcher.h"
-#import "AGSignificantLocationDispatcher.h"
+#import "AGBackgroundLocationDispatcher.h"
 #import "AGGeoDispatcher.h"
 #import "AGRouteDispatcher.h"
 #import "AGRegionDispatcher.h"

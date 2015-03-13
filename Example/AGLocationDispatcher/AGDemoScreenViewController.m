@@ -88,8 +88,10 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
         }
 
         self.lastPoint = newLocation;
-    }                                               errorBlock:^(CLLocationManager *manager, NSError *error) {
-        NSLog(@"Fail");
+    }
+    
+    errorBlock:^(CLLocationManager *manager, NSError *error) {
+        NSLog(@"Fail start Tracking %@", error);
     }];
 }
 

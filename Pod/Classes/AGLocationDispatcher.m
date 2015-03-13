@@ -47,8 +47,19 @@
         
         [[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
-                                                     name: @"AGLocationDispatchDidChangeAppBackgroundMode"
-                                                   object: nil];
+                                                     name: UIApplicationDidEnterBackgroundNotification
+                                                   object: nil ];
+        
+        [[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
+                                                     name: UIApplicationDidBecomeActiveNotification
+                                                   object: nil ];
+        
+        [[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
+                                                     name: UIApplicationWillTerminateNotification
+                                                   object: nil ];
+
         
         self.needRestartLocationAfterForegroud = NO;
     }
@@ -104,6 +115,12 @@
     // self.locationUpdateBackgroundMode == LDLocationBackgroundModeDefault
     // dont need add any additional behavior
     
+    BOOL applicationWillBeTerminate = NO;
+    
+    if([notification.name isEqualToString: UIApplicationWillTerminateNotification]){
+        applicationWillBeTerminate = YES;
+    }
+    
     if(self.locationUpdateBackgroundMode == AGLocationBackgroundModeForegroundOnly){
         if(currentAppIsActive){
             if( self.needRestartLocationAfterForegroud ){
@@ -118,26 +135,62 @@
     }
     
     if(self.locationUpdateBackgroundMode == AGLocationBackgroundModeSignificantLocationChanges){
-        
-        BOOL applicationWillBeTerminate = NO;
-        
-        if ([notification.object isKindOfClass:[NSDictionary class]])
-        {
-            NSDictionary * infoObject = notification.object;
-            applicationWillBeTerminate = [[infoObject objectForKey:@"applicationWillBeTerminate"] boolValue];
-            
-        } else {
-            NSLog(@"Setup notification center in AppDelegate file!");
-            return;
-        }
-        
+
         if (applicationWillBeTerminate) {
             NSLog(@"UpdatingLocationMode to Background Significant %i", [CLLocationManager significantLocationChangeMonitoringAvailable ]);
-              [self.locationManager stopUpdatingLocation];
+            
+            if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])
+            {
+                [self.locationManager requestAlwaysAuthorization];
+            }
+            
+            [self.locationManager stopUpdatingLocation];
             [self.locationManager startMonitoringSignificantLocationChanges];
+            
+        }
+        
+        
+        [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    }
+    
+    if(self.locationUpdateBackgroundMode == AGLocationBackgroundModeFetch){
+      
+        if(currentAppIsActive==NO && _isUpdatingUserLocation==YES){
+            [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+        }
+        
+        if(currentAppIsActive==YES){
+            [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
         }
     }
+       
+    
+    
 }
+
+
+- (BOOL) checkIOS8BackgroundModeTask {
+    
+    //We have to make sure that the Background app Refresh is enabled for the Location updates to work in the background.
+    if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied)
+    {
+        // The user explicitly disabled the background services for this app or for the whole system.
+        NSLog(@"The app doesn't work without the Background app Refresh enabled. To turn it on, go to Settings > General > Background app Refresh");
+        return NO;
+    }
+    else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted)
+    {
+        // Background services are disabled and the user cannot turn them on.
+        // May occur when the device is restricted under parental control.
+        NSLog(@"The functions of this app are limited because the Background app Refresh is disable.");
+        return NO;
+    }
+    
+    NSLog(@"App work with Background app Refresh enabled.");
+    return YES;
+}
+
+
 
 - (void)currentLocationWithBlock:(AGLocationServiceLocationUpdateBlock)block errorBlock:(AGLocationServiceLocationUpdateFailBlock)errorBlock {
     _isFetchLocationOnce = YES;
@@ -223,6 +276,8 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
+    
     CLLocation *previousLocation = nil;
     if (locations.count > 1) {
         previousLocation = [locations objectAtIndex:locations.count - 2];
