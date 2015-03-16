@@ -46,7 +46,7 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
         self = [self initWithUpdatingInterval:kAGLocationUpdateIntervalOneMinute andDesiredAccuracy:kAGHorizontalAccuracyBlock];
         
         self.locationUpdateBackgroundMode = AGLocationBackgroundModeSignificantLocationChanges;
-        
+        //default background location mode
         
         [[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
@@ -115,8 +115,6 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
     
     BOOL currentAppIsActive =  [[UIApplication sharedApplication] applicationState] ? UIApplicationStateActive : YES;
     
-    // self.locationUpdateBackgroundMode == LDLocationBackgroundModeDefault
-    // dont need add any additional behavior
     
     BOOL applicationWillBeTerminate = NO;
     
@@ -139,58 +137,35 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
     
     if(self.locationUpdateBackgroundMode == AGLocationBackgroundModeSignificantLocationChanges){
 
+        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])
+        {
+            [self.locationManager requestAlwaysAuthorization];
+        }
+        
         if (applicationWillBeTerminate) {
-            NSLog(@"UpdatingLocationMode to Background Significant %i", [CLLocationManager significantLocationChangeMonitoringAvailable ]);
+            NSLog(@"Updating LocationMode to Background Significant %i", [CLLocationManager significantLocationChangeMonitoringAvailable ]);
             
-            if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)])
-            {
-                [self.locationManager requestAlwaysAuthorization];
+            if(_isUpdatingUserLocation){
+                [self.locationManager stopUpdatingLocation];
+                [self.locationManager startMonitoringSignificantLocationChanges];
             }
-            
-            [self.locationManager stopUpdatingLocation];
-            [self.locationManager startMonitoringSignificantLocationChanges];
-            
         }
         
         
-        [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+        [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval: UIApplicationBackgroundFetchIntervalMinimum];
     }
     
     if(self.locationUpdateBackgroundMode == AGLocationBackgroundModeFetch){
       
-        if(currentAppIsActive==NO && _isUpdatingUserLocation==YES){
+        if(currentAppIsActive == NO && _isUpdatingUserLocation == YES){
             [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
         }
         
-        if(currentAppIsActive==YES){
+        if(currentAppIsActive == YES){
             [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalNever];
         }
     }
-       
     
-    
-}
-
-
-- (BOOL) checkIOS8BackgroundModeTask {
-    
-    //We have to make sure that the Background app Refresh is enabled for the Location updates to work in the background.
-    if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied)
-    {
-        // The user explicitly disabled the background services for this app or for the whole system.
-        NSLog(@"The app doesn't work without the Background app Refresh enabled. To turn it on, go to Settings > General > Background app Refresh");
-        return NO;
-    }
-    else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted)
-    {
-        // Background services are disabled and the user cannot turn them on.
-        // May occur when the device is restricted under parental control.
-        NSLog(@"The functions of this app are limited because the Background app Refresh is disable.");
-        return NO;
-    }
-    
-    NSLog(@"App work with Background app Refresh enabled.");
-    return YES;
 }
 
 

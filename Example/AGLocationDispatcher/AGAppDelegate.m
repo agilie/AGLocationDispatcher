@@ -14,7 +14,6 @@
 #import "AGDispatcherHeaders.h"
 
 static NSString *const kAppWillTerminateKey = @"applicationWillBeTerminate";
-static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidChangeAppBackgroundMode";
 
 @interface AGAppDelegate ()
 
@@ -51,6 +50,7 @@ __strong id lockObject;
         [self.window makeKeyAndVisible];
     
     }
+    
     return YES;
 }
 
