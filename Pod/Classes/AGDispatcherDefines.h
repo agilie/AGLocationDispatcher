@@ -83,14 +83,14 @@ typedef enum {
 } AGLocationStatus;
 
 typedef enum {
-    // These statuses will accompany a valid location.
+    // These modes of background location.
     /** Always active location, 10 min. in background OR always active  (Need key in plist file.) */
     AGLocationBackgroundModeDefault = 0,
     /** Stop location on background */
     AGLocationBackgroundModeForegroundOnly,
-    /** Active location on foreground and attemp to start SignificantLocation on backround need (Need key in plist file AND AppDelegate modification) */
+    /** Active location on foreground and attemp to start SignificantLocation on backround need (Need key in plist file AND AppDelegate didFinishLaunchingWithOptions code) */
     AGLocationBackgroundModeSignificantLocationChanges,
-    /** Not implemented! */
+     /** Active location on foreground and attemp to use backround fetch to get location  (Need background-mode key in plist file AND AppDelegate fetch code) */
     AGLocationBackgroundModeFetch
     
 } AGLocationBackgroundMode;
