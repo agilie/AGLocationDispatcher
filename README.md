@@ -1,6 +1,6 @@
 # AGLocationDispatcher
 
-Dispatcher provides easy-to-use access to iOS device location/tracking/etc. It wraps CoreLocation with convenient well customized interface. Dispatcher's classes for tracking current user location, direct and reverse geocoding , tracking enter/exit region, logging user route and speed.
+Dispatcher provides easy-to-use access to iOS device location/background location/tracking/etc. It wraps CoreLocation with convenient well customized interface. Dispatcher's classes for tracking current user location, direct and reverse geocoding , tracking enter/exit region, logging user route and speed.
 
 [![CI Status](http://img.shields.io/travis/ideas-world/AGLocationDispatcher.svg?style=flat)](https://travis-ci.org/ideas-world/AGLocationDispatcher)
 [![Version](https://img.shields.io/cocoapods/v/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
@@ -51,6 +51,56 @@ Add your controller's instance to AGLocationDispatch or AGRouteDispatch delegate
 run method
 
 [self.routeDispatch startUpdatingLocation]
+
+# Background Tracking user location
+
+AGLocationDispatcher allows several methods of background location, depends of application info plist configuratons and locationUpdateBackgroundMode setting (default is AGLocationBackgroundModeSignificantLocationChanges mode)
+When application is suspended or terminated you need use spectial background location wrapper: AGBackgroundLocationDispatcher  (see example AppDelegate methods)
+
+Background location modes:
+
+- No background location mode: When app go to backgroud location updated will stop. After app did become active location updating will be activated again.
+Set locationUpdateBackgroundMode property (AGLocationDispatcher object) to AGLocationBackgroundModeForegroundOnly state;
+
+- Always actiwe: required UIBackgroundModes "location" key, application never suspend, location accuracy and battery rate will be maximum, no need additional code.
+Set locationUpdateBackgroundMode property (AGLocationDispatcher object) to any state except AGLocationBackgroundModeForegroundOnly;
+
+
+- Significant location mode: Work when app is terminated/suspended, provide GPS-level accuracy (over 500 metters positon change) and very low-energy location updating. Required UIBackgroundModes "location" key and implementin special handler(based on AGBackgroundLocationDispatcher wrapper) in app delegate code (see example appDelegate method didFinishLaunchingWithOptions). 
+Set locationUpdateBackgroundMode property (AGLocationDispatcher object) to AGLocationBackgroundModeSignificantLocationChanges state;
+
+
+- Fetch based location mode: Work when app is suspended, provide normall accuracy and very middle-energy location updating, but activated when device is unblock/activate. Required UIBackgroundModes "fetch" key and implementin special handler(based on AGBackgroundLocationDispatcher wrapper) in app delegate code (see example appDelegate method performFetchWithCompletionHandler). 
+Set locationUpdateBackgroundMode property (AGLocationDispatcher object) to AGLocationBackgroundModeFetch state;
+
+
+AGBackgroundLocationDispatcher code runs when app is NOT active, you default apps object amd UI will NOT exist. AGBackgroundLocationDispatcher code must store location locally (in file, coredata etc), send it to server side or create UILocalNotification (for start the app in normal mode).  AGBackgroundLocationDispatcher code will be terminated by system after 10s~30s after active running.
+
+AGBackgroundLocationDispatcher wrapper provide init method with block for you background code and callback block, you need call that block when you location task will complete. 
+
+Example AGBackgroundLocationDispatcher code:
+
+[[AGBackgroundLocationDispatcher alloc] initWithASynchronousLocationUpdateBlock:^(AGLocation *newLocation, LDSignificationLocationASynchronousEndUpdateBlock updateCompletionBlock) {
+
+    NSString *string = [NSString stringWithFormat:@"example.com?location=%@",  [newLocation description] ];
+    NSURL *url = [NSURL URLWithString:string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest: request];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        updateCompletionBlock(); //data send successfully
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        updateCompletionBlock(); //data dont send 
+
+    }];
+
+    [operation start];
+
+}];
 
 # Use geocoding
 

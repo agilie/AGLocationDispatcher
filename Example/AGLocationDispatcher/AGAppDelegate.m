@@ -13,7 +13,6 @@
 
 #import "AGDispatcherHeaders.h"
 
-static NSString *const kAppWillTerminateKey = @"applicationWillBeTerminate";
 
 @interface AGAppDelegate ()
 
