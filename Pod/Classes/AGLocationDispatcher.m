@@ -143,14 +143,14 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
         }
         
         if (applicationWillBeTerminate) {
-            NSLog(@"Updating LocationMode to Background Significant %i", [CLLocationManager significantLocationChangeMonitoringAvailable ]);
             
             if(_isUpdatingUserLocation){
                 [self.locationManager stopUpdatingLocation];
                 [self.locationManager startMonitoringSignificantLocationChanges];
+                
+                 NSLog(@"Updating LocationMode to Background Significant %i", [CLLocationManager significantLocationChangeMonitoringAvailable ]);
             }
         }
-        
         
         [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval: UIApplicationBackgroundFetchIntervalMinimum];
     }
