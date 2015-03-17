@@ -384,27 +384,7 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
 
 // Returns the associated horizontal accuracy threshold (in meters) for the location request's desired accuracy level.
 - (CLLocationAccuracy)horizontalAccuracyThreshold {
-    switch (self.desiredAccuracy) {
-        case AGLocationAccuracyRoom:
-            return kAGHorizontalAccuracyRoom;
-            break;
-        case AGLocationAccuracyHouse:
-            return kAGHorizontalAccuracyHouse;
-            break;
-        case AGLocationAccuracyBlock:
-            return kAGHorizontalAccuracyBlock;
-            break;
-        case AGLocationAccuracyNeighborhood:
-            return kAGHorizontalAccuracyNeighborhood;
-            break;
-        case AGLocationAccuracyCity:
-            return kAGHorizontalAccuracyCity;
-            break;
-        default:
-            NSAssert(NO, @"Unknown desired accuracy.");
-            return 0.0;
-            break;
-    }
+    return self.desiredAccuracy;
 }
 
 - (void)checkBundleInfoFor:(NSString *)key {
