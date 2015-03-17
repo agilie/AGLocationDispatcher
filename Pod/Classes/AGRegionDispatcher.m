@@ -1,5 +1,5 @@
 //
-//  AGRegionMonitorDispatch.m
+//  AGRegionDispatcher.m
 //  Pods
 //
 //  Created by Vermillion on 19.02.15.

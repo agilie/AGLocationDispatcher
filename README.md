@@ -21,7 +21,7 @@ Make sure you added this key in the right .plist file (common mistake is enterin
 
 # Tracking user location
 
-To start tracking location, initialize AGLocationDispatch or AGRouteDispatch with default init for standart setup  
+To start tracking location, initialize AGLocationDispatcher or AGRouteDispatcher with default init for standart setup  
 (default updating interval - 1 min, horizontal accuracy - 100 meters)
 
 also you can customize service with following initializer -
@@ -30,27 +30,25 @@ initWithUpdatingInterval: andDesiredAccuracy:
 
 Example:
 
-AGRouteDispatch *routeDisptch = [AGRouteDispatch initWithUpdatingInterval:kDefaultLocationTimeIntervalUpdateOneMinute andDesiredAccuracy:kAGHorizontalAccuracyThresholdBlock]
+AGRouteDispatcher *routeDisptcher = [AGRouteDispatcher initWithUpdatingInterval:kDefaultLocationTimeIntervalUpdateOneMinute andDesiredAccuracy:kAGHorizontalAccuracyThresholdBlock]
 
 At viewcontroller's module, you can use this methods with blocks:
 
 - (void)startUpdatingLocationWithBlock: errorBlock:
 - (void)startUpdatingLocationAndSpeedWithBlock: errorBlock:
+- (void)requestUserLocationWhenInUseWithBlock:
+- (void)requestUserLocationAlwaysWithBlock:
+- (void)currentLocationWithBlock: errorBlock:
 
-or implement this AGLocationServiceDelegate methods:
+inits and getters:
 
-- (void)didUpdateUserLocation:
-- (void)didUpdateUserLocation: speed:
-- (void)didChangeUserAuthorizationStatus:
-- (void)didFailWithError:
++ (BOOL)locationServicesEnabled;
++ (BOOL)significantLocationChangeMonitoringAvailable;
 
-Add your controller's instance to AGLocationDispatch or AGRouteDispatch delegates
-
-[self.routeDispatch addDelegate:self]
-
-run method
-
-[self.routeDispatch startUpdatingLocation]
+- (instancetype)init;
+- (instancetype)initWithUpdatingInterval:(NSTimeInterval)interval andDesiredAccuracy:(CLLocationAccuracy)horizontalAccuracy;
+- (CLLocationManager *)locationManager;
+- (CLLocationAccuracy)horizontalAccuracyThreshold;
 
 # Background Tracking user location
 
@@ -65,14 +63,11 @@ Set locationUpdateBackgroundMode property (AGLocationDispatcher object) to AGLoc
 - Always actiwe: required UIBackgroundModes "location" key, application never suspend, location accuracy and battery rate will be maximum, no need additional code.
 Set locationUpdateBackgroundMode property (AGLocationDispatcher object) to any state except AGLocationBackgroundModeForegroundOnly;
 
-
 - Significant location mode: Work when app is terminated/suspended, provide GPS-level accuracy (over 500 metters positon change) and very low-energy location updating. Required UIBackgroundModes "location" key and implementin special handler(based on AGBackgroundLocationDispatcher wrapper) in app delegate code (see example appDelegate method didFinishLaunchingWithOptions). 
 Set locationUpdateBackgroundMode property (AGLocationDispatcher object) to AGLocationBackgroundModeSignificantLocationChanges state;
 
-
 - Fetch based location mode: Work when app is suspended, provide normall accuracy and very middle-energy location updating, but activated when device is unblock/activate. Required UIBackgroundModes "fetch" key and implementin special handler(based on AGBackgroundLocationDispatcher wrapper) in app delegate code (see example appDelegate method performFetchWithCompletionHandler). 
 Set locationUpdateBackgroundMode property (AGLocationDispatcher object) to AGLocationBackgroundModeFetch state;
-
 
 AGBackgroundLocationDispatcher code runs when app is NOT active, you default apps object amd UI will NOT exist. AGBackgroundLocationDispatcher code must store location locally (in file, coredata etc), send it to server side or create UILocalNotification (for start the app in normal mode).  AGBackgroundLocationDispatcher code will be terminated by system after 10s~30s after active running.
 
@@ -108,7 +103,7 @@ Use AGGeoDispatcher class for direct and reverse geocoding.
 
 Just initialize AGGeoDispatcher class
 
-AGGeoDispatcher *geoDispatch = [[AGGeoDispatcher alloc] init]
+AGGeoDispatcher *geoDispatcher = [[AGGeoDispatcher alloc] init]
 
 implement following methods:
 
@@ -121,11 +116,21 @@ To choose geocode provider (Apple, Google, Yandex) use following method:
 
 # Manage your route
 
-AGRouteDispatch class provide save/load AGRoute data in local storage.
+AGRouteDispatcher class provide save/load AGRoute data in local storage with methods:
 
-# Regions (under development)
+- (AGRoute *)loadRouteWithName:
+- (void)saveRoute: name:
+- (void)deleteDocWithName:
 
-AGRegionMonitorDispatch class used for monitoring when enter/exit region.
+# Regions Dispatcher
+
+AGRegionDispatcher class used for monitoring enter/exit some region. Use this block methods for monitoring:
+
+- (void)addCoordinateForMonitoring: updateBlock: failBlock:
+- (void)addCoordinateForMonitoring: withRadius: desiredAccuracy: updateBlock: failBlock:
+- (void)addRegionForMonitoring: desiredAccuracy: updateBlock: failBlock:
+- (void)stopMonitoringForRegion:
+- (void)stopMonitoringAllRegions
 
 ## Requirements
 
