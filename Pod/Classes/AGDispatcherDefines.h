@@ -95,4 +95,10 @@ typedef enum {
     
 } AGLocationBackgroundMode;
 
+#ifdef ISAGLOGGINGON
+#   define AGLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#   define AGLog(...)
+#endif
+
 #endif

@@ -7,6 +7,7 @@
 //
 
 #import "AGGeocodeBaseProvider.h"
+#import "AGDispatcherDefines.h"
 
 @implementation AGGeocodeBaseProvider
 
@@ -35,10 +36,10 @@
 
     [manager GET:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         requestBlock(responseObject, nil);
-        NSLog(@"JSON: %@", responseObject);
+        AGLog(@"JSON: %@", responseObject);
     }    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         requestBlock(nil, error);
-        NSLog(@"Error: %@", error);
+        AGLog(@"Error: %@", error);
     }];
 
 };

@@ -7,7 +7,7 @@
 //
 
 #import "AGBackgroundLocationDispatcher.h"
-
+#import "AGDispatcherDefines.h"
 
 @interface AGBackgroundLocationDispatcher ()
 
@@ -61,12 +61,12 @@ NSTimer *iAmLiveTimer;
 }
 
 -(void) iAmLiveTimerMethod{
-     NSLog(@"AGSignificantLocationDispatcher are live");
+     AGLog(@"AGSignificantLocationDispatcher are live");
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
 
-     NSLog(@"AGSignificantLocationDispatcher location fails with error: %@", error);
+     AGLog(@"AGSignificantLocationDispatcher location fails with error: %@", error);
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
@@ -98,7 +98,7 @@ NSTimer *iAmLiveTimer;
 
 - (void)dealloc{
     [self endBackgroundTask];
-    NSLog(@"AGSignificantLocationDispatcher are die");
+    AGLog(@"AGSignificantLocationDispatcher are die");
 }
 
 @end

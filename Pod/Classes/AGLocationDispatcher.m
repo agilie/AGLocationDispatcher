@@ -148,7 +148,7 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
                 [self.locationManager stopUpdatingLocation];
                 [self.locationManager startMonitoringSignificantLocationChanges];
                 
-                 NSLog(@"Updating LocationMode to Background Significant %i", [CLLocationManager significantLocationChangeMonitoringAvailable ]);
+                 AGLog(@"Updating LocationMode to Background Significant %i", [CLLocationManager significantLocationChangeMonitoringAvailable ]);
             }
         }
         
@@ -390,7 +390,7 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
 - (void)checkBundleInfoFor:(NSString *)key {
     NSDictionary *const infoPlist = [[NSBundle mainBundle] infoDictionary];
     if (![infoPlist objectForKey:key]) {
-        NSLog(kAlertAuthorizationMsg, key, key);
+//        AGLog(kAlertAuthorizationMsg, key, key);
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:[NSString stringWithFormat:kAlertAuthorizationMsg, key, key] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }

@@ -51,7 +51,7 @@
     NSError *error;
     BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:internalDocPath withIntermediateDirectories:YES attributes:nil error:&error];
     if (!success) {
-        NSLog(@"Error creating data path: %@", [error localizedDescription]);
+        AGLog(@"Error creating data path: %@", [error localizedDescription]);
     }
     return success;
 
@@ -112,7 +112,7 @@
     }
     BOOL success = [[NSFileManager defaultManager] removeItemAtPath:internalDocPath error:&error];
     if (!success) {
-        NSLog(@"Error removing document path: %@", error.localizedDescription);
+        AGLog(@"Error removing document path: %@", error.localizedDescription);
     }
 }
 
@@ -126,7 +126,7 @@
         NSError *error;
         NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:&error];
         if (files == nil) {
-            NSLog(@"Error reading contents of documents directory: %@", [error localizedDescription]);
+            AGLog(@"Error reading contents of documents directory: %@", [error localizedDescription]);
             return nil;
         }
 
