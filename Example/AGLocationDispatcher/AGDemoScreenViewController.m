@@ -9,7 +9,7 @@
 #import "AGDemoScreenViewController.h"
 #import <MapKit/MapKit.h>
 #import <MapKit/MKGeodesicPolyline.h>
-#import "LDDispatchHeaders.h"
+#import "AGDemoScreenViewController.h"
 
 static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 
@@ -89,8 +89,11 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
         }
 
         self.lastPoint = newLocation;
-    }                                               errorBlock:^(CLLocationManager *manager, NSError *error) {
+    }
+    
+    errorBlock:^(CLLocationManager *manager, NSError *error) {
         [self displayDemoError:error];
+        NSLog(@"Fail start Tracking %@", error);
     }];
 }
 
