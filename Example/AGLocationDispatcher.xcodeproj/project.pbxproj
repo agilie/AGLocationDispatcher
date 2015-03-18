@@ -15,6 +15,8 @@
 		6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6003F59F195388D20070C39A /* Main_iPhone.storyboard */; };
 		6003F5A4195388D20070C39A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A2195388D20070C39A /* Main_iPad.storyboard */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
+		6CF0F6FE1AB81E08001B4D8A /* AGRegionTrackingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF0F6FC1AB81E08001B4D8A /* AGRegionTrackingViewController.m */; };
+		6CF0F6FF1AB81E08001B4D8A /* AGRegionTrackingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CF0F6FD1AB81E08001B4D8A /* AGRegionTrackingViewController.xib */; };
 		80302A011A93BF3D00599504 /* AGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80302A001A93BF3D00599504 /* AGAppDelegate.m */; };
 		80302A0E1A93BFC300599504 /* AGDemoScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80302A031A93BFC300599504 /* AGDemoScreenViewController.m */; };
 		80302A0F1A93BFC300599504 /* AGDemoScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80302A041A93BFC300599504 /* AGDemoScreenViewController.xib */; };
@@ -48,13 +50,16 @@
 		6003F5A3195388D20070C39A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6CF0F6FB1AB81E08001B4D8A /* AGRegionTrackingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGRegionTrackingViewController.h; sourceTree = "<group>"; };
+		6CF0F6FC1AB81E08001B4D8A /* AGRegionTrackingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGRegionTrackingViewController.m; sourceTree = "<group>"; };
+		6CF0F6FD1AB81E08001B4D8A /* AGRegionTrackingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGRegionTrackingViewController.xib; sourceTree = "<group>"; };
 		803029FF1A93BF3D00599504 /* AGAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGAppDelegate.h; sourceTree = "<group>"; };
 		80302A001A93BF3D00599504 /* AGAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGAppDelegate.m; sourceTree = "<group>"; };
 		80302A021A93BFC300599504 /* AGDemoScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AGDemoScreenViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		80302A031A93BFC300599504 /* AGDemoScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AGDemoScreenViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		80302A041A93BFC300599504 /* AGDemoScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGDemoScreenViewController.xib; sourceTree = "<group>"; };
 		80302A051A93BFC300599504 /* AGGeocodeDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGGeocodeDemoViewController.h; sourceTree = "<group>"; };
-		80302A061A93BFC300599504 /* AGGeocodeDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGGeocodeDemoViewController.m; sourceTree = "<group>"; };
+		80302A061A93BFC300599504 /* AGGeocodeDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AGGeocodeDemoViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		80302A071A93BFC300599504 /* AGGeocodeDemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AGGeocodeDemoViewController.xib; sourceTree = "<group>"; };
 		80302A081A93BFC300599504 /* AGMainDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGMainDemoViewController.h; sourceTree = "<group>"; };
 		80302A091A93BFC300599504 /* AGMainDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGMainDemoViewController.m; sourceTree = "<group>"; };
@@ -137,6 +142,9 @@
 				80302A0B1A93BFC300599504 /* AGRetrieveLocationDemoViewController.h */,
 				80302A0C1A93BFC300599504 /* AGRetrieveLocationDemoViewController.m */,
 				80302A0D1A93BFC300599504 /* AGRetrieveLocationDemoViewController.xib */,
+				6CF0F6FB1AB81E08001B4D8A /* AGRegionTrackingViewController.h */,
+				6CF0F6FC1AB81E08001B4D8A /* AGRegionTrackingViewController.m */,
+				6CF0F6FD1AB81E08001B4D8A /* AGRegionTrackingViewController.xib */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
 				6003F5A2195388D20070C39A /* Main_iPad.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -254,6 +262,7 @@
 				80302A231A93C23800599504 /* start@2x.png in Resources */,
 				80302A151A93BFC300599504 /* AGRetrieveLocationDemoViewController.xib in Resources */,
 				80302A111A93BFC300599504 /* AGGeocodeDemoViewController.xib in Resources */,
+				6CF0F6FF1AB81E08001B4D8A /* AGRegionTrackingViewController.xib in Resources */,
 				80302A131A93BFC300599504 /* AGMainDemoViewController.xib in Resources */,
 				80302A201A93C23800599504 /* finish@2x.png in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -302,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80302A141A93BFC300599504 /* AGRetrieveLocationDemoViewController.m in Sources */,
+				6CF0F6FE1AB81E08001B4D8A /* AGRegionTrackingViewController.m in Sources */,
 				80302A011A93BF3D00599504 /* AGAppDelegate.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				80302A121A93BFC300599504 /* AGMainDemoViewController.m in Sources */,

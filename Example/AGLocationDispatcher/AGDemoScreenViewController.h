@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
-#import <LDDispatchHeaders.h>
+#import "AGDispatcherHeaders.h"
 
 @interface AGDemoScreenViewController : UIViewController <LDLocationServiceDelegate>
 

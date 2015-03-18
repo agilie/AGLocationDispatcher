@@ -12,7 +12,7 @@
 
 @interface AGGeocodeDemoViewController ()
 
-@property (strong, nonatomic) LDGeoLocationDispatch *demoLocationService;
+@property (strong, nonatomic) AGGeoDispatcher *demoLocationService;
 
 @end
 
@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view from its nib.
 
     [self setTitle:@"Geocode demo"];
-    self.demoLocationService = [[LDGeoLocationDispatch alloc] init];
+    self.demoLocationService = [[AGGeoDispatcher alloc] init];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -85,22 +85,22 @@ id temp;
             switch (buttonIndex) {
                 case 0:
 
-                    [self.demoLocationService setGeocoderProvider:[[LDGeocodeYandexProvider alloc] init]];
+                    [self.demoLocationService setGeocoderProvider:[[AGGeocodeYandexProvider alloc] init]];
 
                     break;
                 case 1:
 
-                    [self.demoLocationService setGeocoderProvider:[[LDGeocodeGoogleProvider alloc] init]];
+                    [self.demoLocationService setGeocoderProvider:[[AGGeocodeGoogleProvider alloc] init]];
 
                     break;
                 case 2:
 
-                    [self.demoLocationService setGeocoderProvider:[[LDGeocodeAppleProvider alloc] init]];
+                    [self.demoLocationService setGeocoderProvider:[[AGGeocodeAppleProvider alloc] init]];
 
                     break;
                 case 3:
 
-                    [self.demoLocationService setGeocoderProvider:[[LDGeocodeYandexProvider alloc] init] withApiKey:nil andISOLanguageAndRegionCode:@"uk_UA"];
+                    [self.demoLocationService setGeocoderProvider:[[AGGeocodeYandexProvider alloc] init] withApiKey:nil andISOLanguageAndRegionCode:@"uk_UA"];
 
                     break;
                 default:

@@ -10,6 +10,7 @@
 #import "AGDemoScreenViewController.h"
 #import "AGGeocodeDemoViewController.h"
 #import "AGRetrieveLocationDemoViewController.h"
+#import "AGRegionTrackingViewController.h"
 
 @interface AGMainDemoViewController ()
 
@@ -33,6 +34,10 @@
 
 - (IBAction)storeDataButtonPressed:(id)sender {
     [self.navigationController pushViewController:[AGRetrieveLocationDemoViewController new] animated:YES];
+}
+
+- (IBAction)regionDispatchDemoButtonPressed:(id)sender {
+    [self.navigationController pushViewController:[AGRegionTrackingViewController new] animated:YES];
 }
 
 @end

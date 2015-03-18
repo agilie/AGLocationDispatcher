@@ -9,19 +9,72 @@
 #import "AGAppDelegate.h"
 #import "AGMainDemoViewController.h"
 
+#import "AGMainDemoViewController.h"
+
+#import "AGDispatcherHeaders.h"
+
+
 @interface AGAppDelegate ()
 
 @end
 
 @implementation AGAppDelegate
 
+__strong id lockObject;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[AGMainDemoViewController new]];
-    self.window.rootViewController = navigationController;
-    [self.window makeKeyAndVisible];
+    
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+    } else {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    }
+//    [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    
+    if ([launchOptions objectForKey: UIApplicationLaunchOptionsLocationKey]) {
+        
+        lockObject = [[AGBackgroundLocationDispatcher alloc] initWithASynchronousLocationUpdateBlock:^(AGLocation *newLocation, LDSignificationLocationASynchronousEndUpdateBlock updateCompletionBlock) {
+ 
+           UILocalNotification *notification = [[UILocalNotification alloc]init];
+           [notification setAlertBody:  [NSString stringWithFormat:@"Significant location %@" , [newLocation description] ] ];
+           [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+           [notification setTimeZone:[NSTimeZone  defaultTimeZone]];
+           [application setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+           
+           updateCompletionBlock();
+           
+        }];
+        
+    } else {
+    
+        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[AGMainDemoViewController new]];
+        self.window.rootViewController = navigationController;
+        [self.window makeKeyAndVisible];
+    
+    }
+    
     return YES;
+}
+
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    
+   lockObject = [[AGBackgroundLocationDispatcher alloc] initWithASynchronousLocationUpdateBlock:^(AGLocation *newLocation, LDSignificationLocationASynchronousEndUpdateBlock updateCompletionBlock) {
+        
+        UILocalNotification *notification = [[UILocalNotification alloc]init];
+        [notification setAlertBody:  [NSString stringWithFormat:@"Fetch location %@" , [newLocation description] ] ];
+        [notification setFireDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+        [notification setTimeZone:[NSTimeZone  defaultTimeZone]];
+        [application setScheduledLocalNotifications:[NSArray arrayWithObject:notification]];
+        
+        updateCompletionBlock();
+        
+        completionHandler(UIBackgroundFetchResultNoData);
+    
+    }];
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
