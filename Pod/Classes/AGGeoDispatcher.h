@@ -6,8 +6,8 @@
 //
 //
 
-#import "LDGeocodeBaseProvider.h"
-#import "LDLocationDispatch.h"
+#import "AGLocationDispatcher.h"
+#import "AGGeocodeBaseProvider.h"
 
 typedef void (^GeoSuccesBlock)(id);
 
@@ -15,9 +15,9 @@ typedef void (^LocSuccesBlock)(id);
 
 typedef void (^FailBlock)(NSError *);
 
-@interface LDGeoLocationDispatch : LDLocationDispatch
+@interface AGGeoDispatcher : AGLocationDispatcher
 
-@property (strong, nonatomic) LDGeocodeBaseProvider *geocodeProvider;
+@property (strong, atomic) AGGeocodeBaseProvider *geocodeProvider;
 
 - (instancetype)init;
 
@@ -31,8 +31,6 @@ typedef void (^FailBlock)(NSError *);
 
 - (void)setGeocoderProvider:(AGGeocodeBaseProvider *)provider;
 
-- (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key;
-
-- (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key andISOLanguageAndRegionCode:(NSString *)lanRegCode;
+- (void)setGeocoderProvider:(AGGeocodeBaseProvider *)provider withApiKey:(NSString *)key andISOLanguageAndRegionCode:(NSString *)lanRegCode;
 
 @end

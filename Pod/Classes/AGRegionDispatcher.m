@@ -105,7 +105,7 @@
 
 - (void)_addRegionForMonitoring:(CLCircularRegion *)region desiredAccuracy:(CLLocationAccuracy)accuracy {
     NSSet *regions = [self locationManager].monitoredRegions;
-    NSLog(@"[%@] _addRegionForMonitoring:desiredAccuracy: [regions count]: %d", NSStringFromClass([self class]), [regions count]);
+    NSLog(@"[%@] _addRegionForMonitoring:desiredAccuracy: [regions count]: %lu", NSStringFromClass([self class]), (unsigned long)[regions count]);
     NSAssert([CLLocationManager isMonitoringAvailableForClass:[region class]] || [CLLocationManager isMonitoringAvailableForClass:[region class]], @"RegionMonitoring not available!");
     NSAssert([regions count] < MAX_MONITORING_REGIONS, @"Only support %d regions!", MAX_MONITORING_REGIONS);
     NSAssert(accuracy < [self locationManager].maximumRegionMonitoringDistance, @"Accuracy is too long!");
@@ -134,7 +134,7 @@
 
 - (void)stopMonitoringAllRegions {
     NSSet *regions = [self locationManager].monitoredRegions;
-    NSLog(@"[%@] stopMonitoringAllRegion: [regions count]: %d", NSStringFromClass([self class]), [regions count]);
+    NSLog(@"[%@] stopMonitoringAllRegion: [regions count]: %lu", NSStringFromClass([self class]), (unsigned long)[regions count]);
     for (CLCircularRegion *reg in regions) {
         [[self locationManager] stopMonitoringForRegion:reg];
     }

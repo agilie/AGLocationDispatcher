@@ -20,7 +20,7 @@ KalmanFilter alloc_filter_velocity2d(double noise) {
      lat/long and more rectangular coordinates. The slight inaccuracy
      of our physics model is not too important.
    */
-  double v2p = 0.001;
+//  double v2p = 0.001;
   set_identity_matrix(f.state_transition);
   set_seconds_per_timestep(f, 1.0);
 	     

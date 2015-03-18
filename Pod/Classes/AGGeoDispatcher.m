@@ -60,9 +60,9 @@
         } else {
             completionHandler(data);
         }
-
+        
     }];
-
+    
 };
 
 #pragma mark - Setter
@@ -71,14 +71,10 @@
     [self setGeocoderProvider:provider withApiKey:nil andISOLanguageAndRegionCode:nil];
 };
 
-- (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key {
-    [self setGeocoderProvider:provider withApiKey:key andISOLanguageAndRegionCode:nil];
-}
-
-- (void)setGeocoderProvider:(LDGeocodeBaseProvider *)provider withApiKey:(NSString *)key andISOLanguageAndRegionCode:(NSString *)lanRegCode {
-
+- (void)setGeocoderProvider:(AGGeocodeBaseProvider *)provider withApiKey:(NSString *)key andISOLanguageAndRegionCode:(NSString *)lanRegCode {
+    
     self.geocodeProvider = provider;
-
+    
     [self setGeocodeServiceApiKey:key languageRegionIso:lanRegCode andResultCount:1 andRegionNamePrefix:@""];
 };
 
