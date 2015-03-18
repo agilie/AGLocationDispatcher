@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
     s.name             = "AGLocationDispatcher"
-    s.version          = "0.0.2"
+    s.version          = "0.0.3"
     s.platform         = :ios, '7.0'
     s.summary          = "Location manage framework working in different modes."
     s.description      = <<-DESC
