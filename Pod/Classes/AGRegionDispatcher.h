@@ -12,19 +12,7 @@ typedef void(^AGLocationServiceRegionUpdateBlock)(CLLocationManager *manager, CL
 
 typedef void(^AGLocationServiceRegionUpdateFailBlock)(CLLocationManager *manager, CLCircularRegion *region, NSError *error);
 
-@protocol AGLocationRegionServiceDelegate <AGLocationServiceDelegate>
-
-@optional
-
-- (void)didEnterRegion:(CLRegion *)region;
-
-- (void)didExitRegion:(CLRegion *)region;
-
-- (void)monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error;
-
-@end
-
-@interface AGRegionDispatcher : AGLocationDispatcher <AGLocationRegionServiceDelegate>
+@interface AGRegionDispatcher : AGLocationDispatcher
 
 + (BOOL)regionMonitoringAvailable:(Class)regionClass;
 

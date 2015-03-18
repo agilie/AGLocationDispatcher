@@ -9,7 +9,7 @@
 #import "AGRegionTrackingViewController.h"
 #import "AGRegionDispatcher.h"
 
-@interface AGRegionTrackingViewController () <AGLocationRegionServiceDelegate>
+@interface AGRegionTrackingViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *currentStatusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentLocationLabel;
