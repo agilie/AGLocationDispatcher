@@ -2,7 +2,7 @@
 
 Dispatcher provides easy-to-use access to iOS device location/background location/tracking/etc. It wraps CoreLocation with convenient well customized interface. Dispatcher's classes for tracking current user location, direct and reverse geocoding , tracking enter/exit region, logging user route and speed.
 
-[![CI Status](http://img.shields.io/travis/ideas-world/AGLocationDispatcher.svg?style=flat)](https://travis-ci.org/ideas-world/AGLocationDispatcher)
+[![CI Status](http://img.shields.io/travis/agilie/AGLocationDispatcher.svg?style=flat)](https://travis-ci.org/agilie/AGLocationDispatcher)
 [![Version](https://img.shields.io/cocoapods/v/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
 [![License](https://img.shields.io/cocoapods/l/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
 [![Platform](https://img.shields.io/cocoapods/p/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
