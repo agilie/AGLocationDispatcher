@@ -11,7 +11,8 @@ Dispatcher provides easy-to-use access to iOS device location/background locatio
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-# Add required .plist entries
+## Add required .plist entries
+
 By reason of iOS 8 you are required to define a message that will be presented to the user on location authorization request. You should define this message into your app's *-Info.plist file. 
 Add at least one of the following keys, depending on which location update mode you request:
 
@@ -19,7 +20,7 @@ NSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription
 
 Make sure you added this key in the right .plist file (common mistake is entering it into test-Info.plist) and appropriate message text as a value.
 
-# Tracking user location
+## Tracking user location
 
 To start tracking location, initialize AGLocationDispatcher or AGRouteDispatcher with default init for standart setup  
 (default updating interval - 1 min, horizontal accuracy - 100 meters)
@@ -30,18 +31,23 @@ initWithUpdatingInterval: andDesiredAccuracy:
 
 Example:
 
+```obj-c
 AGRouteDispatcher *routeDisptcher = [AGRouteDispatcher initWithUpdatingInterval:kDefaultLocationTimeIntervalUpdateOneMinute andDesiredAccuracy:kAGHorizontalAccuracyThresholdBlock]
+```
 
 At viewcontroller's module, you can use this methods with blocks:
 
+```obj-c
 - (void)startUpdatingLocationWithBlock: errorBlock:
 - (void)startUpdatingLocationAndSpeedWithBlock: errorBlock:
 - (void)requestUserLocationWhenInUseWithBlock:
 - (void)requestUserLocationAlwaysWithBlock:
 - (void)currentLocationWithBlock: errorBlock:
+```
 
 inits and getters:
 
+```obj-c
 + (BOOL)locationServicesEnabled;
 + (BOOL)significantLocationChangeMonitoringAvailable;
 
@@ -49,8 +55,9 @@ inits and getters:
 - (instancetype)initWithUpdatingInterval:(NSTimeInterval)interval andDesiredAccuracy:(CLLocationAccuracy)horizontalAccuracy;
 - (CLLocationManager *)locationManager;
 - (CLLocationAccuracy)horizontalAccuracyThreshold;
+```
 
-# Background Tracking user location
+## Background Tracking user location
 
 AGLocationDispatcher allows several methods of background location, depends of application info plist configuratons and locationUpdateBackgroundMode setting (default is AGLocationBackgroundModeSignificantLocationChanges mode)
 When application is suspended or terminated you need use spectial background location wrapper: AGBackgroundLocationDispatcher  (see example AppDelegate methods)
@@ -75,6 +82,7 @@ AGBackgroundLocationDispatcher wrapper provide init method with block for you ba
 
 Example AGBackgroundLocationDispatcher code:
 
+```obj-c
 [[AGBackgroundLocationDispatcher alloc] initWithASynchronousLocationUpdateBlock:^(AGLocation *newLocation, LDSignificationLocationASynchronousEndUpdateBlock updateCompletionBlock) {
 
     NSString *string = [NSString stringWithFormat:@"example.com?location=%@",  [newLocation description] ];
@@ -96,41 +104,52 @@ Example AGBackgroundLocationDispatcher code:
     [operation start];
 
 }];
+```
 
-# Use geocoding
+## Use geocoding
 
 Use AGGeoDispatcher class for direct and reverse geocoding.
 
 Just initialize AGGeoDispatcher class
 
+```obj-c
 AGGeoDispatcher *geoDispatcher = [[AGGeoDispatcher alloc] init]
+```
 
 implement following methods:
 
+```obj-c
 - (void)requestGeocodeForLocation: success: andFail:
 - (void)requestLocationForAddress: success: andFail:
+```
 
 To choose geocode provider (Apple, Google, Yandex) use following method:
 
+```obj-c
 - (void)setGeocoderProvider:
+```
 
-# Manage your route
+## Manage your route
 
 AGRouteDispatcher class provide save/load AGRoute data in local storage with methods:
 
+```obj-c
 - (AGRoute *)loadRouteWithName:
 - (void)saveRoute: name:
 - (void)deleteDocWithName:
+```
 
-# Regions Dispatcher
+## Regions Dispatcher
 
 AGRegionDispatcher class used for monitoring enter/exit some region. Use this block methods for monitoring:
 
+```obj-c
 - (void)addCoordinateForMonitoring: updateBlock: failBlock:
 - (void)addCoordinateForMonitoring: withRadius: desiredAccuracy: updateBlock: failBlock:
 - (void)addRegionForMonitoring: desiredAccuracy: updateBlock: failBlock:
 - (void)stopMonitoringForRegion:
 - (void)stopMonitoringAllRegions
+```
 
 ## Requirements
 

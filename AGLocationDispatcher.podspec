@@ -18,11 +18,11 @@ Pod::Spec.new do |s|
     * Markdown format.
     * Don't worry about the indent, we strip it!
     DESC
-    s.homepage         = "http://github.com/ideas-world/AGLocationDispatcher"
+    s.homepage         = "http://github.com/agilie/AGLocationDispatcher"
     # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.authors           = { 'Agilie' => 'info@agilie.com' }
-    s.source           = { :git => "https://github.com/ideas-world/AGLocationDispatcher.git",
+    s.source           = { :git => "https://github.com/agilie/AGLocationDispatcher.git",
                             :tag => s.version.to_s
                         }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
