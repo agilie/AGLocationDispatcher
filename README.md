@@ -7,6 +7,8 @@ Dispatcher provides easy-to-use access to iOS device location/background locatio
 [![License](https://img.shields.io/cocoapods/l/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
 [![Platform](https://img.shields.io/cocoapods/p/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
 
+[![AGLocationManager demo video](http://img.youtube.com/vi/LbmLdLJagbM/0.jpg)](http://www.youtube.com/watch?v=LbmLdLJagbM)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
