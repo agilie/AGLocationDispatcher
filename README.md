@@ -7,7 +7,7 @@ Dispatcher provides easy-to-use access to iOS device location/background locatio
 [![License](https://img.shields.io/cocoapods/l/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
 [![Platform](https://img.shields.io/cocoapods/p/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
 
-[![AGLocationManager demo video](http://img.youtube.com/vi/LbmLdLJagbM/0.jpg)](http://www.youtube.com/watch?v=LbmLdLJagbM)
+![Demo](https://agilie.com/distribute/location-dispatch-demo.gif)
 
 ## Usage
 
