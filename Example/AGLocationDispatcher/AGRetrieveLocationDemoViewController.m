@@ -16,16 +16,18 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+@property (strong, nonatomic) AGLocationDispatcher *locationDispatcher;
+
 @end
 
 @implementation AGRetrieveLocationDemoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    AGLocationDispatcher *service = [[AGLocationDispatcher alloc] init];
-    [service currentLocationWithBlock:^(CLLocationManager *manager, CLLocation *newLocation, CLLocation *oldLocation) {
+    self.locationDispatcher = [[AGLocationDispatcher alloc] init];
+    [self.locationDispatcher currentLocationWithBlock:^(CLLocationManager *manager, CLLocation *newLocation, CLLocation *oldLocation) {
         self.locationLabel.text = [NSString stringWithFormat:@"%g , %g", newLocation.coordinate.longitude, newLocation.coordinate.latitude];
-    }                errorBlock:nil];
+    } errorBlock:nil];
 
     AGRoute *currentRoute = [[AGRouteDispatcher new] loadRouteWithName:@"route00001"];
     if (currentRoute) {

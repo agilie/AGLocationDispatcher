@@ -30,9 +30,9 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
 @property (strong, nonatomic) NSMutableArray *userAuthorizationRequests;
 
 // Location Blocks
-@property (copy) AGLocationServiceLocationUpdateBlock locationBlock;
-@property (copy) AGLocationServiceLocationAndSpeedUpdateBlock locationAndSpeedBlock;
-@property (copy) AGLocationServiceLocationUpdateFailBlock errorLocationBlock;
+@property (copy, nonatomic) AGLocationServiceLocationUpdateBlock locationBlock;
+@property (copy, nonatomic) AGLocationServiceLocationAndSpeedUpdateBlock locationAndSpeedBlock;
+@property (copy, nonatomic) AGLocationServiceLocationUpdateFailBlock errorLocationBlock;
 
 @end
 
@@ -291,13 +291,17 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
     if (self.locationAndSpeedBlock != nil) {
         self.locationAndSpeedBlock(manager, correctedLocation, (AGLocation *)oldLocation, [self getSpeed]);
     }
-    if (correctedLocation.horizontalAccuracy <= manager.desiredAccuracy || _isFetchLocationOnce == NO) {
+    if ((manager.desiredAccuracy > 0 && correctedLocation.horizontalAccuracy <= manager.desiredAccuracy) || manager.desiredAccuracy <= 0 || _isFetchLocationOnce == NO) {
         if (_isFetchLocationOnce) {
             // Stop querying timer because accurate location was obtained
             [self endTimeoutTimer];
             [_locationManager stopUpdatingLocation];
-            self.locationBlock = nil;
-            self.locationAndSpeedBlock = nil;
+            if (self.locationBlock) {
+                self.locationBlock = nil;
+            }
+            if (self.locationAndSpeedBlock) {
+                self.locationAndSpeedBlock = nil;
+            }
             _isFetchLocationOnce = NO;
         }
     }
