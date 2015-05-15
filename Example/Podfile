@@ -1,5 +1,5 @@
 
-workspace 'EXAMPLEBOY'
+workspace 'simpleExamples'
 platform :ios, '7.0'
 xcodeproj 'AGGeoCodeDemo.xcodeproj'
 xcodeproj 'AGLocationDispatcher.xcodeproj'

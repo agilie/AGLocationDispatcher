@@ -31,20 +31,23 @@ id shit;
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(textFieldShouldReturn:)];
     [self.view addGestureRecognizer: tapGesture];
     
-    self.demoLocationDispatcher = [[AGLocationDispatcher alloc] initWithUpdatingInterval:kAGLocationUpdateIntervalOneSec andDesiredAccuracy:kAGHorizontalAccuracyNeighborhood];
+    if([AGLocationDispatcher locationServicesEnabled]){
+        self.demoLocationDispatcher = [[AGLocationDispatcher alloc] initWithUpdatingInterval:kAGLocationUpdateIntervalOneSec andDesiredAccuracy:kAGHorizontalAccuracyNeighborhood];
+        
+        [self.demoLocationDispatcher currentLocationWithBlock:^(CLLocationManager *manager, AGLocation *newLocation, AGLocation *oldLocation) {
+            if(newLocation){
+                self.lanEdit.text = [NSString stringWithFormat:@"%f", newLocation.coordinate.longitude];
+                self.latEdit.text = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude ];
+                [self convertToAdressTap: nil];
+            }
 
-    [self.demoLocationDispatcher currentLocationWithBlock:^(CLLocationManager *manager, AGLocation *newLocation, AGLocation *oldLocation) {
-        self.lanEdit.text = [NSString stringWithFormat:@"%f", newLocation.coordinate.longitude];
-        self.latEdit.text = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude ];
-        
-        [self.demoLocationDispatcher stopUpdatingLocation];
-        
-        [self convertToAdressTap: nil];
-        
-    } errorBlock:^(CLLocationManager *manager, NSError *error) {
-         [self displayDemoError:error];
-    }];
- 
+            [self.demoLocationDispatcher stopUpdatingLocation];
+            
+        } errorBlock:^(CLLocationManager *manager, NSError *error) {
+            [self displayDemoError:error];
+        }];
+    }
+    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -71,6 +74,7 @@ id shit;
     } andFail:^(NSError *err) {
         
         [self displayDemoError:err];
+        self.lanEdit.text = self.latEdit.text = @"-";
         
     }];
     
@@ -87,6 +91,7 @@ id shit;
     } andFail:^(NSError *err) {
         
         [self displayDemoError:err];
+        self.adressEdit.text = @"-";
         
     }];
     

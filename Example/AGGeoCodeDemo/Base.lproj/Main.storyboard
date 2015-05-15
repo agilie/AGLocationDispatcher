@@ -26,17 +26,17 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8db-cr-G4K">
-                                <rect key="frame" x="16" y="58" width="148" height="30"/>
+                                <rect key="frame" x="16" y="58" width="77" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Convert to coordinate"/>
+                                <state key="normal" title="Geocoding"/>
                                 <connections>
                                     <action selector="convertToCoordinateTap:" destination="BYZ-38-t0r" eventType="touchDown" id="CUX-LZ-gIf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3V-kl-7HY">
-                                <rect key="frame" x="16" y="134" width="123" height="30"/>
+                                <rect key="frame" x="16" y="134" width="56" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Convert to adress"/>
+                                <state key="normal" title="Reverse"/>
                                 <connections>
                                     <action selector="convertToAdressTap:" destination="BYZ-38-t0r" eventType="touchDown" id="luP-KE-wtM"/>
                                 </connections>
