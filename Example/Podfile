@@ -1,8 +1,21 @@
 
+workspace 'EXAMPLEBOY'
 platform :ios, '7.0'
+xcodeproj 'AGGeoCodeDemo.xcodeproj'
+xcodeproj 'AGLocationDispatcher.xcodeproj'
 
-target :AGLocationDispatcher, :exclusive => true do
+
+
+target 'AGGeoCodeDemo' do
+    platform :ios, '7.0'
     pod 'AGLocationDispatcher', :path => "../"
-    link_with :AGLocationDispatcher
+    link_with :AGGeoCodeDemo
+    xcodeproj 'AGGeoCodeDemo.xcodeproj'
 end
 
+target 'AGLocationDispatcher' do
+    platform :ios, '7.0'
+    pod 'AGLocationDispatcher', :path => "../"
+    link_with :AGLocationDispatcher
+    xcodeproj 'AGLocationDispatcher.xcodeproj'
+end

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New York" borderStyle="roundedRect" placeholder="Adress" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oNl-zb-UAe">
+                                <rect key="frame" x="16" y="20" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="VzY-pp-sn5"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8db-cr-G4K">
+                                <rect key="frame" x="16" y="58" width="148" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Convert to coordinate"/>
+                                <connections>
+                                    <action selector="convertToCoordinateTap:" destination="BYZ-38-t0r" eventType="touchDown" id="CUX-LZ-gIf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3V-kl-7HY">
+                                <rect key="frame" x="16" y="134" width="123" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Convert to adress"/>
+                                <connections>
+                                    <action selector="convertToAdressTap:" destination="BYZ-38-t0r" eventType="touchDown" id="luP-KE-wtM"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="40.6668834" borderStyle="roundedRect" placeholder="longitude" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tZo-ag-bdZ">
+                                <rect key="frame" x="16" y="96" width="276" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Zg9-Ub-wpf"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-73.7941924" borderStyle="roundedRect" placeholder="latitude" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNF-tQ-D1Q">
+                                <rect key="frame" x="309" y="96" width="275" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="2f3-2E-X47"/>
+                                </connections>
+                            </textField>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w7R-KO-5v7">
+                                <rect key="frame" x="300" y="96" width="1" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qu1-bX-5x0">
+                                <rect key="frame" x="16" y="562" width="568" height="30"/>
+                                <state key="normal" title="Provider select">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="providerSelectTap:" destination="BYZ-38-t0r" eventType="touchDown" id="eXa-pk-GKw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oNl-zb-UAe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="2CS-4s-dgU"/>
+                            <constraint firstItem="8db-cr-G4K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2pc-Qy-oCl"/>
+                            <constraint firstItem="oNl-zb-UAe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2sC-sq-UGf"/>
+                            <constraint firstItem="oNl-zb-UAe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6Ig-jF-v57"/>
+                            <constraint firstItem="oNl-zb-UAe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="6uK-Zd-rfS"/>
+                            <constraint firstItem="A3V-kl-7HY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7kF-NC-kj2"/>
+                            <constraint firstItem="RNF-tQ-D1Q" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="AEH-Hb-lD1"/>
+                            <constraint firstItem="RNF-tQ-D1Q" firstAttribute="leading" secondItem="w7R-KO-5v7" secondAttribute="trailing" constant="4" id="E8w-uM-H0L"/>
+                            <constraint firstItem="A3V-kl-7HY" firstAttribute="top" secondItem="8db-cr-G4K" secondAttribute="bottom" constant="46" id="JbI-SA-krR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Qu1-bX-5x0" secondAttribute="bottom" constant="8" id="L5W-uy-DmH"/>
+                            <constraint firstAttribute="centerX" secondItem="w7R-KO-5v7" secondAttribute="centerX" id="MqD-ZR-pHX"/>
+                            <constraint firstItem="w7R-KO-5v7" firstAttribute="leading" secondItem="tZo-ag-bdZ" secondAttribute="trailing" constant="4" id="NQO-f7-ghw"/>
+                            <constraint firstItem="tZo-ag-bdZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="NYe-hU-ISR"/>
+                            <constraint firstItem="tZo-ag-bdZ" firstAttribute="top" secondItem="8db-cr-G4K" secondAttribute="bottom" constant="8" id="P9Q-Re-tBT"/>
+                            <constraint firstItem="oNl-zb-UAe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="SWg-5B-rv6"/>
+                            <constraint firstItem="RNF-tQ-D1Q" firstAttribute="top" secondItem="oNl-zb-UAe" secondAttribute="bottom" constant="46" id="VBv-wx-0Dt"/>
+                            <constraint firstItem="8db-cr-G4K" firstAttribute="top" secondItem="oNl-zb-UAe" secondAttribute="bottom" constant="8" id="pYh-Aj-mvf"/>
+                            <constraint firstAttribute="centerX" secondItem="Qu1-bX-5x0" secondAttribute="centerX" id="qih-wt-uFe"/>
+                            <constraint firstItem="oNl-zb-UAe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zhi-9P-Vph"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="adressEdit" destination="oNl-zb-UAe" id="zmt-El-fTV"/>
+                        <outlet property="lanEdit" destination="RNF-tQ-D1Q" id="PjK-lM-jhA"/>
+                        <outlet property="latEdit" destination="tZo-ag-bdZ" id="JqI-ee-eTV"/>
+                        <outlet property="providerSelectButton" destination="Qu1-bX-5x0" id="5NJ-Mc-7FE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

@@ -407,6 +407,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AGLocationDispatcher/AGLocationDispatcher-Prefix.pch";
 				INFOPLIST_FILE = "AGLocationDispatcher/AGLocationDispatcher-Info.plist";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -421,6 +422,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AGLocationDispatcher/AGLocationDispatcher-Prefix.pch";
 				INFOPLIST_FILE = "AGLocationDispatcher/AGLocationDispatcher-Info.plist";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
