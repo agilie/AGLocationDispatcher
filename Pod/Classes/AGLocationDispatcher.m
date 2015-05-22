@@ -44,33 +44,15 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
     self = [super init];
     if (self) {
         self = [self initWithUpdatingInterval:kAGLocationUpdateIntervalOneMinute andDesiredAccuracy:kAGHorizontalAccuracyBlock];
-        
-        self.locationUpdateBackgroundMode = AGLocationBackgroundModeSignificantLocationChanges;
-        //default background location mode
-        
-        [[NSNotificationCenter defaultCenter] addObserver: self
-                                                 selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
-                                                     name: UIApplicationDidEnterBackgroundNotification
-                                                   object: nil ];
-        
-        [[NSNotificationCenter defaultCenter] addObserver: self
-                                                 selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
-                                                     name: UIApplicationDidBecomeActiveNotification
-                                                   object: nil ];
-        
-        [[NSNotificationCenter defaultCenter] addObserver: self
-                                                 selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
-                                                     name: UIApplicationWillTerminateNotification
-                                                   object: nil ];
-
-        
-        self.needRestartLocationAfterForegroud = NO;
     }
+    
     return self;
 }
 
 - (instancetype)initWithUpdatingInterval:(NSTimeInterval)interval andDesiredAccuracy:(CLLocationAccuracy)horizontalAccuracy {
+
     self = [super init];
+    
     if (self) {
         self.kalmanFilter = alloc_filter_velocity2d(10.f);
         self.locationUpdateInterval = interval;
@@ -84,8 +66,33 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
             }
         }
         
+        [self observerSetup];
+        
     }
     return self;
+}
+
+- (void) observerSetup {
+    self.locationUpdateBackgroundMode = AGLocationBackgroundModeSignificantLocationChanges;
+    //default background location mode
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
+                                                 name: UIApplicationDidEnterBackgroundNotification
+                                               object: nil ];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
+                                                 name: UIApplicationDidBecomeActiveNotification
+                                               object: nil ];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(locationDispatchDidChangeAppBackgroundMode:)
+                                                 name: UIApplicationWillTerminateNotification
+                                               object: nil ];
+    
+    
+    self.needRestartLocationAfterForegroud = NO;
 }
 
 + (BOOL)locationServicesEnabled {
