@@ -43,10 +43,8 @@
 }
 
 - (BOOL)createDataPath:(NSString *)fileName {
-
-    if (internalDocPath == nil) {
-        self.docPath = [AGRouteDispatcher nextRouteDocPath:fileName];
-    }
+    
+    self.docPath = [AGRouteDispatcher nextRouteDocPath:fileName];
 
     NSError *error;
     BOOL success = [[NSFileManager defaultManager] createDirectoryAtPath:internalDocPath withIntermediateDirectories:YES attributes:nil error:&error];
@@ -59,9 +57,7 @@
 
 - (AGRoute *)loadRouteWithName:(NSString *)fileName {
     if (fileName) {
-        if (internalDocPath == nil) {
-            self.docPath = [AGRouteDispatcher nextRouteDocPath:fileName];
-        }
+        self.docPath = [AGRouteDispatcher nextRouteDocPath:fileName];
         NSString *dataPath = [internalDocPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", fileName]];
         NSData *codedData = [[NSData alloc] initWithContentsOfFile:dataPath];
         if (codedData == nil) return nil;
@@ -107,9 +103,7 @@
 
 - (void)deleteDocWithName:(NSString *)name {
     NSError *error;
-    if (internalDocPath == nil) {
-        self.docPath = [AGRouteDispatcher nextRouteDocPath:name ?: nil];
-    }
+    self.docPath = [AGRouteDispatcher nextRouteDocPath:name ?: nil];
     BOOL success = [[NSFileManager defaultManager] removeItemAtPath:internalDocPath error:&error];
     if (!success) {
         AGLog(@"Error removing document path: %@", error.localizedDescription);

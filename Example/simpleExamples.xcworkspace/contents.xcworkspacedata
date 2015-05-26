@@ -2,15 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:AGGeoBackgroundDemo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:AGGeoCodeDemo.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:AGGeoTrackingDemo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:AGLocationDispatcher.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:AGGeoBackgroundDemo.xcodeproj">
    </FileRef>
 </Workspace>
