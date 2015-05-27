@@ -189,8 +189,6 @@
 
 - (void)finishRoute {
     [self.currentRoutePart setStopSessionDate:[NSDate new]];
-    self.currentRoutePart = [AGRoutePart new];
-    [self.routeParts addObject:_currentRoutePart];
     [self setStopSessionDate:[NSDate new]];
 }
 

@@ -78,6 +78,7 @@
             prewPoint = (AGLocation *)obj;
         } else {
             _routePartDistance += [(AGLocation *)obj distanceFromLocation:prewPoint];
+            prewPoint = obj;
         }
     }];
     return _routePartDistance;

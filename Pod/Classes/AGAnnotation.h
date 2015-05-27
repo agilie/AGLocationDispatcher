@@ -11,8 +11,12 @@
 #import "AGLocation.h"
 
 typedef enum {
-    AGAnnotationTypeStart,
-    AGAnnotationTypeFinish
+    AGAnnotationType0Start,
+    AGAnnotationType0Finish,
+    AGAnnotationType1Start,
+    AGAnnotationType1Finish,
+    AGAnnotationType2Start,
+    AGAnnotationType2Finish
 } AGAnnotationType;
 
 @interface AGAnnotation : NSObject<MKAnnotation>

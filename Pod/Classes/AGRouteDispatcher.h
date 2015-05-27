@@ -27,4 +27,6 @@
 
 - (void)setDocPath:(NSString *)docPath;
 
++ (NSString*)getStoredRoutesDir;
+
 @end

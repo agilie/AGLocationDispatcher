@@ -37,9 +37,9 @@
 
 - (NSString *)titleForType:(AGAnnotationType)type {
     switch (type) {
-        case AGAnnotationTypeStart:
+        case AGAnnotationType0Start | AGAnnotationType1Start | AGAnnotationType2Start:
             return @"Start point";
-        case AGAnnotationTypeFinish:
+        case AGAnnotationType0Finish | AGAnnotationType1Finish |AGAnnotationType2Finish :
             return @"Finish point";
         default:
             return nil;
@@ -48,10 +48,18 @@
 
 - (NSString *)annotationImageName {
     switch (self.type) {
-        case AGAnnotationTypeStart:
-            return @"start.png";
-        case AGAnnotationTypeFinish:
-            return @"finish.png";
+        case AGAnnotationType0Start:
+            return @"start0.png";
+        case AGAnnotationType0Finish:
+            return @"finish0.png";
+        case AGAnnotationType1Start:
+            return @"start1.png";
+        case AGAnnotationType1Finish:
+            return @"finish1.png";
+        case AGAnnotationType2Start:
+            return @"start2.png";
+        case AGAnnotationType2Finish:
+            return @"finish2.png";
         default:
             return nil;
     }

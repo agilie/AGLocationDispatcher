@@ -13,21 +13,29 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 
 #define RGB255(R, G, B) [UIColor colorWithRed:R/255.f green:G/255.f blue:B/255.f alpha:1.0f]
 
-@interface TrackingViewController ()<MKMapViewDelegate>
+@interface TrackingViewController () <MKMapViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *currentSpeedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *averageSpeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *showSavedRouteButton;
 @property (weak, nonatomic) IBOutlet UIButton *startRecButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopRecButton;
+@property (weak, nonatomic) IBOutlet UIView *markersView;
+@property (weak, nonatomic) IBOutlet UICollectionView *markersCollectionView;
 @property (strong, nonatomic) AGLocation *lastPoint;
-@property (strong, nonatomic) AGRouteDispatcher *routeDispatch;
 @property (strong, nonatomic) AGAnnotation *currentPositionAnnotation;
-@property (assign, nonatomic) BOOL isTrackingNow;
+@property (strong, nonatomic) AGAnnotation *startPositionAnnotation;
+@property (assign, nonatomic) AGAnnotationType startMarkType;
+@property (assign, nonatomic) AGAnnotationType finishMarkType;
+@property (strong, nonatomic) AGRouteDispatcher *routeDispatch;
 @property (strong, nonatomic) AGRoute *currentRoute;
-@property (strong, nonatomic) AGRouteDispatcher *routeManager;
+@property (assign, nonatomic) BOOL isTrackingNow;
+@property (assign, nonatomic) BOOL isSavedRoutes;
 @property (assign, nonatomic) int currentRouteNumber;
+@property (strong, nonatomic) NSArray *markers;
+@property (strong, nonatomic) NSString *selectedMarkerImage;
 
 @end
 
@@ -36,26 +44,28 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mapView.delegate = self;
-    [self.navigationItem setTitle:@"Tracking DEMO"];
-    self.currentRoute = [AGRoute new];
+    [self.markersCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [self.navigationItem setTitle:@"Tracking demo"];
+    self.markers = @[@"finish0", @"finish1", @"finish2"];
+    self.startMarkType = AGAnnotationType0Start;
+    self.finishMarkType = AGAnnotationType0Finish;
     NSNumber *storedRouteNumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentRouteIndex"];
     self.currentRouteNumber = -1;
+    self.isSavedRoutes = NO;
     if (storedRouteNumber) {
         self.currentRouteNumber = [storedRouteNumber intValue];
+        self.isSavedRoutes = YES;
     }
-    [self.currentRoute setRefreshTimeout:kAGLocationUpdateIntervalOneSec];
-    [self.currentRoute setMoveType:0];
-    self.routeDispatch = [[AGRouteDispatcher alloc] initWithUpdatingInterval:kAGLocationUpdateIntervalOneSec andDesiredAccuracy:kAGHorizontalAccuracyNeighborhood];
     self.isTrackingNow = NO;
     self.lastPoint = nil;
     [self.startRecButton setEnabled:YES];
     [self.startRecButton setAlpha:1.0];
     [self.stopRecButton setEnabled:NO];
     [self.stopRecButton setAlpha:0.5];
-    [self.showSavedRouteButton setEnabled:NO];
-    [self.showSavedRouteButton setAlpha:0.5];
-    
-    self.routeManager = [AGRouteDispatcher new];
+    if(!self.isSavedRoutes) {
+        [self.showSavedRouteButton setEnabled:NO];
+        [self.showSavedRouteButton setAlpha:0.5];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -68,28 +78,35 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 }
 
 - (IBAction)startButtonPressed:(id)sender {
-    self.currentRoute = [AGRoute new];
-    [self.currentRoute setRefreshTimeout:kAGLocationUpdateIntervalOneSec];
-    [self.currentRoute setMoveType:0];
+    self.startPositionAnnotation = nil;
     NSString *routeName = @"route";
     self.currentRouteNumber++;
     routeName = [routeName stringByAppendingString:[NSString stringWithFormat:@"%i", self.currentRouteNumber]];
-    [self.currentRoute setSessionId:routeName];
+    [self.navigationItem setTitle:[NSString stringWithFormat:@"Recording %@", routeName]];
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
     [defs setObject:@(self.currentRouteNumber) forKey:@"currentRouteIndex"];
     [defs synchronize];
+    
+    self.currentRoute = [AGRoute new];
+    [self.currentRoute setRefreshTimeout:kAGLocationUpdateIntervalOneSec];
+    [self.currentRoute setMoveType:0];
+    [self.currentRoute setSessionId:routeName];
     
     self.isTrackingNow = YES;
     [self.startRecButton setEnabled:NO];
     [self.startRecButton setAlpha:0.5];
     [self.stopRecButton setEnabled:YES];
     [self.stopRecButton setAlpha:1.0];
-    [self.showSavedRouteButton setEnabled:NO];
-    [self.showSavedRouteButton setAlpha:0.5];
+    if(!self.isSavedRoutes) {
+        [self.showSavedRouteButton setEnabled:NO];
+        [self.showSavedRouteButton setAlpha:0.5];
+    }
     self.lastPoint = nil;
 }
 
 - (IBAction)stopButtonPressed:(id)sender {
+    [self.navigationItem setTitle:@"Tracking demo"];
+    self.currentPositionAnnotation = nil;
     self.isTrackingNow = NO;
     [self.stopRecButton setEnabled:NO];
     [self.stopRecButton setAlpha:0.5];
@@ -98,23 +115,32 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
     [self.showSavedRouteButton setEnabled:YES];
     [self.showSavedRouteButton setAlpha:1.0];
     self.lastPoint = nil;
-    [self.currentSpeedLabel setText:@"cur speed:"];
-    [self.averageSpeedLabel setText:@"avg speed:"];
+    [self.currentSpeedLabel setText:@"cur speed: -"];
+    [self.averageSpeedLabel setText:@"avg speed: -"];
+    [self.distanceLabel setText:@"- :distance"];
     [self.currentRoute finishRoute];
-    [self.routeManager saveRoute:self.currentRoute name:[self.currentRoute sessionId]];
+    [self.routeDispatch saveRoute:self.currentRoute name:[self.currentRoute sessionId]];
 }
 
 - (void)startTracking {
+    if (!self.routeDispatch) {
+        self.routeDispatch = [[AGRouteDispatcher alloc] initWithUpdatingInterval:kAGLocationUpdateIntervalOneSec andDesiredAccuracy:kAGHorizontalAccuracyNeighborhood];
+    }
     [self.routeDispatch startUpdatingLocationAndSpeedWithBlock:^(CLLocationManager *manager, AGLocation *newLocation, AGLocation *oldLocation, NSNumber *speed) {
-        if (!self.currentPositionAnnotation) {
-            self.currentPositionAnnotation = [[AGAnnotation alloc] initWithType:AGAnnotationTypeStart location:newLocation];
-            [self.mapView addAnnotation:self.currentPositionAnnotation];
-        } else {
-            [self.currentPositionAnnotation setCoordinate:newLocation.coordinate];
+        if (self.markersView.hidden) {
+            if (!self.currentPositionAnnotation) {
+                self.currentPositionAnnotation = [[AGAnnotation alloc] initWithType:self.finishMarkType location:newLocation];
+                [self.mapView addAnnotation:self.currentPositionAnnotation];
+            } else {
+                [self.currentPositionAnnotation setCoordinate:newLocation.coordinate];
+            }
         }
         [self centerMapWithUserCoordinate:newLocation.coordinate];
         if (self.isTrackingNow) {
-            
+            if (!self.startPositionAnnotation) {
+                self.startPositionAnnotation = [[AGAnnotation alloc] initWithType:self.startMarkType location:newLocation];
+                [self.mapView addAnnotation:self.startPositionAnnotation];
+            }
             [self.currentRoute addRoutePoint:newLocation];
             
             if (self.lastPoint) {
@@ -138,6 +164,8 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
             if (avgSpeed > 0) {
                 [self.averageSpeedLabel setText:[NSString stringWithFormat:@"avg speed: %i km/h", avgSpeed]];
             }
+            int dist = (int)[self.currentRoute routeDistance];
+            [self.distanceLabel setText:[NSString stringWithFormat:@"%i m :distance", dist]];
         }
         
         self.lastPoint = newLocation;
@@ -189,6 +217,47 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
 
 - (void)displayDemoError:(NSError *)error {
     [[[UIAlertView alloc] initWithTitle:@"Geocode error!" message:[error description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [imageView setImage:[UIImage imageNamed:[self.markers objectAtIndex:indexPath.row]]];
+    [cell.contentView addSubview:imageView];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:
+            self.startMarkType = AGAnnotationType0Start;
+            self.finishMarkType = AGAnnotationType0Finish;
+            break;
+        case 1:
+            self.startMarkType = AGAnnotationType1Start;
+            self.finishMarkType = AGAnnotationType1Finish;
+            break;
+        case 2:
+            self.startMarkType = AGAnnotationType2Start;
+            self.finishMarkType = AGAnnotationType2Finish;
+            break;
+        default:
+            self.startMarkType = AGAnnotationType0Start;
+            self.finishMarkType = AGAnnotationType0Finish;
+            break;
+    }
+    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+    [defs setObject:@(self.startMarkType) forKey:@"selectedMarkType"];
+    [defs synchronize];
+    [self.markersView setHidden:YES];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.markers.count;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
 }
 
 @end
