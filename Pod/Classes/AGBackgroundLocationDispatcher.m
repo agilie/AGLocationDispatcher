@@ -17,13 +17,14 @@
 @property UIBackgroundTaskIdentifier backgroundTask;
 
 @property CLLocationManager *locationManager;
+@property NSTimer *nonSleepTimer;
 
 @end
 
 @implementation AGBackgroundLocationDispatcher
 
 static AGBackgroundLocationDispatcher *sharedAGSignificantLocationDispatcher = nil;
-NSTimer *iAmLiveTimer;
+
 
 - (instancetype)initWithASynchronousLocationUpdateBlock:(LDSignificationLocationASynchronousUpdateBlock)updateBlock {
     self = [super init];
@@ -49,7 +50,7 @@ NSTimer *iAmLiveTimer;
         
         self.asyncUpdateBlock = updateBlock;
         
-        iAmLiveTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
+        self.nonSleepTimer = [NSTimer scheduledTimerWithTimeInterval:2.0
                                                         target:self
                                                       selector:@selector(iAmLiveTimerMethod)
                                                       userInfo:nil
@@ -71,20 +72,24 @@ NSTimer *iAmLiveTimer;
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     
-    if(self.asyncUpdateBlock ){
-        
-        __weak typeof(self) weakSelf = self;
-      
-        self.endUpdateBlock = ^void{
-            [weakSelf endBackgroundTask];
-        };
-        
-        self.asyncUpdateBlock( [locations lastObject], self.endUpdateBlock );
-
-    } else {
-        [self endBackgroundTask];
-    }
+    if(self.nonSleepTimer){
     
+        [self.nonSleepTimer invalidate];
+        self.nonSleepTimer = nil;
+        if(self.asyncUpdateBlock ){
+        
+            __weak typeof(self) weakSelf = self;
+      
+            self.endUpdateBlock = ^void{
+                [weakSelf endBackgroundTask];
+            };
+        
+            self.asyncUpdateBlock( [locations lastObject], self.endUpdateBlock );
+
+        } else {
+            [self endBackgroundTask];
+        }
+    }
 }
 
 - (void)endBackgroundTask {
@@ -93,7 +98,8 @@ NSTimer *iAmLiveTimer;
         self.backgroundTask = UIBackgroundTaskInvalid;
     }
     
-     [self.locationManager stopUpdatingLocation];
+    [self.locationManager stopUpdatingLocation];
+    
 }
 
 - (void)dealloc{

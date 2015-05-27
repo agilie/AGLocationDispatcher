@@ -63,7 +63,7 @@ __strong id lockObject;
         
         updateCompletionBlock();
         
-        completionHandler(UIBackgroundFetchResultNoData);
+        completionHandler(UIBackgroundFetchResultNewData);
         
     }];
     
