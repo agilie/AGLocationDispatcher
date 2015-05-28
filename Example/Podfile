@@ -5,7 +5,7 @@ xcodeproj 'AGGeoCodeDemo.xcodeproj'
 xcodeproj 'AGLocationDispatcher.xcodeproj'
 xcodeproj 'AGGeoBackgroundDemo.xcodeproj'
 xcodeproj 'AGGeoTrackingDemo.xcodeproj'
-
+xcodeproj 'AGGeoRegionTrackingDemo.xcodeproj'
 
 
 target 'AGGeoCodeDemo' do
@@ -27,6 +27,13 @@ target 'AGGeoTrackingDemo' do
     pod 'AGLocationDispatcher', :path => "../"
     link_with :AGGeoTrackingDemo
     xcodeproj 'AGGeoTrackingDemo.xcodeproj'
+end
+
+target 'AGGeoRegionTrackingDemo' do
+    platform :ios, '7.0'
+    pod 'AGLocationDispatcher', :path => "../"
+    link_with :AGGeoRegionTrackingDemo
+    xcodeproj 'AGGeoRegionTrackingDemo.xcodeproj'
 end
 
 target 'AGGeoBackgroundDemo' do
