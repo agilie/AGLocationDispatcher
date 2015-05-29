@@ -1,8 +1,8 @@
 
 workspace 'simpleExamples'
 platform :ios, '7.0'
+
 xcodeproj 'AGGeoCodeDemo.xcodeproj'
-xcodeproj 'AGLocationDispatcher.xcodeproj'
 xcodeproj 'AGGeoBackgroundDemo.xcodeproj'
 xcodeproj 'AGGeoTrackingDemo.xcodeproj'
 xcodeproj 'AGGeoRegionTrackingDemo.xcodeproj'
@@ -15,12 +15,6 @@ target 'AGGeoCodeDemo' do
     xcodeproj 'AGGeoCodeDemo.xcodeproj'
 end
 
-target 'AGLocationDispatcher' do
-    platform :ios, '7.0'
-    pod 'AGLocationDispatcher', :path => "../"
-    link_with :AGLocationDispatcher
-    xcodeproj 'AGLocationDispatcher.xcodeproj'
-end
 
 target 'AGGeoTrackingDemo' do
     platform :ios, '7.0'

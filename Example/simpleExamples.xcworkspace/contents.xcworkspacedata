@@ -8,15 +8,12 @@
       location = "group:AGGeoCodeDemo.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:AGGeoRegionTrackingDemo.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:AGGeoTrackingDemo.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:AGLocationDispatcher.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:AGGeoRegionTrackingDemo.xcodeproj">
    </FileRef>
 </Workspace>
