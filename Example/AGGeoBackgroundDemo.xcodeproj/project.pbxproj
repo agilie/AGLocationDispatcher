@@ -18,7 +18,7 @@
 
 /* Begin PBXFileReference section */
 		48DC790B75909BDA37EC80DB /* libPods-AGGeoBackgroundDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGGeoBackgroundDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEB68EE71B0F4FF900FBF17D /* AGGeoBackgroundDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AGGeoBackgroundDemo.app; path = BackgroundLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB68EE71B0F4FF900FBF17D /* AGGeoBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGGeoBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB68EEB1B0F4FF900FBF17D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEB68EEC1B0F4FF900FBF17D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CEB68EEE1B0F4FF900FBF17D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		CEB68EE81B0F4FF900FBF17D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEB68EE71B0F4FF900FBF17D /* AGGeoBackgroundDemo.app */,
+				CEB68EE71B0F4FF900FBF17D /* AGGeoBDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 			);
 			name = AGGeoBDemo;
 			productName = AGGeoBackgroundDemo;
-			productReference = CEB68EE71B0F4FF900FBF17D /* AGGeoBackgroundDemo.app */;
+			productReference = CEB68EE71B0F4FF900FBF17D /* AGGeoBDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

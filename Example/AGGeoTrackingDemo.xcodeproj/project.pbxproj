@@ -20,7 +20,7 @@
 
 /* Begin PBXFileReference section */
 		0F4B3FE86C7D5B901DAF9796 /* libPods-AGGeoTrackingDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGGeoTrackingDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CDE89A81B14900F00945FAB /* AGGeoTrackingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGGeoTrackingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CDE89A81B14900F00945FAB /* GeoTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CDE89AC1B14900F00945FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CDE89AD1B14900F00945FAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6CDE89AF1B14900F00945FAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		6CDE89A91B14900F00945FAB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6CDE89A81B14900F00945FAB /* AGGeoTrackingDemo.app */,
+				6CDE89A81B14900F00945FAB /* GeoTracking.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,7 +131,7 @@
 			);
 			name = GeoTracking;
 			productName = AGGeoTrackingDemo;
-			productReference = 6CDE89A81B14900F00945FAB /* AGGeoTrackingDemo.app */;
+			productReference = 6CDE89A81B14900F00945FAB /* GeoTracking.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
