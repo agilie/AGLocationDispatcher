@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C0F2B521B189B4600A4D4F5 /* New York City Marathon.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6C0F2B511B189B4600A4D4F5 /* New York City Marathon.gpx */; };
 		6CDE89AE1B14900F00945FAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDE89AD1B14900F00945FAB /* main.m */; };
 		6CDE89B11B14900F00945FAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CDE89B01B14900F00945FAB /* AppDelegate.m */; };
 		6CDE89BD1B14900F00945FAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CDE89BB1B14900F00945FAB /* Main.storyboard */; };
@@ -20,7 +21,8 @@
 
 /* Begin PBXFileReference section */
 		0F4B3FE86C7D5B901DAF9796 /* libPods-AGGeoTrackingDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGGeoTrackingDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6CDE89A81B14900F00945FAB /* AGGeoTrackingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGGeoTrackingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C0F2B511B189B4600A4D4F5 /* New York City Marathon.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "New York City Marathon.gpx"; sourceTree = "<group>"; };
+		6CDE89A81B14900F00945FAB /* AGGeoTrackingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AGGeoTrackingDemo.app; path = GeoTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CDE89AC1B14900F00945FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CDE89AD1B14900F00945FAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6CDE89AF1B14900F00945FAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				6CDE89AC1B14900F00945FAB /* Info.plist */,
 				6CDE89AD1B14900F00945FAB /* main.m */,
+				6C0F2B511B189B4600A4D4F5 /* New York City Marathon.gpx */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CDE89BD1B14900F00945FAB /* Main.storyboard in Resources */,
+				6C0F2B521B189B4600A4D4F5 /* New York City Marathon.gpx in Resources */,
 				6CDE89C21B14900F00945FAB /* LaunchScreen.xib in Resources */,
 				6CDE89BF1B14900F00945FAB /* Images.xcassets in Resources */,
 			);
