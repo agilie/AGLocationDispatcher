@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) AGGeoDispatcher *demoLocationService;
 @property (strong, nonatomic) AGLocationDispatcher *demoLocationDispatcher;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *busyIndicator;
 
 @end
 
@@ -62,6 +63,8 @@
 
 - (IBAction)convertToCoordinateTap:(id)sender {
     
+    [self.busyIndicator setHidden:NO];
+    
     [self.demoLocationService requestLocationForAddress:self.adressEdit.text success:^(id rezult) {
         
         CLLocation *temploc = [rezult lastObject];
@@ -69,10 +72,14 @@
         self.lanEdit.text = [NSString stringWithFormat:@"%f", temploc.coordinate.longitude];
         self.latEdit.text = [NSString stringWithFormat:@"%f", temploc.coordinate.latitude ];
         
+        [self.busyIndicator setHidden:YES];
+        
     } andFail:^(NSError *err) {
         
         [self displayDemoError:err];
         self.lanEdit.text = self.latEdit.text = @"-";
+        
+        [self.busyIndicator setHidden:YES];
         
     }];
     
@@ -80,16 +87,25 @@
 
 - (IBAction)convertToAdressTap:(id)sender {
     
+    self.lanEdit.text = [NSString stringWithFormat:@"%f", [self.lanEdit.text floatValue] ];
+    self.latEdit.text = [NSString stringWithFormat:@"%f",  [self.latEdit.text floatValue] ];
+    
     CLLocation *temploc = [[CLLocation alloc] initWithLatitude:   [self.latEdit.text floatValue] longitude: [self.lanEdit.text floatValue]];
+    
+    [self.busyIndicator setHidden:NO];
     
     [self.demoLocationService requestGeocodeForLocation:temploc success:^(id rezult) {
         
         self.adressEdit.text = [rezult firstObject];
         
+        [self.busyIndicator setHidden:YES];
+        
     } andFail:^(NSError *err) {
         
         [self displayDemoError:err];
         self.adressEdit.text = @"-";
+        
+        [self.busyIndicator setHidden:YES];
         
     }];
     

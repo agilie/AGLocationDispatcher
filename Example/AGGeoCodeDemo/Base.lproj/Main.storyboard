@@ -70,6 +70,10 @@
                                     <action selector="providerSelectTap:" destination="BYZ-38-t0r" eventType="touchDown" id="eXa-pk-GKw"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="80i-nW-vcd">
+                                <rect key="frame" x="282" y="530" width="37" height="37"/>
+                                <color key="color" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -87,15 +91,18 @@
                             <constraint firstItem="w7R-KO-5v7" firstAttribute="leading" secondItem="tZo-ag-bdZ" secondAttribute="trailing" constant="4" id="NQO-f7-ghw"/>
                             <constraint firstItem="tZo-ag-bdZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="NYe-hU-ISR"/>
                             <constraint firstItem="tZo-ag-bdZ" firstAttribute="top" secondItem="8db-cr-G4K" secondAttribute="bottom" constant="8" id="P9Q-Re-tBT"/>
+                            <constraint firstAttribute="centerX" secondItem="80i-nW-vcd" secondAttribute="centerX" id="RHQ-bi-Cgi"/>
                             <constraint firstItem="oNl-zb-UAe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="SWg-5B-rv6"/>
                             <constraint firstItem="RNF-tQ-D1Q" firstAttribute="top" secondItem="oNl-zb-UAe" secondAttribute="bottom" constant="46" id="VBv-wx-0Dt"/>
                             <constraint firstItem="8db-cr-G4K" firstAttribute="top" secondItem="oNl-zb-UAe" secondAttribute="bottom" constant="8" id="pYh-Aj-mvf"/>
                             <constraint firstAttribute="centerX" secondItem="Qu1-bX-5x0" secondAttribute="centerX" id="qih-wt-uFe"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="80i-nW-vcd" secondAttribute="bottom" constant="33" id="sBU-Hp-f3Z"/>
                             <constraint firstItem="oNl-zb-UAe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zhi-9P-Vph"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="adressEdit" destination="oNl-zb-UAe" id="zmt-El-fTV"/>
+                        <outlet property="busyIndicator" destination="80i-nW-vcd" id="xqC-Be-BLb"/>
                         <outlet property="lanEdit" destination="RNF-tQ-D1Q" id="PjK-lM-jhA"/>
                         <outlet property="latEdit" destination="tZo-ag-bdZ" id="JqI-ee-eTV"/>
                         <outlet property="providerSelectButton" destination="Qu1-bX-5x0" id="5NJ-Mc-7FE"/>
