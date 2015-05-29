@@ -115,9 +115,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6CDE89A71B14900F00945FAB /* AGGeoTrackingDemo */ = {
+		6CDE89A71B14900F00945FAB /* GeoTracking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6CDE89D11B14900F00945FAB /* Build configuration list for PBXNativeTarget "AGGeoTrackingDemo" */;
+			buildConfigurationList = 6CDE89D11B14900F00945FAB /* Build configuration list for PBXNativeTarget "GeoTracking" */;
 			buildPhases = (
 				B60412DC929C1DAE060B32EC /* Check Pods Manifest.lock */,
 				6CDE89A41B14900F00945FAB /* Sources */,
@@ -129,7 +129,7 @@
 			);
 			dependencies = (
 			);
-			name = AGGeoTrackingDemo;
+			name = GeoTracking;
 			productName = AGGeoTrackingDemo;
 			productReference = 6CDE89A81B14900F00945FAB /* AGGeoTrackingDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -161,7 +161,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6CDE89A71B14900F00945FAB /* AGGeoTrackingDemo */,
+				6CDE89A71B14900F00945FAB /* GeoTracking */,
 			);
 		};
 /* End PBXProject section */
@@ -362,7 +362,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6CDE89D11B14900F00945FAB /* Build configuration list for PBXNativeTarget "AGGeoTrackingDemo" */ = {
+		6CDE89D11B14900F00945FAB /* Build configuration list for PBXNativeTarget "GeoTracking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6CDE89D21B14900F00945FAB /* Debug */,

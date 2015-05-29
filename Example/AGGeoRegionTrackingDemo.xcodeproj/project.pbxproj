@@ -110,9 +110,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C6E2F2C1B170F7000A39A01 /* AGGeoRegionTrackingDemo */ = {
+		6C6E2F2C1B170F7000A39A01 /* RegionTracking */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C6E2F561B170F7000A39A01 /* Build configuration list for PBXNativeTarget "AGGeoRegionTrackingDemo" */;
+			buildConfigurationList = 6C6E2F561B170F7000A39A01 /* Build configuration list for PBXNativeTarget "RegionTracking" */;
 			buildPhases = (
 				3034FFF178C97CB9A389E15C /* Check Pods Manifest.lock */,
 				6C6E2F291B170F7000A39A01 /* Sources */,
@@ -124,7 +124,7 @@
 			);
 			dependencies = (
 			);
-			name = AGGeoRegionTrackingDemo;
+			name = RegionTracking;
 			productName = AGGeoRegionTrackingDemo;
 			productReference = 6C6E2F2D1B170F7000A39A01 /* AGGeoRegionTrackingDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -156,7 +156,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C6E2F2C1B170F7000A39A01 /* AGGeoRegionTrackingDemo */,
+				6C6E2F2C1B170F7000A39A01 /* RegionTracking */,
 			);
 		};
 /* End PBXProject section */
@@ -356,7 +356,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C6E2F561B170F7000A39A01 /* Build configuration list for PBXNativeTarget "AGGeoRegionTrackingDemo" */ = {
+		6C6E2F561B170F7000A39A01 /* Build configuration list for PBXNativeTarget "RegionTracking" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C6E2F571B170F7000A39A01 /* Debug */,

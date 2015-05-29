@@ -106,9 +106,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CEB68EE61B0F4FF900FBF17D /* AGGeoBackgroundDemo */ = {
+		CEB68EE61B0F4FF900FBF17D /* BackgroundLocation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEB68F0A1B0F4FF900FBF17D /* Build configuration list for PBXNativeTarget "AGGeoBackgroundDemo" */;
+			buildConfigurationList = CEB68F0A1B0F4FF900FBF17D /* Build configuration list for PBXNativeTarget "BackgroundLocation" */;
 			buildPhases = (
 				1A0E0E294BD3066EDBB29F99 /* Check Pods Manifest.lock */,
 				CEB68EE31B0F4FF900FBF17D /* Sources */,
@@ -120,7 +120,7 @@
 			);
 			dependencies = (
 			);
-			name = AGGeoBackgroundDemo;
+			name = BackgroundLocation;
 			productName = AGGeoBackgroundDemo;
 			productReference = CEB68EE71B0F4FF900FBF17D /* AGGeoBackgroundDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -157,7 +157,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEB68EE61B0F4FF900FBF17D /* AGGeoBackgroundDemo */,
+				CEB68EE61B0F4FF900FBF17D /* BackgroundLocation */,
 			);
 		};
 /* End PBXProject section */
@@ -359,7 +359,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEB68F0A1B0F4FF900FBF17D /* Build configuration list for PBXNativeTarget "AGGeoBackgroundDemo" */ = {
+		CEB68F0A1B0F4FF900FBF17D /* Build configuration list for PBXNativeTarget "BackgroundLocation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEB68F0B1B0F4FF900FBF17D /* Debug */,

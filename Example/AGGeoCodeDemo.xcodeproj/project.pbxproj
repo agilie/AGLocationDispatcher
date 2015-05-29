@@ -110,9 +110,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CEA1D0941B049B1200006409 /* AGGeoCodeDemo */ = {
+		CEA1D0941B049B1200006409 /* GeoCodeDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEA1D0B81B049B1300006409 /* Build configuration list for PBXNativeTarget "AGGeoCodeDemo" */;
+			buildConfigurationList = CEA1D0B81B049B1300006409 /* Build configuration list for PBXNativeTarget "GeoCodeDemo" */;
 			buildPhases = (
 				D598ECA2816ABDF9C6053E66 /* Check Pods Manifest.lock */,
 				CEA1D0911B049B1200006409 /* Sources */,
@@ -124,7 +124,7 @@
 			);
 			dependencies = (
 			);
-			name = AGGeoCodeDemo;
+			name = GeoCodeDemo;
 			productName = AGGeoCodeDemo;
 			productReference = CEA1D0951B049B1200006409 /* AGGeoCodeDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -161,7 +161,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEA1D0941B049B1200006409 /* AGGeoCodeDemo */,
+				CEA1D0941B049B1200006409 /* GeoCodeDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -361,7 +361,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEA1D0B81B049B1300006409 /* Build configuration list for PBXNativeTarget "AGGeoCodeDemo" */ = {
+		CEA1D0B81B049B1300006409 /* Build configuration list for PBXNativeTarget "GeoCodeDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEA1D0B91B049B1300006409 /* Debug */,
