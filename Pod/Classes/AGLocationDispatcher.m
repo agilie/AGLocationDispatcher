@@ -298,7 +298,7 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
     if (self.locationAndSpeedBlock != nil) {
         self.locationAndSpeedBlock(manager, correctedLocation, (AGLocation *)oldLocation, [self getSpeed]);
     }
-    if (correctedLocation.horizontalAccuracy <= manager.desiredAccuracy || _isFetchLocationOnce == NO) {
+     if ((manager.desiredAccuracy > 0 && correctedLocation.horizontalAccuracy <= manager.desiredAccuracy) || manager.desiredAccuracy <= 0 || _isFetchLocationOnce == NO) {
         if (_isFetchLocationOnce) {
             // Stop querying timer because accurate location was obtained
             [self endTimeoutTimer];
