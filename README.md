@@ -7,8 +7,6 @@ Dispatcher provides easy-to-use access to iOS device location/background locatio
 [![License](https://img.shields.io/cocoapods/l/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
 [![Platform](https://img.shields.io/cocoapods/p/AGLocationDispatcher.svg?style=flat)](http://cocoadocs.org/docsets/AGLocationDispatcher)
 
-![Demo](https://agilie.com/distribute/location-dispatch-demo.gif)
-
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -30,6 +28,51 @@ To start tracking location, initialize AGLocationDispatcher or AGRouteDispatcher
 also you can customize service with following initializer -
 
 initWithUpdatingInterval: andDesiredAccuracy:
+
+## Demo apps:
+
+### AGGeoBackgroundDemo.xcodeproj
+
+![Demo](https://agilie.com/distribute/1.png)
+![Demo](https://agilie.com/distribute/2.png)
+
+A simple app which displays current device location (and carries out some actions with these data) in a background app state. The app identifies the location and displays this information in case it is changed significantly (about ~1000 ft) or when the app processes fetch action from iOS (10~15 minutes interval).
+In a background mode app can identify location within a time limit (as well as send location to a server or save in coredata).
+Our AGBackgroundLocationDispatcher class integrates the location method with one simple API. (See AppDelegate.m).
+
+
+Additional information:
+1 Significant location 
+2 Background fetch
+
+### AGGeoCodeDemo.xcodeproj
+
+![Demo](https://agilie.com/distribute/3.png)
+
+Demonstrate our simple wrapper that proposes method for multiple provider geocoder service. App shows geocode (location into address) and reverse geocode (address into location), with selection a provider from our list (Yandex, Google, Apple).
+
+### AGGeoRegionTrackingDemo.xcodeproj
+
+![Demo](https://agilie.com/distribute/region.gif)
+
+This demo app indicates when a user enters/exits the picked region with diameter un 100m.
+User can pick a region by dragging green circle, start tracking this region (start button in bottom), track his position on the map and receive notifications when entering or exiting the region. Just stop tracking current region and pick another one. Have fun!
+P.S. If you want to simulate location tracking: tap “Simulate location” icon in Xcode bottom bar and pick “New York City Marathon” when you start your app
+or
+go to you scheme > Edit scheme > Pick “New York City Marathon” in Default location list.
+
+### AGGeoTrackingDemo.xcodeproj
+
+![Demo](https://agilie.com/distribute/tracking.gif)
+
+This demo app can track your current position, record your route, show your current average speed and distance. Also you can save your routes and view them later. Besides that you can pick one of 3 position markers styles.
+Just tap Start rec button and go on. You will see your current route drawn with green line. Press Stop & Save and go to saved routes screen by tapping Saved routes button. Here you can see your last saved route. You can pick any of your routes by tapping Saved routes button in bottom. Have fun!
+
+P.S. If you want to simulate location tracking: tap “Simulate location” icon in Xcode bottom bar and pick “New York City Marathon” when you start your app
+or
+go to you scheme > Edit scheme > Pick “New York City Marathon” in Default location list.
+
+
 
 Example:
 

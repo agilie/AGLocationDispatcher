@@ -15,14 +15,6 @@
 		6C6E2F421B170F7000A39A01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C6E2F401B170F7000A39A01 /* Main.storyboard */; };
 		6C6E2F441B170F7000A39A01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C6E2F431B170F7000A39A01 /* Images.xcassets */; };
 		6C6E2F471B170F7000A39A01 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C6E2F451B170F7000A39A01 /* LaunchScreen.xib */; };
-		6CD7B1C71B1DA8EF00805071 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6E2F351B170F7000A39A01 /* AppDelegate.m */; };
-		6CD7B1C81B1DA8EF00805071 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6E2F321B170F7000A39A01 /* main.m */; };
-		6CD7B1C91B1DA8EF00805071 /* RegionTrackingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2BEE021B17270800F85685 /* RegionTrackingViewController.m */; };
-		6CD7B1CB1B1DA8EF00805071 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2BEDFF1B1724C100F85685 /* MapKit.framework */; };
-		6CD7B1CC1B1DA8EF00805071 /* libPods-AGGeoRegionTrackingDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48009AF033F317BDA0B7CCEE /* libPods-AGGeoRegionTrackingDemo.a */; };
-		6CD7B1CE1B1DA8EF00805071 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C6E2F401B170F7000A39A01 /* Main.storyboard */; };
-		6CD7B1CF1B1DA8EF00805071 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C6E2F451B170F7000A39A01 /* LaunchScreen.xib */; };
-		6CD7B1D01B1DA8EF00805071 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C6E2F431B170F7000A39A01 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +31,6 @@
 		6C6E2F411B170F7000A39A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C6E2F431B170F7000A39A01 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6C6E2F461B170F7000A39A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		6CD7B1D51B1DA8EF00805071 /* RegionTracking copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RegionTracking copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD7B1D61B1DA8EF00805071 /* RegionTracking copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RegionTracking copy-Info.plist"; path = "/Users/vermillion/Projects/AGLocationDispatcher/Example/RegionTracking copy-Info.plist"; sourceTree = "<absolute>"; };
 		C891F9C5B3855BADBCCCB35C /* Pods-AGGeoRegionTrackingDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGGeoRegionTrackingDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AGGeoRegionTrackingDemo/Pods-AGGeoRegionTrackingDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,15 +42,6 @@
 			files = (
 				6C2BEE001B1724C100F85685 /* MapKit.framework in Frameworks */,
 				4BC907AE6E20637D4EFF2263 /* libPods-AGGeoRegionTrackingDemo.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6CD7B1CA1B1DA8EF00805071 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6CD7B1CB1B1DA8EF00805071 /* MapKit.framework in Frameworks */,
-				6CD7B1CC1B1DA8EF00805071 /* libPods-AGGeoRegionTrackingDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				6C6E2F2D1B170F7000A39A01 /* RegionTracking.app */,
-				6CD7B1D51B1DA8EF00805071 /* RegionTracking copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,25 +131,6 @@
 			productReference = 6C6E2F2D1B170F7000A39A01 /* RegionTracking.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6CD7B1C41B1DA8EF00805071 /* RegionTrackingWithSimulatedGPS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6CD7B1D21B1DA8EF00805071 /* Build configuration list for PBXNativeTarget "RegionTrackingWithSimulatedGPS" */;
-			buildPhases = (
-				6CD7B1C51B1DA8EF00805071 /* Check Pods Manifest.lock */,
-				6CD7B1C61B1DA8EF00805071 /* Sources */,
-				6CD7B1CA1B1DA8EF00805071 /* Frameworks */,
-				6CD7B1CD1B1DA8EF00805071 /* Resources */,
-				6CD7B1D11B1DA8EF00805071 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = RegionTrackingWithSimulatedGPS;
-			productName = AGGeoRegionTrackingDemo;
-			productReference = 6CD7B1D51B1DA8EF00805071 /* RegionTracking copy.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,7 +159,6 @@
 			projectRoot = "";
 			targets = (
 				6C6E2F2C1B170F7000A39A01 /* RegionTracking */,
-				6CD7B1C41B1DA8EF00805071 /* RegionTrackingWithSimulatedGPS */,
 			);
 		};
 /* End PBXProject section */
@@ -210,16 +171,6 @@
 				6C6E2F421B170F7000A39A01 /* Main.storyboard in Resources */,
 				6C6E2F471B170F7000A39A01 /* LaunchScreen.xib in Resources */,
 				6C6E2F441B170F7000A39A01 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6CD7B1CD1B1DA8EF00805071 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6CD7B1CE1B1DA8EF00805071 /* Main.storyboard in Resources */,
-				6CD7B1CF1B1DA8EF00805071 /* LaunchScreen.xib in Resources */,
-				6CD7B1D01B1DA8EF00805071 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,36 +190,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6CD7B1C51B1DA8EF00805071 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6CD7B1D11B1DA8EF00805071 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AGGeoRegionTrackingDemo/Pods-AGGeoRegionTrackingDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D1812FABF72F98967573B0B4 /* Copy Pods Resources */ = {
@@ -296,16 +217,6 @@
 				6C6E2F361B170F7000A39A01 /* AppDelegate.m in Sources */,
 				6C6E2F331B170F7000A39A01 /* main.m in Sources */,
 				6C2BEE031B17270800F85685 /* RegionTrackingViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6CD7B1C61B1DA8EF00805071 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6CD7B1C71B1DA8EF00805071 /* AppDelegate.m in Sources */,
-				6CD7B1C81B1DA8EF00805071 /* main.m in Sources */,
-				6CD7B1C91B1DA8EF00805071 /* RegionTrackingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,28 +346,6 @@
 			};
 			name = Release;
 		};
-		6CD7B1D31B1DA8EF00805071 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F49DE9AC5E60B330BCBE8D9 /* Pods-AGGeoRegionTrackingDemo.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "RegionTracking copy-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "RegionTracking copy";
-			};
-			name = Debug;
-		};
-		6CD7B1D41B1DA8EF00805071 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C891F9C5B3855BADBCCCB35C /* Pods-AGGeoRegionTrackingDemo.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "RegionTracking copy-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "RegionTracking copy";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -474,15 +363,6 @@
 			buildConfigurations = (
 				6C6E2F571B170F7000A39A01 /* Debug */,
 				6C6E2F581B170F7000A39A01 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6CD7B1D21B1DA8EF00805071 /* Build configuration list for PBXNativeTarget "RegionTrackingWithSimulatedGPS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6CD7B1D31B1DA8EF00805071 /* Debug */,
-				6CD7B1D41B1DA8EF00805071 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
