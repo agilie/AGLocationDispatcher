@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
     s.name             = "AGLocationDispatcher"
-    s.version          = "0.0.7"
+    s.version          = "0.0.7.1"
     s.platform         = :ios, '7.0'
     s.summary          = "Location manage framework working in different modes."
     s.description      = <<-DESC
@@ -19,7 +19,6 @@ Pod::Spec.new do |s|
     * Don't worry about the indent, we strip it!
     DESC
     s.homepage         = "http://github.com/agilie/AGLocationDispatcher"
-    # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.authors           = { 'Agilie' => 'info@agilie.com' }
     s.source           = { :git => "https://github.com/agilie/AGLocationDispatcher.git",
@@ -35,7 +34,6 @@ Pod::Spec.new do |s|
                         }
 
     s.public_header_files = 'Pod/Classes/*.h'
-#s.source_files = 'Pod/Classes/*.h'
     s.frameworks = 'UIKit', 'MapKit', 'CoreLocation'
     s.dependency 'AFNetworking', '~> 2.3'
 end

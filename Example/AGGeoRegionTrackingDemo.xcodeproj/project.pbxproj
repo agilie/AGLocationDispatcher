@@ -23,7 +23,7 @@
 		6C2BEDFF1B1724C100F85685 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6C2BEE011B17270800F85685 /* RegionTrackingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionTrackingViewController.h; sourceTree = "<group>"; };
 		6C2BEE021B17270800F85685 /* RegionTrackingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionTrackingViewController.m; sourceTree = "<group>"; };
-		6C6E2F2D1B170F7000A39A01 /* RegionTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RegionTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C6E2F2D1B170F7000A39A01 /* RegionTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = RegionTracking.app; path = AGGeoRegionTrackingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C6E2F311B170F7000A39A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C6E2F321B170F7000A39A01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6C6E2F341B170F7000A39A01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };

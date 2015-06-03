@@ -21,7 +21,7 @@
 /* Begin PBXFileReference section */
 		0F4B3FE86C7D5B901DAF9796 /* libPods-AGGeoTrackingDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGGeoTrackingDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CD7B1EA1B1DA9BE00805071 /* GeoTracking copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GeoTracking copy-Info.plist"; path = "/Users/vermillion/Projects/AGLocationDispatcher/Example/GeoTracking copy-Info.plist"; sourceTree = "<absolute>"; };
-		6CDE89A81B14900F00945FAB /* GeoTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CDE89A81B14900F00945FAB /* GeoTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = GeoTracking.app; path = AGGeoTrackingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CDE89AC1B14900F00945FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CDE89AD1B14900F00945FAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6CDE89AF1B14900F00945FAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };

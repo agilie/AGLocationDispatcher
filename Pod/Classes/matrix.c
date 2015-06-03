@@ -165,7 +165,7 @@ int equal_matrix(Matrix a, Matrix b, double tolerance) {
   assert(a.cols == b.cols);
   for (int i = 0; i < a.rows; ++i) {
     for (int j = 0; j < a.cols; ++j) {
-      if (abs(a.data[i][j] - b.data[i][j]) > tolerance) {
+      if (fabs(a.data[i][j] - b.data[i][j]) > tolerance) {
 	return 0;
       }
     }

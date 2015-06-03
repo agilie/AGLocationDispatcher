@@ -20,7 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - AGLocationDispatcher (0.0.5):
+  - AGLocationDispatcher (0.0.7):
     - AFNetworking (~> 2.3)
 
 DEPENDENCIES:
@@ -28,10 +28,10 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   AGLocationDispatcher:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
-  AGLocationDispatcher: a260e8c8a51107d60e5054bd69144a7014529718
+  AGLocationDispatcher: a69b105f48473d2f7431d9043fe630b853bbe2f4
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.37.2

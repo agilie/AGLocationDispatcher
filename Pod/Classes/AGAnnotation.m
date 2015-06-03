@@ -37,10 +37,24 @@
 
 - (NSString *)titleForType:(AGAnnotationType)type {
     switch (type) {
-        case AGAnnotationType0Start | AGAnnotationType1Start | AGAnnotationType2Start:
+        case AGAnnotationType0Start:
             return @"Start point";
-        case AGAnnotationType0Finish | AGAnnotationType1Finish |AGAnnotationType2Finish :
+            break;
+        case AGAnnotationType1Start:
+            return @"Start point";
+            break;
+        case AGAnnotationType2Start:
+            return @"Start point";
+            break;
+        case AGAnnotationType0Finish:
             return @"Finish point";
+            break;
+        case AGAnnotationType1Finish:
+            return @"Finish point";
+            break;
+        case AGAnnotationType2Finish:
+            return @"Finish point";
+            break;
         default:
             return nil;
     }

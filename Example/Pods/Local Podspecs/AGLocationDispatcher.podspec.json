@@ -1,6 +1,6 @@
 {
   "name": "AGLocationDispatcher",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "platforms": {
     "ios": "7.0"
   },
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "https://github.com/agilie/AGLocationDispatcher.git",
-    "tag": "0.0.5"
+    "tag": "0.0.7"
   },
   "requires_arc": true,
   "source_files": "Pod/Classes/**/*.{c,h,m}",
