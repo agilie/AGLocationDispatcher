@@ -33,8 +33,8 @@ initWithUpdatingInterval: andDesiredAccuracy:
 
 ### AGGeoBackgroundDemo.xcodeproj
 
-![Demo](https://agilie.com/distribute/1.png)
-![Demo](https://agilie.com/distribute/2.png)
+![Demo](https://agilie.com/distribute/location_dispatch/screen1.png)
+![Demo](https://agilie.com/distribute/location_dispatch/screen2.png)
 
 A simple app which displays current device location (and carries out some actions with these data) in a background app state. The app identifies the location and displays this information in case it is changed significantly (about ~1000 ft) or when the app processes fetch action from iOS (10~15 minutes interval).
 In a background mode app can identify location within a time limit (as well as send location to a server or save in coredata).
@@ -47,13 +47,13 @@ Additional information:
 
 ### AGGeoCodeDemo.xcodeproj
 
-![Demo](https://agilie.com/distribute/3.png)
+![Demo](https://agilie.com/distribute/location_dispatch/screen3.png)
 
 Demonstrate our simple wrapper that proposes method for multiple provider geocoder service. App shows geocode (location into address) and reverse geocode (address into location), with selection a provider from our list (Yandex, Google, Apple).
 
 ### AGGeoRegionTrackingDemo.xcodeproj
 
-![Demo](https://agilie.com/distribute/region1.gif)
+![Demo](https://agilie.com/distribute/location_dispatch/region.gif)
 
 This demo app indicates when a user enters/exits the picked region with diameter un 100m.
 User can pick a region by dragging green circle, start tracking this region (start button in bottom), track his position on the map and receive notifications when entering or exiting the region. Just stop tracking current region and pick another one. Have fun!
@@ -63,7 +63,7 @@ go to you scheme > Edit scheme > Pick “New York City Marathon” in Default lo
 
 ### AGGeoTrackingDemo.xcodeproj
 
-![Demo](https://agilie.com/distribute/tracking1.gif)
+![Demo](https://agilie.com/distribute/location_dispatch/tracking.gif)
 
 This demo app can track your current position, record your route, show your current average speed and distance. Also you can save your routes and view them later. Besides that you can pick one of 3 position markers styles.
 Just tap Start rec button and go on. You will see your current route drawn with green line. Press Stop & Save and go to saved routes screen by tapping Saved routes button. Here you can see your last saved route. You can pick any of your routes by tapping Saved routes button in bottom. Have fun!
