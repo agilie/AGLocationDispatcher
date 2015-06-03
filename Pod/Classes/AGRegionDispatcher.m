@@ -105,6 +105,7 @@
 
 - (void)_addRegionForMonitoring:(CLCircularRegion *)region desiredAccuracy:(CLLocationAccuracy)accuracy {
     NSSet *regions = [self locationManager].monitoredRegions;
+    if (regions) NSLog(@"%lu ", (unsigned long)regions.count);
     AGLog(@"[%@] _addRegionForMonitoring:desiredAccuracy: [regions count]: %lu", NSStringFromClass([self class]), (unsigned long)[regions count]);
     NSAssert([CLLocationManager isMonitoringAvailableForClass:[region class]] || [CLLocationManager isMonitoringAvailableForClass:[region class]], @"RegionMonitoring not available!");
     NSAssert([regions count] < MAX_MONITORING_REGIONS, @"Only support %d regions!", MAX_MONITORING_REGIONS);
