@@ -53,7 +53,7 @@ Demonstrate our simple wrapper that proposes method for multiple provider geocod
 
 ### AGGeoRegionTrackingDemo.xcodeproj
 
-![Demo](https://agilie.com/distribute/location_dispatch/region.gif)
+[![Demo](https://agilie.com/distribute/location_dispatch/region.gif)](https://youtu.be/kpDIu1F_rYo)
 
 This demo app indicates when a user enters/exits the picked region with diameter un 100m.
 User can pick a region by dragging green circle, start tracking this region (start button in bottom), track his position on the map and receive notifications when entering or exiting the region. Just stop tracking current region and pick another one. Have fun!
@@ -63,7 +63,7 @@ go to you scheme > Edit scheme > Pick “New York City Marathon” in Default lo
 
 ### AGGeoTrackingDemo.xcodeproj
 
-![Demo](https://agilie.com/distribute/location_dispatch/tracking.gif)
+[![Demo](https://agilie.com/distribute/location_dispatch/tracking.gif)](https://youtu.be/w2TmZ4t7NGg)
 
 This demo app can track your current position, record your route, show your current average speed and distance. Also you can save your routes and view them later. Besides that you can pick one of 3 position markers styles.
 Just tap Start rec button and go on. You will see your current route drawn with green line. Press Stop & Save and go to saved routes screen by tapping Saved routes button. Here you can see your last saved route. You can pick any of your routes by tapping Saved routes button in bottom. Have fun!
