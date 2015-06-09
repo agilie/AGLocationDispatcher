@@ -53,7 +53,7 @@ Demonstrate our simple wrapper that proposes method for multiple provider geocod
 
 ### AGGeoRegionTrackingDemo.xcodeproj
 
-[![Demo](https://agilie.com/distribute/location_dispatch/region_demo.gif)](https://youtu.be/kpDIu1F_rYo)
+[![Demo](https://agilie.com/distribute/location_dispatch/region_demo.gif)](https://youtu.be/9ru01N9g6AI)
 
 This demo app indicates when a user enters/exits the picked region with diameter un 100m.
 User can pick a region by dragging green circle, start tracking this region (start button in bottom), track his position on the map and receive notifications when entering or exiting the region. Just stop tracking current region and pick another one. Have fun!
