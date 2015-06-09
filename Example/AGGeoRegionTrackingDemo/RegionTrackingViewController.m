@@ -53,9 +53,9 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
     self.region = [[CLCircularRegion alloc] initWithCenter:location.coordinate radius:kRegionRadius identifier:@"region"];
     [weakSelf.regionDispatcher addRegionForMonitoring:self.region desiredAccuracy:AGLocationAccuracyRoom updateBlock:^(CLLocationManager *manager, CLCircularRegion *region, BOOL enter) {
         if (enter) {
-            [[[UIAlertView alloc] initWithTitle:@"Region tracking" message:@"You enter region" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"Region tracking" message:@"You have entered region" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
         } else {
-            [[[UIAlertView alloc] initWithTitle:@"Region tracking" message:@"You exit region" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+            [[[UIAlertView alloc] initWithTitle:@"Region tracking" message:@"You have left region" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
         }
     } failBlock:^(CLLocationManager *manager, CLCircularRegion *region, NSError *error) {
         [[[UIAlertView alloc] initWithTitle:@"Error!" message:[error description] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
