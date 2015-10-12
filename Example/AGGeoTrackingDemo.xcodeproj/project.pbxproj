@@ -20,8 +20,9 @@
 
 /* Begin PBXFileReference section */
 		0F4B3FE86C7D5B901DAF9796 /* libPods-AGGeoTrackingDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGGeoTrackingDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D188A8973BC9A74F464E0F /* Pods-GeoTracking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoTracking.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoTracking/Pods-GeoTracking.release.xcconfig"; sourceTree = "<group>"; };
 		6CD7B1EA1B1DA9BE00805071 /* GeoTracking copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GeoTracking copy-Info.plist"; path = "/Users/vermillion/Projects/AGLocationDispatcher/Example/GeoTracking copy-Info.plist"; sourceTree = "<absolute>"; };
-		6CDE89A81B14900F00945FAB /* GeoTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = GeoTracking.app; path = AGGeoTrackingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CDE89A81B14900F00945FAB /* AGGeoTrackingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGGeoTrackingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CDE89AC1B14900F00945FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CDE89AD1B14900F00945FAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6CDE89AF1B14900F00945FAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -34,8 +35,10 @@
 		6CDE89DD1B149B2700945FAB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6CDE89DF1B14B42300945FAB /* SavedRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedRouteViewController.h; sourceTree = "<group>"; };
 		6CDE89E01B14B42300945FAB /* SavedRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedRouteViewController.m; sourceTree = "<group>"; };
+		A91C2F36262FD23FA1E20D77 /* libPods-GeoTracking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeoTracking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC37CCCA529CA282F4363BAB /* Pods-AGGeoTrackingDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGGeoTrackingDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AGGeoTrackingDemo/Pods-AGGeoTrackingDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C52FFB73C17D498638F67784 /* Pods-AGGeoTrackingDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGGeoTrackingDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AGGeoTrackingDemo/Pods-AGGeoTrackingDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		CAEFCF72D69E03D9C5E0BCA1 /* Pods-GeoTracking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoTracking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoTracking/Pods-GeoTracking.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,7 @@
 			children = (
 				6CDE89DD1B149B2700945FAB /* MapKit.framework */,
 				0F4B3FE86C7D5B901DAF9796 /* libPods-AGGeoTrackingDemo.a */,
+				A91C2F36262FD23FA1E20D77 /* libPods-GeoTracking.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -65,6 +69,8 @@
 			children = (
 				C52FFB73C17D498638F67784 /* Pods-AGGeoTrackingDemo.debug.xcconfig */,
 				AC37CCCA529CA282F4363BAB /* Pods-AGGeoTrackingDemo.release.xcconfig */,
+				CAEFCF72D69E03D9C5E0BCA1 /* Pods-GeoTracking.debug.xcconfig */,
+				59D188A8973BC9A74F464E0F /* Pods-GeoTracking.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -83,7 +89,7 @@
 		6CDE89A91B14900F00945FAB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6CDE89A81B14900F00945FAB /* GeoTracking.app */,
+				6CDE89A81B14900F00945FAB /* AGGeoTrackingDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,23 +123,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6CDE89A71B14900F00945FAB /* GeoTracking */ = {
+		6CDE89A71B14900F00945FAB /* AGGeoTrackingDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6CDE89D11B14900F00945FAB /* Build configuration list for PBXNativeTarget "GeoTracking" */;
+			buildConfigurationList = 6CDE89D11B14900F00945FAB /* Build configuration list for PBXNativeTarget "AGGeoTrackingDemo" */;
 			buildPhases = (
 				B60412DC929C1DAE060B32EC /* Check Pods Manifest.lock */,
 				6CDE89A41B14900F00945FAB /* Sources */,
 				6CDE89A51B14900F00945FAB /* Frameworks */,
 				6CDE89A61B14900F00945FAB /* Resources */,
 				CD1F4D1AA4459D8F95AF7592 /* Copy Pods Resources */,
+				18402B52BF928A80B0291D46 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = GeoTracking;
+			name = AGGeoTrackingDemo;
 			productName = AGGeoTrackingDemo;
-			productReference = 6CDE89A81B14900F00945FAB /* GeoTracking.app */;
+			productReference = 6CDE89A81B14900F00945FAB /* AGGeoTrackingDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -163,7 +170,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6CDE89A71B14900F00945FAB /* GeoTracking */,
+				6CDE89A71B14900F00945FAB /* AGGeoTrackingDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -182,6 +189,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		18402B52BF928A80B0291D46 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AGGeoTrackingDemo/Pods-AGGeoTrackingDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B60412DC929C1DAE060B32EC /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,7 +386,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6CDE89D11B14900F00945FAB /* Build configuration list for PBXNativeTarget "GeoTracking" */ = {
+		6CDE89D11B14900F00945FAB /* Build configuration list for PBXNativeTarget "AGGeoTrackingDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6CDE89D21B14900F00945FAB /* Debug */,

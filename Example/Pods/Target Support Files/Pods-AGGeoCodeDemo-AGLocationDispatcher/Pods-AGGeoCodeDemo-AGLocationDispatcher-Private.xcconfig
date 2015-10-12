@@ -1,6 +1,0 @@
-#include "Pods-AGGeoCodeDemo-AGLocationDispatcher.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/AGLocationDispatcher" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/AGLocationDispatcher"
-OTHER_LDFLAGS = ${PODS_AGGEOCODEDEMO_AGLOCATIONDISPATCHER_OTHER_LDFLAGS} -ObjC
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES

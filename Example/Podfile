@@ -3,7 +3,7 @@ workspace 'simpleExamples'
 platform :ios, '7.0'
 
 xcodeproj 'AGGeoCodeDemo.xcodeproj'
-xcodeproj 'AGGeoBackgroundDemo.xcodeproj'
+xcodeproj 'AGGeoBDemo.xcodeproj'
 xcodeproj 'AGGeoTrackingDemo.xcodeproj'
 xcodeproj 'AGGeoRegionTrackingDemo.xcodeproj'
 

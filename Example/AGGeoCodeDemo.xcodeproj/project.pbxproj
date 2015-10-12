@@ -22,7 +22,7 @@
 		7BB635CBA8EAF7334C238FC2 /* Pods-AGGeoCodeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGGeoCodeDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AGGeoCodeDemo/Pods-AGGeoCodeDemo.release.xcconfig"; sourceTree = "<group>"; };
 		AF310B01A5BC874A180E3CDE /* Pods-AGGeoCodeDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGGeoCodeDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AGGeoCodeDemo/Pods-AGGeoCodeDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		CE4EBBD21B0502D1001CB098 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		CEA1D0951B049B1200006409 /* AGGeoCodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AGGeoCodeDemo.app; path = GeoCodeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA1D0951B049B1200006409 /* AGGeoCodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGGeoCodeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA1D0991B049B1200006409 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEA1D09A1B049B1200006409 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CEA1D09C1B049B1200006409 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,6 +119,7 @@
 				CEA1D0921B049B1200006409 /* Frameworks */,
 				CEA1D0931B049B1200006409 /* Resources */,
 				E1A3931F74BD43044E5E1BE6 /* Copy Pods Resources */,
+				25C4CF23ECA61C7D361D9A13 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,6 +181,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		25C4CF23ECA61C7D361D9A13 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AGGeoCodeDemo/Pods-AGGeoCodeDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D598ECA2816ABDF9C6053E66 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

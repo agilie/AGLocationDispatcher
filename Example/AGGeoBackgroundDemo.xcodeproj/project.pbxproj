@@ -8,26 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		69B8347D43F25B48622E0706 /* libPods-AGGeoBackgroundDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DC790B75909BDA37EC80DB /* libPods-AGGeoBackgroundDemo.a */; };
+		CEA0E8B61BCBE7B90023D0B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA0E8B51BCBE7B90023D0B2 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		CEB68EED1B0F4FF900FBF17D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB68EEC1B0F4FF900FBF17D /* main.m */; };
 		CEB68EF01B0F4FF900FBF17D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB68EEF1B0F4FF900FBF17D /* AppDelegate.m */; };
 		CEB68EF31B0F4FF900FBF17D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB68EF21B0F4FF900FBF17D /* ViewController.m */; };
-		CEB68EF61B0F4FF900FBF17D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEB68EF41B0F4FF900FBF17D /* Main.storyboard */; };
 		CEB68EF81B0F4FF900FBF17D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB68EF71B0F4FF900FBF17D /* Images.xcassets */; };
-		CEB68EFB1B0F4FF900FBF17D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB68EF91B0F4FF900FBF17D /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		48DC790B75909BDA37EC80DB /* libPods-AGGeoBackgroundDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGGeoBackgroundDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEB68EE71B0F4FF900FBF17D /* AGGeoBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AGGeoBDemo.app; path = AGGeoBackgroundDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62C65D27359CDEAE81FE72E5 /* Pods-AGGeoBDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGGeoBDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AGGeoBDemo/Pods-AGGeoBDemo.release.xcconfig"; sourceTree = "<group>"; };
+		928ED4DEDEEFBAC461514217 /* Pods-AGGeoBDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGGeoBDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AGGeoBDemo/Pods-AGGeoBDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		CEA0E8B51BCBE7B90023D0B2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CEB68EE71B0F4FF900FBF17D /* AGGeoBackgroundDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AGGeoBackgroundDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB68EEB1B0F4FF900FBF17D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEB68EEC1B0F4FF900FBF17D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CEB68EEE1B0F4FF900FBF17D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CEB68EEF1B0F4FF900FBF17D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CEB68EF11B0F4FF900FBF17D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		CEB68EF21B0F4FF900FBF17D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		CEB68EF51B0F4FF900FBF17D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEB68EF71B0F4FF900FBF17D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CEB68EFA1B0F4FF900FBF17D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DAECD7C5294DD60550D3ED5D /* libPods-AGGeoBDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AGGeoBDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE14A5BD88538E93E3A5E61E /* Pods-AGGeoBackgroundDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGGeoBackgroundDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AGGeoBackgroundDemo/Pods-AGGeoBackgroundDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FE215EB62C9FC0F1729C9EDA /* Pods-AGGeoBackgroundDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AGGeoBackgroundDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AGGeoBackgroundDemo/Pods-AGGeoBackgroundDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +50,8 @@
 			children = (
 				EE14A5BD88538E93E3A5E61E /* Pods-AGGeoBackgroundDemo.debug.xcconfig */,
 				FE215EB62C9FC0F1729C9EDA /* Pods-AGGeoBackgroundDemo.release.xcconfig */,
+				928ED4DEDEEFBAC461514217 /* Pods-AGGeoBDemo.debug.xcconfig */,
+				62C65D27359CDEAE81FE72E5 /* Pods-AGGeoBDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -57,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				48DC790B75909BDA37EC80DB /* libPods-AGGeoBackgroundDemo.a */,
+				DAECD7C5294DD60550D3ED5D /* libPods-AGGeoBDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -74,7 +78,7 @@
 		CEB68EE81B0F4FF900FBF17D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEB68EE71B0F4FF900FBF17D /* AGGeoBDemo.app */,
+				CEB68EE71B0F4FF900FBF17D /* AGGeoBackgroundDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,13 +86,12 @@
 		CEB68EE91B0F4FF900FBF17D /* AGGeoBackgroundDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CEA0E8B51BCBE7B90023D0B2 /* Main.storyboard */,
 				CEB68EEE1B0F4FF900FBF17D /* AppDelegate.h */,
 				CEB68EEF1B0F4FF900FBF17D /* AppDelegate.m */,
 				CEB68EF11B0F4FF900FBF17D /* ViewController.h */,
 				CEB68EF21B0F4FF900FBF17D /* ViewController.m */,
-				CEB68EF41B0F4FF900FBF17D /* Main.storyboard */,
 				CEB68EF71B0F4FF900FBF17D /* Images.xcassets */,
-				CEB68EF91B0F4FF900FBF17D /* LaunchScreen.xib */,
 				CEB68EEA1B0F4FF900FBF17D /* Supporting Files */,
 			);
 			path = AGGeoBackgroundDemo;
@@ -106,23 +109,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CEB68EE61B0F4FF900FBF17D /* AGGeoBDemo */ = {
+		CEB68EE61B0F4FF900FBF17D /* AGGeoBackgroundDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CEB68F0A1B0F4FF900FBF17D /* Build configuration list for PBXNativeTarget "AGGeoBDemo" */;
+			buildConfigurationList = CEB68F0A1B0F4FF900FBF17D /* Build configuration list for PBXNativeTarget "AGGeoBackgroundDemo" */;
 			buildPhases = (
 				1A0E0E294BD3066EDBB29F99 /* Check Pods Manifest.lock */,
 				CEB68EE31B0F4FF900FBF17D /* Sources */,
 				CEB68EE41B0F4FF900FBF17D /* Frameworks */,
 				CEB68EE51B0F4FF900FBF17D /* Resources */,
 				7456F09FB09F8E81CF504582 /* Copy Pods Resources */,
+				2BA658760E55B14D4F50898D /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AGGeoBDemo;
+			name = AGGeoBackgroundDemo;
 			productName = AGGeoBackgroundDemo;
-			productReference = CEB68EE71B0F4FF900FBF17D /* AGGeoBDemo.app */;
+			productReference = CEB68EE71B0F4FF900FBF17D /* AGGeoBackgroundDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -150,14 +154,13 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = CEB68EDE1B0F4FF900FBF17D;
 			productRefGroup = CEB68EE81B0F4FF900FBF17D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CEB68EE61B0F4FF900FBF17D /* AGGeoBDemo */,
+				CEB68EE61B0F4FF900FBF17D /* AGGeoBackgroundDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -167,9 +170,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEB68EF61B0F4FF900FBF17D /* Main.storyboard in Resources */,
-				CEB68EFB1B0F4FF900FBF17D /* LaunchScreen.xib in Resources */,
 				CEB68EF81B0F4FF900FBF17D /* Images.xcassets in Resources */,
+				CEA0E8B61BCBE7B90023D0B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +191,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2BA658760E55B14D4F50898D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AGGeoBackgroundDemo/Pods-AGGeoBackgroundDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7456F09FB09F8E81CF504582 /* Copy Pods Resources */ = {
@@ -220,25 +237,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		CEB68EF41B0F4FF900FBF17D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEB68EF51B0F4FF900FBF17D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		CEB68EF91B0F4FF900FBF17D /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CEB68EFA1B0F4FF900FBF17D /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CEB68F081B0F4FF900FBF17D /* Debug */ = {
@@ -331,6 +329,7 @@
 				INFOPLIST_FILE = AGGeoBackgroundDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -343,6 +342,7 @@
 				INFOPLIST_FILE = AGGeoBackgroundDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -359,7 +359,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CEB68F0A1B0F4FF900FBF17D /* Build configuration list for PBXNativeTarget "AGGeoBDemo" */ = {
+		CEB68F0A1B0F4FF900FBF17D /* Build configuration list for PBXNativeTarget "AGGeoBackgroundDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CEB68F0B1B0F4FF900FBF17D /* Debug */,
