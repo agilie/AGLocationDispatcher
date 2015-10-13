@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:AGGeoTrackingDemo/New York City Marathon.gpx">
-   </FileRef>
-   <FileRef
       location = "group:AGGeoBackgroundDemo.xcodeproj">
    </FileRef>
    <FileRef
