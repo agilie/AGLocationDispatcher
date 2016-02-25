@@ -195,6 +195,12 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
     [self startUpdatingLocation];
 }
 
+- (void)updatingLocationWithBlock: (AGLocationServiceLocationUpdateBlock)block errorBlock: (AGLocationServiceLocationUpdateFailBlock) errorBlock {
+    _isFetchLocationOnce = NO;
+    [self startTimeoutTimer];
+    [self startUpdatingLocationWithBlock:block errorBlock:errorBlock];
+}
+
 - (void)resetBlocks {
     self.locationBlock = nil;
     self.errorLocationBlock = nil;
