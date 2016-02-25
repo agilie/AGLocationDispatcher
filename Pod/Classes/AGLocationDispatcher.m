@@ -215,7 +215,7 @@ static NSString *const kDidChangeAppBackgroundModeKey = @"AGLocationDispatchDidC
 
 - (void)updateLocation:(NSTimer *)timer {
     [self stopUpdatingLocation];
-    [self endTimeoutTimer];
+    //[self endTimeoutTimer];
     if (self.locationBlock != nil) {
         self.locationBlock(self.locationManager, _location, nil);
     }
