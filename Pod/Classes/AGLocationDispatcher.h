@@ -56,11 +56,11 @@ typedef void(^AGLocationServiceLocationUpdateFailBlock)(CLLocationManager *manag
 // get current position in AGLocationServiceLocationUpdateBlock (CLLocationManager *manager, AGLocation *newLocation, AGLocation *oldLocation) once
 - (void)currentLocationWithBlock:(AGLocationServiceLocationUpdateBlock)block errorBlock:(AGLocationServiceLocationUpdateFailBlock)errorBlock;
 
-// get current position every time interval in AGLocationServiceLocationUpdateBlock (CLLocationManager *manager, AGLocation *newLocation, AGLocation *oldLocation)
-- (void)startUpdatingLocationWithBlock:(AGLocationServiceLocationUpdateBlock)block errorBlock:(AGLocationServiceLocationUpdateFailBlock)errorBlock;
-
 // get current position and speed every time interval in AGLocationServiceLocationAndSpeedUpdateBlock (CLLocationManager *manager, AGLocation *newLocation, AGLocation *oldLocation, NSNumber *speed)
 - (void)startUpdatingLocationAndSpeedWithBlock:(AGLocationServiceLocationAndSpeedUpdateBlock)block errorBlock:(AGLocationServiceLocationUpdateFailBlock)errorBlock;
+
+// get current position every time interval in AGLocationServiceLocationUpdateBlock (CLLocationManager *manager, AGLocation *newLocation, AGLocation *oldLocation)
+- (void)updatingLocationWithBlock: (AGLocationServiceLocationUpdateBlock)block errorBlock: (AGLocationServiceLocationUpdateFailBlock) errorBlock;
 
 - (void)stopUpdatingLocation;
 

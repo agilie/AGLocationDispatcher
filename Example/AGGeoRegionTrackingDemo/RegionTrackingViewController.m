@@ -77,7 +77,7 @@ static NSString *const kMapAnnotationIdentifier = @"mapAnnotationIdentifier";
     if (!self.locationDispatcher) {
         self.locationDispatcher = [[AGLocationDispatcher alloc] initWithUpdatingInterval:kAGLocationUpdateIntervalOneSec andDesiredAccuracy:kAGHorizontalAccuracyRoom];
     }
-    [self.locationDispatcher startUpdatingLocationWithBlock:^(CLLocationManager *manager, AGLocation *newLocation, AGLocation *oldLocation) {
+    [self.locationDispatcher updatingLocationWithBlock:^(CLLocationManager *manager, AGLocation *newLocation, AGLocation *oldLocation) {
         if (!self.currentPositionAnnotation) {
             self.currentPositionAnnotation = [[AGAnnotation alloc] initWithType:AGAnnotationType0Finish location:newLocation];
             [self.mapView addAnnotation:self.currentPositionAnnotation];
