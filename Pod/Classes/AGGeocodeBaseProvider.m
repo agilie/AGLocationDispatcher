@@ -31,17 +31,14 @@
 
 
 - (void)makeRequest:(NSString *)urlString andParameters:(NSDictionary *)parameters andReadyBlock:(requestBlock)requestBlock {
-
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-
-    [manager GET:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+    [sessionManager GET:urlString parameters:parameters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         requestBlock(responseObject, nil);
         AGLog(@"JSON: %@", responseObject);
-    }    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
         requestBlock(nil, error);
         AGLog(@"Error: %@", error);
     }];
-
 };
 
 @end
