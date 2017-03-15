@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
     s.name             = "AGLocationDispatcher"
-    s.version          = '0.0.7.2'
+    s.version          = '0.0.8'
     s.platform         = :ios, '7.0'
     s.summary          = "Location manage framework working in different modes."
     s.description      = <<-DESC
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.authors           = { 'Agilie' => 'info@agilie.com' }
     s.source           = { :git => "https://github.com/agilie/AGLocationDispatcher.git",
-                            :tag => '0.0.7.2'
+                            :tag => '0.0.8'
                         }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
     s.source_files = 'Pod/Classes/**/*.{c,h,m}'
     #s.resource_bundles = {
-    #                    'AGLocationDispatcher' => ['NAME_OF_POD/Assets/*.png']
+    #                    'AGLocationDispatcher' => ['Pod/Assets/*.png']
     #                    }
 
     s.public_header_files = 'Pod/Classes/*.h'
