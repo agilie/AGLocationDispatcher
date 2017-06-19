@@ -207,7 +207,13 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-Agilie info@agilie.com
+Agilie <info@agilie.com>
+
+
+## Contact us
+
+<ios@agilie.com>
+
 
 ## License
 
